@@ -43,8 +43,7 @@ body {
         }
 
         /* 간단한 스타일링을 위한 CSS */
-        /* 간단한 스타일링을 위한 CSS */
-        .rectangle-container {
+       .rectangle-container {
             box-sizing: border-box;
             border: 2px solid gray;
             padding: 20px;
@@ -57,10 +56,11 @@ body {
         }
 
         #probability-sum,
-        #probability-attempts,
-        #cost {
-            margin-bottom: 10px;
-            line-height: 1.5; /* 텍스트 세로 중앙 정렬을 위한 line-height 설정 */
+        #probability-attempts {
+            margin-bottom: 10px; /* 마지막 줄 빼고는 여백 추가 */
         }
 
+        #cost {
+            line-height: 1.5; /* 텍스트 세로 중앙 정렬을 위한 line-height 설정 */
+        }
 
