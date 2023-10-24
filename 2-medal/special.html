@@ -21,88 +21,67 @@
     <!-- 추가적인 내용 작성 -->
     <div id="probability-sum">확률 합계: 0%</div>
 
-    <p>기댓값은 다음과 같습니다: <p>
-    <p>예상 소모 UC는 다음과 같습니다: <p>
-
-    <br>
- 
-
-   <table class="custom-table">
+    <table class="css-legqdg">
 
         <thead>
-            <tr class="custom-tablehead">
-                <th class="custom-center"><input id="select-all-checkbox" type="checkbox" onchange="selectAllCheckboxes()"></th>
-                <th class="custom-item-name custom-center">아이템 이름</th>
-                <th class="custom-probability custom-center">확률</th>
-                <th class="custom-center">등급</th>
+            <tr class="css-a20lla">
+                <th class="css-1dngiia css-center"><input id="select-all-checkbox" type="checkbox"></th>
+                <th class="css-1khgbgg css-center">아이템 이름</th>
+                <th class="css-1toy6by css-center">확률</th>
+                <th class="css-center">등급</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="custom-row">
-                <td class="custom-checkbox custom-center"><input type="checkbox"></td>
-                <td class="custom-item-name custom-center">유자 타이즈 세트</td>
-                <td class="custom-probability custom-center">0.30%</td>
-                <td class="custom-center">핑크</td>
+            <tr class="css-1">
+                <td class="css-yed06v css-center"><input type="checkbox"></td>
+                <td class="css-yed06v css-center">유자 타이즈 세트</td>
+                <td class="css-yed06v css-center">0.30%</td>
+                <td class="css-center">핑크</td>
             </tr>
-            <tr class="custom-row">
-                <td class="custom-checkbox custom-center"><input type="checkbox"></td>
-                <td class="custom-item-name custom-center">유자 타이즈 머리장식</td>
-                <td class="custom-probability custom-center">0.35%</td>
-                <td class="custom-center">핑크</td>
+            <tr class="css-2">
+                <td class="css-yed06v css-center"><input type="checkbox"></td>
+                <td class="css-yed06v css-center">유자 타이즈 머리장식</td>
+                <td class="css-yed06v css-center">0.35%</td>
+                <td class="css-center">핑크</td>
             </tr>
             <!-- 다른 행 추가 -->
         </tbody>
 
     </table>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 페이지가 로드될 때 실행되는 코드
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    // 페이지가 로드될 때 실행되는 코드
+            // 체크박스 클릭 이벤트 리스너 등록
+            var checkboxes = document.querySelectorAll('.css-legqdg input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.addEventListener('change', updateProbabilitySum);
+            });
 
-    // 체크박스 클릭 이벤트 리스너 등록
-    var checkboxes = document.querySelectorAll('.css-legqdg input[type="checkbox"]');
-    checkboxes.forEach(function (checkbox) {
-        checkbox.addEventListener('change', updateProbabilitySum);
-    });
+            // 초기 값 계산
+            updateProbabilitySum();
+        });
 
-    // 초기 값 계산
-    updateProbabilitySum();
-});
+        function updateProbabilitySum() {
+            var checkboxes = document.querySelectorAll('.css-legqdg input[type="checkbox"]');
+            var sum = 0;
 
-function updateProbabilitySum() {
-    var checkboxes = document.querySelectorAll('.css-legqdg input[type="checkbox"]');
-    var sum = 0;
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    // 체크된 경우에만 확률을 더함
+                    var row = checkbox.closest('tr');
+                    var probabilityCell = row.querySelector('.css-1toy6by');
+                    var probability = parseFloat(probabilityCell.textContent.replace('%', ''));
+                    sum += probability;
+                }
+            });
 
-    checkboxes.forEach(function (checkbox) {
-        if (checkbox.checked) {
-            // 체크된 경우에만 확률을 더함
-            var row = checkbox.closest('tr');
-            var probabilityCell = row.querySelector('.css-1toy6by');
-            
-            // 여기서 문제 발생 가능성이 높음
-            var probability = parseFloat(probabilityCell.textContent.replace('%', ''));
-            sum += probability;
+            // 결과를 출력하는 곳에 업데이트
+            var resultElement = document.getElementById('probability-sum');
+            resultElement.textContent = '확률 합계: ' + sum.toFixed(2) + '%';
         }
-    });
-
-    // 결과를 출력하는 곳에 업데이트
-    var resultElement = document.getElementById('probability-sum');
-    resultElement.textContent = '확률 합계: ' + sum.toFixed(2) + '%';
-}
-
-function selectAllCheckboxes() {
-    var checkboxes = document.querySelectorAll('.css-legqdg input[type="checkbox"]');
-    var selectAllCheckbox = document.getElementById('select-all-checkbox');
-
-    checkboxes.forEach(function (checkbox) {
-        checkbox.checked = selectAllCheckbox.checked;
-    });
-
-    // 전체 선택 상태 변경 후 확률 합계 업데이트
-    updateProbabilitySum();
-}
-</script>
+    </script>
 
 
 
