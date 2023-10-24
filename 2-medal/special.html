@@ -110,9 +110,12 @@
             var attemptsElement = document.getElementById('probability-attempts');
             attemptsElement.textContent = '필요한 시도 횟수: ' + probabilityAttempts + '회';
 
-            // 추가된 부분: 필요한 시도 횟수 / 10 * 가격 계산 및 출력
+            // 추가된 부분: 예상 비용 및 10회 가격 출력
             var costElement = document.getElementById('cost');
-            costElement.textContent = '예상 비용: ' + (probabilityAttempts / 10 * price).toFixed(2) + '원';
+            costElement.textContent = '예상 비용: ' + (probabilityAttempts / 10 * price).toFixed(2) + 'UC';
+
+            var priceDisplay = document.getElementById('price-display');
+            priceDisplay.textContent = price + '원';
         }
 
         function calculateAttempts(probabilitySum) {
