@@ -45,6 +45,12 @@
         
         src="common.js">
         
+            document.addEventListener('DOMContentLoaded', function () {
+                // common.js에 있는 함수 사용 가능
+                updateProbabilitySum();
+            });
+
+        
         // 데이터를 불러오는 부분
         fetch('data-mystery.json')
              .then(response => response.json())
