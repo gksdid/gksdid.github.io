@@ -101,23 +101,10 @@ function updateProbabilitySum() {
 }
 
 function calculateAttempts(probabilitySum) {
-    // 원하는 확률 달성까지의 시도 횟수 계산 (가정)
-    var desiredProbability = parseFloat((probabilitySum * 100).toFixed(2)); // 예시: 95%
-    var attempts = 0;
-    var currentProbability = 0;
-    var maxAttempts = 10000; // 최대 시도 횟수 제한
-
-    while (currentProbability < desiredProbability && attempts < maxAttempts) {
-        attempts++;
-        currentProbability += probabilitySum;
-    }
-
-    if (attempts >= maxAttempts) {
-        console.error('무한 루프 방지: 시도 횟수 제한에 도달했습니다.');
-    }
-
-    return attempts;
+    // 원하는 확률 달성까지의 평균 시도 횟수 계산 (기대값)
+    return 1 / probabilitySum;
 }
+
 
 
 
