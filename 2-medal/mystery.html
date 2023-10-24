@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미스터리 상자</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Song+Myung&display=swap">
+    <link rel="stylesheet" href="styles.css"> <!-- 외부 CSS 파일을 불러옴 -->
+</head>
+
+<body>
+    <h1>미스터리 상자</h1>
+    <p>10회 가격: <span id="price-display"></span></p>
+    
+    <br>
+    
+    <p>판매 기간: 10월 24일 (화) 11:00 ~ 11월</p>
+    
+    <br>
+    
+    <div class="rectangle-container">
+        <div id="probability-sum">확률 합계: 0%</div>
+        <div id="cost">예상 비용: 0 UC</div>
+        <div id="probability-attempts">예상 횟수: 0회</div>
+    </div>
+    
+
+    <table class="css-special-table">
+        <thead>
+            <tr class="css-table-head">
+                <th class="css-center"><input id="select-all-checkbox" type="checkbox"></th>
+                <th class="css-center">아이템 이름</th>
+                <th class="css-center">확률</th>
+                <th class="css-center">등급</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="css-row">
+                <td class="css-center"><input type="checkbox"></td>
+                <td class="css-center">유자 타이즈 세트</td>
+                <td class="css-center">0.30%</td>
+                <td class="css-center">핑크</td>
+            </tr>
+            <tr class="css-row">
+                <td class="css-center"><input type="checkbox"></td>
+                <td class="css-center">유자 타이즈 머리장식</td>
+                <td class="css-center">0.35%</td>
+                <td class="css-center">핑크</td>
+            </tr>
+            <!-- 다른 행 추가 -->
+        </tbody>
+    </table>
+
+    
+    <script>
+        // 가격을 전역 변수로 선언
+        var price = 1080;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('페이지가 로드될 때 실행되는 코드');
+
+            // 체크박스 클릭 이벤트 리스너 등록
+            var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.addEventListener('change', function () {
+                    console.log('체크박스 변경 이벤트 발생');
+                    setTimeout(updateProbabilitySum, 0); // 비동기 처리를 위해 setTimeout 사용
+                });
+            });
+
+            // 초기 값 계산
+            updateProbabilitySum();
+        });
+
+        function updateProbabilitySum() {
+            console.log('updateProbabilitySum 함수 시작');
+
+            var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
+            var sum = 0;
+
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    // 체크된 경우에만 확률을 더함
+                    var row = checkbox.closest('tr');
+                    var probabilityCell = row.querySelector('.css-center:nth-child(3)');
+                    var probabilityText = probabilityCell.textContent.trim(); // 확률 문자열 앞뒤의 공백 제거
+
+                    console.log('확률 텍스트:', probabilityText);
+
+                    // 수정된 부분: 확률 매치에 문제가 있으면 콘솔에 오류 출력
+                    var probabilityMatch = probabilityText.match(/(\d+(\.\d+)?)%/);
+                    if (probabilityMatch) {
+                        var probability = parseFloat(probabilityMatch[1]);
+                        sum += probability;
+                        console.log('확률:', probability);
+                    } else {
+                        console.error('확률 매치에 문제가 있습니다:', probabilityText);
+                    }
+                }
+            });
+
+            console.log('최종 합계:', sum);
+
+            // 결과를 출력하는 곳에 업데이트
+            var resultElement = document.getElementById('probability-sum');
+            resultElement.textContent = '확률 합계: ' + sum.toFixed(2) + '%';
+
+            // 시도 횟수 계산
+            var probabilityAttempts = calculateAttempts(sum);
+            var attemptsElement = document.getElementById('probability-attempts');
+            attemptsElement.textContent = '예상 횟수: ' + probabilityAttempts + '회';
+
+            // 추가된 부분: 예상 비용 및 10회 가격 출력
+            var costElement = document.getElementById('cost');
+            var costValue = (probabilityAttempts / 10 * price).toFixed(2); // 소수점 둘째 자리까지 계산
+
+            // 정수로 변환하여 소수점 이하 자리 제거
+            var costInteger = parseInt(costValue, 10);
+
+            costElement.textContent = '예상 비용: ' + costInteger + ' UC';
+
+
+            var priceDisplay = document.getElementById('price-display');
+            priceDisplay.textContent = price + ' UC';
+        }
+
+        function calculateAttempts(probabilitySum) {
+            // 원하는 확률 달성까지의 평균 시도 횟수 계산 (기대값)
+            return Math.round((100 / probabilitySum));
+        }
+
+        // 추가된 부분: 데이터 배열
+var newData = [
+    ["깜찍 람쥐 보이스(김가령 성우)", "레드", "0.20%"],
+    ["다크 어쌔신 보이스 -곽윤상 성우", "레드", "0.15%"],
+    ["모두까기 호두로봇 보이스 (김소형 성우)", "레드", "0.15%"],
+    // ... 나머지 데이터
+];
+
+// 추가된 부분: 데이터를 표에 추가
+var tableBody = document.querySelector('.css-special-table tbody');
+
+newData.forEach(function (data) {
+    var newRow = document.createElement('tr');
+    newRow.classList.add('css-row');
+
+    data.forEach(function (cellData) {
+        var newCell = document.createElement('td');
+        newCell.classList.add('css-center');
+        newCell.textContent = cellData;
+        newRow.appendChild(newCell);
+    });
+
+    // 체크박스 열 추가
+    var checkboxCell = document.createElement('td');
+    checkboxCell.classList.add('css-center');
+    var checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkboxCell.appendChild(checkbox);
+    newRow.appendChild(checkboxCell);
+
+    tableBody.appendChild(newRow);
+});
+
+// 추가된 부분: 체크박스 이벤트 리스너 다시 등록
+checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
+checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('change', function () {
+        console.log('체크박스 변경 이벤트 발생');
+        setTimeout(updateProbabilitySum, 0);
+    });
+});
+      
+        
+    </script>
+    
+    
+</body>
+
+</html>
