@@ -30,12 +30,8 @@ body {
             width: 5%;
         }
 
-        .css-special-row td {
-            text-align: left; /* 특정 행에만 왼쪽 정렬 적용 */
-        }
-
-        .css-special-row td:last-child {
-             color: rgba(253, 99, 155, 0.703);
+        .css-1khgbgg {
+            text-align: left;
         }
 
         .css-center {
