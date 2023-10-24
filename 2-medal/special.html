@@ -44,73 +44,77 @@
         </tbody>
     </table>
 
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    console.log('페이지가 로드될 때 실행되는 코드');
+            console.log('페이지가 로드될 때 실행되는 코드');
 
-    // 체크박스 클릭 이벤트 리스너 등록
-    var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
-    checkboxes.forEach(function (checkbox) {
-        checkbox.addEventListener('change', function() {
-            console.log('체크박스 변경 이벤트 발생');
-            setTimeout(updateProbabilitySum, 0); // 비동기 처리를 위해 setTimeout 사용
+            // 가격 설정
+            var price = 1080;
+
+            // 체크박스 클릭 이벤트 리스너 등록
+            var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.addEventListener('change', function () {
+                    console.log('체크박스 변경 이벤트 발생');
+                    setTimeout(updateProbabilitySum, 0); // 비동기 처리를 위해 setTimeout 사용
+                });
+            });
+
+            // 초기 값 계산
+            updateProbabilitySum();
         });
-    });
 
-    // 초기 값 계산
-    updateProbabilitySum();
-});
+        function updateProbabilitySum() {
+            console.log('updateProbabilitySum 함수 시작');
 
-function updateProbabilitySum() {
-    console.log('updateProbabilitySum 함수 시작');
+            var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
+            var sum = 0;
 
-    var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
-    var sum = 0;
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    // 체크된 경우에만 확률을 더함
+                    var row = checkbox.closest('tr');
+                    var probabilityCell = row.querySelector('.css-center:nth-child(3)');
+                    var probabilityText = probabilityCell.textContent.trim(); // 확률 문자열 앞뒤의 공백 제거
 
-    checkboxes.forEach(function (checkbox) {
-        if (checkbox.checked) {
-            // 체크된 경우에만 확률을 더함
-            var row = checkbox.closest('tr');
-            var probabilityCell = row.querySelector('.css-center:nth-child(3)');
-            var probabilityText = probabilityCell.textContent.trim(); // 확률 문자열 앞뒤의 공백 제거
+                    console.log('확률 텍스트:', probabilityText);
 
-            console.log('확률 텍스트:', probabilityText);
+                    // 수정된 부분: 확률 매치에 문제가 있으면 콘솔에 오류 출력
+                    var probabilityMatch = probabilityText.match(/(\d+(\.\d+)?)%/);
+                    if (probabilityMatch) {
+                        var probability = parseFloat(probabilityMatch[1]);
+                        sum += probability;
+                        console.log('확률:', probability);
+                    } else {
+                        console.error('확률 매치에 문제가 있습니다:', probabilityText);
+                    }
+                }
+            });
 
-            // 수정된 부분: 확률 매치에 문제가 있으면 콘솔에 오류 출력
-            var probabilityMatch = probabilityText.match(/(\d+(\.\d+)?)%/);
-            if (probabilityMatch) {
-                var probability = parseFloat(probabilityMatch[1]);
-                sum += probability;
-                console.log('확률:', probability);
-            } else {
-                console.error('확률 매치에 문제가 있습니다:', probabilityText);
-            }
+            console.log('최종 합계:', sum);
+
+            // 결과를 출력하는 곳에 업데이트
+            var resultElement = document.getElementById('probability-sum');
+            resultElement.textContent = '확률 합계: ' + sum.toFixed(2) + '%';
+
+            // 시도 횟수 계산
+            var probabilityAttempts = calculateAttempts(sum);
+            var attemptsElement = document.getElementById('probability-attempts');
+            attemptsElement.textContent = '필요한 시도 횟수: ' + probabilityAttempts + '회';
+
+            // 추가된 부분: 필요한 시도 횟수 / 10 * 가격 계산 및 출력
+            var costElement = document.getElementById('cost');
+            costElement.textContent = '예상 비용: ' + (probabilityAttempts / 10 * price).toFixed(2) + '원';
         }
-    });
 
-    console.log('최종 합계:', sum);
-
-    // 결과를 출력하는 곳에 업데이트
-    var resultElement = document.getElementById('probability-sum');
-    resultElement.textContent = '확률 합계: ' + sum.toFixed(2) + '%';
-
-    // 시도 횟수 계산
-    var probabilityAttempts = calculateAttempts(sum);
-    var attemptsElement = document.getElementById('probability-attempts');
-    attemptsElement.textContent = '필요한 시도 횟수: ' + probabilityAttempts + '회';
-}
-
-function calculateAttempts(probabilitySum) {
-    // 원하는 확률 달성까지의 평균 시도 횟수 계산 (기대값)
-    return Math.round((100 / probabilitySum) * 100) / 100;
-}
-
-
-
-
-
+        function calculateAttempts(probabilitySum) {
+            // 원하는 확률 달성까지의 평균 시도 횟수 계산 (기대값)
+            return Math.round((100 / probabilitySum));
+        }
+        
     </script>
-
+    
     
 </body>
 
