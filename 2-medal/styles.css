@@ -48,15 +48,19 @@ body {
             box-sizing: border-box;
             border: 2px solid gray;
             padding: 20px;
-            margin: 20px auto; /* 가로 중앙 정렬을 위해 auto 사용 */
+            margin: 20px auto;
             width: 300px;
-            text-align: left; /* 내용은 왼쪽 정렬 */
+            text-align: left;
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 세로로 정렬하기 위해 column 설정 */
+            justify-content: center; /* 세로 중앙 정렬 */
         }
 
         #probability-sum,
         #probability-attempts,
         #cost {
             margin-bottom: 10px;
+            line-height: 1.5; /* 텍스트 세로 중앙 정렬을 위한 line-height 설정 */
         }
 
 
