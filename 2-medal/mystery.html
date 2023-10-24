@@ -169,23 +169,25 @@
             updateProbabilitySum();
         }
 
-          var gradeCells = document.querySelectorAll('.css-special-table td:nth-child(3)'); // 등급 열은 3번째 열이라 가정
-    gradeCells.forEach(function (cell) {
+          // 추가된 부분: 등급에 따라 클래스 추가
+var gradeCells = document.querySelectorAll('.css-special-table tbody td:nth-child(3)');
+
+gradeCells.forEach(function (cell) {
     var gradeText = cell.textContent.trim();
 
     switch (gradeText) {
         case '레드':
-            cell.style.color = 'red';
+            cell.classList.add('red-grade');
             break;
         case '핑크':
-            cell.style.color = 'pink';
+            cell.classList.add('pink-grade');
             break;
         case '퍼플':
-            cell.style.color = 'purple';
+            cell.classList.add('purple-grade');
             break;
-        // 다른 등급에 대한 색상 추가 가능
+        // 다른 등급에 대한 클래스 추가 가능
         default:
-            cell.style.color = 'black'; // 기본값은 검정색
+            cell.classList.add('default-grade');
             break;
     }
 });
