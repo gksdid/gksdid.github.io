@@ -1,16 +1,5 @@
-// 가격을 전역 변수로 선언
+ // 가격을 전역 변수로 선언
         var price = 1080;
-
-        //...
-
-        fetch('data-mystery.json')
-            .then(response => response.json())
-            .then(data => {
-                // existing code to process data
-            })
-            .catch(error => console.error('Error fetching data:', error));
-
-
 
         // 추가된 부분: 등급에 따른 클래스 스타일
         function getGradeClass(index, gradeText) {
@@ -50,7 +39,13 @@
             var tableBody = document.querySelector('.css-special-table tbody');
 
             // 데이터를 불러오는 부분
-            
+            fetch('data-mystery.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(function (item) {
+                        var newRow = document.createElement('tr');
+                        newRow.classList.add('css-row');
+
                         // 체크박스 열 추가
                         var checkboxCell = document.createElement('td');
                         checkboxCell.classList.add('css-center');
