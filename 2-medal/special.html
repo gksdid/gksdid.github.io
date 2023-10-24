@@ -22,8 +22,8 @@
     
     <div class="rectangle-container">
         <div id="probability-sum">확률 합계: 0%</div>
-        <div id="probability-attempts">필요한 시도 횟수: 0회</div>
         <div id="cost">예상 비용: 0UC</div>
+        <div id="probability-attempts">필요한 시도 횟수: 0회</div>
     </div>
     
 
@@ -114,7 +114,13 @@
 
             // 추가된 부분: 예상 비용 및 10회 가격 출력
             var costElement = document.getElementById('cost');
-            costElement.textContent = '예상 비용: ' + (probabilityAttempts / 10 * price).toFixed(2) + 'UC';
+            var costValue = (probabilityAttempts / 10 * price).toFixed(2); // 소수점 둘째 자리까지 계산
+
+            // 정수로 변환하여 소수점 이하 자리 제거
+            var costInteger = parseInt(costValue, 10);
+
+            costElement.textContent = '예상 비용: ' + costInteger + 'UC';
+
 
             var priceDisplay = document.getElementById('price-display');
             priceDisplay.textContent = price + '원';
