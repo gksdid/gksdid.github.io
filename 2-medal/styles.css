@@ -58,23 +58,23 @@ body {
         }
 
 /* 추가된 부분: 등급에 따른 클래스 스타일 */
-.red-grade {
+.red-grade-index-1 {
     color: rgb(196, 9, 9);
 }
 
-.pink-grade {
+.pink-grade-index-1 {
     color: rgba(253, 99, 155, 0.703);
 }
 
-.purple-grade {
+.purple-grade-index-1 {
     color: rgb(130, 28, 185);
 }
 
-.blue-grade {
+.blue-grade-index-1 {
     color: rgb(74, 76, 232);
 }
 
-.default-grade {
+.default-grade-index-1 {
     color: black; /* 기본값은 검정색 */
 }
 
