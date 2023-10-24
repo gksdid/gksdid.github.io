@@ -4,38 +4,40 @@ body {
     padding: 50px;
 }
 
-<style>
-        .custom-table {
-            width: 70%; /* 테이블 너비를 70%로 설정 */
-            margin: 20px auto;
+.css-legqdg {
+            width: 100%; /* 테이블 전체 너비 조절 */
+            margin: 20px auto; /* 가운데 정렬을 위한 margin 추가 */
             border-collapse: collapse;
-            text-align: center; /* 테이블 내부 텍스트 가운데 정렬 */
         }
 
-        .custom-table th,
-        .custom-table td {
-            border: 1px solid #ddd; /* 회색 테두리 추가 */
+        .css-legqdg th,
+        .css-legqdg td {
+            border: 1px solid #ddd;
             padding: 8px;
-        }
-
-        .custom-tablehead {
-            background-color: #f2f2f2;
-        }
-
-        .custom-table th.custom-center,
-        .custom-table td.custom-center {
-            text-align: center;
-        }
-
-        .custom-table td:first-child {
-            width: 5%;
-        }
-
-        .custom-table {
             text-align: left;
         }
 
-        .custom-center {
+        .css-a20lla {
+            background-color: #f2f2f2;
+        }
+
+        .css-legqdg th.css-center,
+        .css-legqdg td.css-center {
             text-align: center;
         }
-    </style>
+
+        .css-legqdg td:first-child {
+            width: 5%;
+        }
+
+        .css-special-row td {
+            text-align: left; /* 특정 행에만 왼쪽 정렬 적용 */
+        }
+
+        .css-special-row td:last-child {
+             color: rgba(253, 99, 155, 0.703);
+        }
+
+        .css-center {
+            text-align: center;
+        }
