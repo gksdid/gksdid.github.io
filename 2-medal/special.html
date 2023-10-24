@@ -102,8 +102,9 @@ function updateProbabilitySum() {
 
 function calculateAttempts(probabilitySum) {
     // 원하는 확률 달성까지의 평균 시도 횟수 계산 (기대값)
-    return 1 / probabilitySum;
+    return Math.round((100 / probabilitySum) * 100) / 100;
 }
+
 
 
 
