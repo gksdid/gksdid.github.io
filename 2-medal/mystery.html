@@ -1,67 +1,23 @@
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>미스터리 상자</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Song+Myung&display=swap">
-    <link rel="stylesheet" href="styles.css"> <!-- 외부 CSS 파일을 불러옴 -->
-</head>
-
 <body>
-    <h1>미스터리 상자</h1>
-    <p>10회 가격: <span id="price-display"></span></p>
+    <!-- 페이지의 내용 -->
 
-    <br>
-
-    <p>판매 기간: 10월 24일 (화) 11:00 ~ 11월</p>
-
-    <br>
-
-    <div class="rectangle-container">
-        <div id="probability-sum">확률 합계: 0%</div>
-        <div id="cost">예상 비용: 0 UC</div>
-        <div id="probability-attempts">예상 횟수: 0회</div>
-    </div>
-
-    <table class="css-special-table">
-        <thead>
-            <tr class="css-table-head">
-                <th class="css-center"><input id="select-all-checkbox" type="checkbox" onclick="toggleAllCheckboxes()"></th>
-                <th class="css-center">아이템 이름</th>
-                <th class="css-center">등급</th>
-                <th class="css-center">확률</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <!-- 추가된 부분: 데이터를 표에 추가 -->
-        </tbody>
-    </table>
-
+    <script src="common.js"></script>
     <script>
-        
-        src="common.js">
-        
-            document.addEventListener('DOMContentLoaded', function () {
-                // common.js에 있는 함수 사용 가능
-                updateProbabilitySum();
-            });
+        document.addEventListener('DOMContentLoaded', function () {
+            // common.js에 있는 함수 사용 가능
+            updateProbabilitySum();
+        });
 
-        
         // 데이터를 불러오는 부분
         fetch('data-mystery.json')
              .then(response => response.json())
              .then(data => {
-             data.forEach(function (item) {
-             var newRow = document.createElement('tr');
-             newRow.classList.add('css-row');
-
-                
+                 data.forEach(function (item) {
+                     var newRow = document.createElement('tr');
+                     newRow.classList.add('css-row');
+                     // ... 이하 생략 ...
+                 });
+             })
+             .catch(error => console.error('Error fetching data:', error));
     </script>
-
 </body>
-
-</html>
