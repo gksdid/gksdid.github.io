@@ -56,11 +56,8 @@ body {
         }
 
         #probability-sum,
-        #probability-attempts {
-            margin-bottom: 10px; /* 마지막 줄 빼고는 여백 추가 */
-        }
-
+        #probability-attempts,
         #cost {
-            line-height: 1.5; /* 텍스트 세로 중앙 정렬을 위한 line-height 설정 */
+            margin-bottom: 10px; /* 마지막 줄 빼고는 여백 추가 */
         }
 
