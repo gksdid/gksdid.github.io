@@ -117,11 +117,11 @@ nav a:hover {
 
 @media only screen and (max-width: 600px) {
     body {
-        padding: 20px; /* 모바일에서 좀 더 간격을 주기 위해 padding 조정 */
+        padding: 5px 5px; /* 모바일에서 좀 더 간격을 주기 위해 padding 조정 */
     }
 
     header {
-        padding: 10px; /* 헤더의 패딩도 모바일에 맞게 조정 */
+        padding: 5px; /* 헤더의 패딩도 모바일에 맞게 조정 */
     }
 
     nav ul {
@@ -141,7 +141,7 @@ nav a:hover {
     }
 
     .css-special-table {
-        font-size: 14px; /* 테이블의 폰트 크기를 조정 */
+        font-size: 12px; /* 테이블의 폰트 크기를 조정 */
     }
 
     .css-special-table th,
