@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <h1>스페셜 상자</h1> <br>
+    <h1>스페셜 상자</h1>
     <p>10회 가격: <span id="price-display"></span></p>
     
     <br>
@@ -22,8 +22,8 @@
     
     <div class="rectangle-container">
         <div id="probability-sum">확률 합계: 0%</div>
-        <div id="cost">예상 비용: 0UC</div>
-        <div id="probability-attempts">필요한 시도 횟수: 0회</div>
+        <div id="cost">예상 비용: 0 UC</div>
+        <div id="probability-attempts">예상 횟수: 0회</div>
     </div>
     
 
@@ -123,7 +123,7 @@
 
 
             var priceDisplay = document.getElementById('price-display');
-            priceDisplay.textContent = price + '원';
+            priceDisplay.textContent = price + ' UC';
         }
 
         function calculateAttempts(probabilitySum) {
