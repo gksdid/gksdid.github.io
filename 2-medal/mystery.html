@@ -49,16 +49,13 @@
         });
 
         // 데이터를 불러오는 부분
-        fetch('data-mystery.json')
-             .then(response => response.json())
-             .then(data => {
-                 data.forEach(function (item) {
-                     var newRow = document.createElement('tr');
-                     newRow.classList.add('css-row');
-                     // ... 이하 생략 ...
-                 });
-             })
-             .catch(error => console.error('Error fetching data:', error));
+       fetch('data-special.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(function (item) {
+                        var newRow = document.createElement('tr');
+                        newRow.classList.add('css-row');
+        
     </script>
 
 </body>
