@@ -45,6 +45,11 @@ nav a:hover {
     text-align: left;
 }
 
+.css-special-table th:not(.css-center),
+.css-special-table td:not(.css-center) {
+    text-align: left;
+}
+
         .css-table-head {
             background-color: #f2f2f2;
         }
