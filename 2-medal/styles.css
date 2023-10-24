@@ -42,15 +42,18 @@ body {
             text-align: center;
         }
 
+        /* 간단한 스타일링을 위한 CSS */
         .rectangle-container {
+            box-sizing: border-box; /* box-sizing 속성 추가 */
             border: 2px solid gray; /* 회색 테두리 추가 */
             padding: 20px;
             margin: 20px;
             width: 300px; /* 직사각형의 너비 */
-        }
+        }    
 
         #probability-sum,
         #probability-attempts,
         #cost {
             margin-bottom: 10px;
         }
+
