@@ -17,6 +17,7 @@
                     break;
                 case '블루':
                     classPrefix = 'blue-grade';
+                    break;
                 // 다른 등급에 대한 클래스 추가 가능
             }
 
