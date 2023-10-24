@@ -112,3 +112,46 @@ nav a:hover {
 }
 
 
+/* ------------------------ */
+/* 모바일 환경에서 viewport 설정 */
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 20px; /* 모바일에서 좀 더 간격을 주기 위해 padding 조정 */
+    }
+
+    header {
+        padding: 10px; /* 헤더의 패딩도 모바일에 맞게 조정 */
+    }
+
+    nav ul {
+        flex-direction: column; /* 모바일에서는 세로로 나열되도록 설정 */
+        gap: 10px;
+    }
+
+    .rectangle-container {
+        width: 100%; /* 모바일에서 전체 폭으로 설정 */
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    #price-display {
+        font-size: 1.2em; /* 모바일에서 가격 크기를 키움 */
+    }
+
+    .css-special-table {
+        font-size: 14px; /* 테이블의 폰트 크기를 조정 */
+    }
+
+    .css-special-table th,
+    .css-special-table td {
+        padding: 5px;
+    }
+
+    .css-center {
+        text-align: center;
+    }
+}
+
+
