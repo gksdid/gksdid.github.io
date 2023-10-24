@@ -45,8 +45,8 @@ nav a:hover {
     text-align: left;
 }
 
-.css-special-table th:not(.css-center),
-.css-special-table td:not(.css-center) {
+.css-special-table th:first-child,
+.css-special-table td:first-child {
     text-align: left;
 }
 
