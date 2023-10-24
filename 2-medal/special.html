@@ -46,12 +46,13 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    // 페이지가 로드될 때 실행되는 코드
+    console.log('페이지가 로드될 때 실행되는 코드');
 
     // 체크박스 클릭 이벤트 리스너 등록
     var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
     checkboxes.forEach(function (checkbox) {
         checkbox.addEventListener('change', function() {
+            console.log('체크박스 변경 이벤트 발생');
             setTimeout(updateProbabilitySum, 0); // 비동기 처리를 위해 setTimeout 사용
         });
     });
@@ -61,6 +62,8 @@
 });
 
 function updateProbabilitySum() {
+    console.log('updateProbabilitySum 함수 시작');
+
     var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
     var sum = 0;
 
@@ -71,16 +74,21 @@ function updateProbabilitySum() {
             var probabilityCell = row.querySelector('.css-center:nth-child(3)');
             var probabilityText = probabilityCell.textContent.trim(); // 확률 문자열 앞뒤의 공백 제거
 
+            console.log('확률 텍스트:', probabilityText);
+
             // 수정된 부분: 확률 매치에 문제가 있으면 콘솔에 오류 출력
             var probabilityMatch = probabilityText.match(/(\d+(\.\d+)?)%/);
             if (probabilityMatch) {
                 var probability = parseFloat(probabilityMatch[1]);
                 sum += probability;
+                console.log('확률:', probability);
             } else {
                 console.error('확률 매치에 문제가 있습니다:', probabilityText);
             }
         }
     });
+
+    console.log('최종 합계:', sum);
 
     // 결과를 출력하는 곳에 업데이트
     var resultElement = document.getElementById('probability-sum');
@@ -105,6 +113,7 @@ function calculateAttempts(probabilitySum) {
 
     return attempts;
 }
+
 
     </script>
 
