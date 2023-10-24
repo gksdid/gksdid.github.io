@@ -71,7 +71,7 @@
             if (checkbox.checked) {
                 // 체크된 경우에만 확률을 더함
                 var row = checkbox.closest('tr');
-                var probabilityCell = row.querySelector('.css-center'); // 여기서는 확률 셀의 클래스명을 변경
+                var probabilityCell = row.querySelector('.css-center:nth-child(3)');
                 var probabilityText = probabilityCell.textContent.trim(); // 확률 문자열 앞뒤의 공백 제거
 
                 // 숫자와 '%' 사이에 공백이 없도록 처리
