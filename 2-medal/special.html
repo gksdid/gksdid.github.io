@@ -110,7 +110,7 @@
             // 시도 횟수 계산
             var probabilityAttempts = calculateAttempts(sum);
             var attemptsElement = document.getElementById('probability-attempts');
-            attemptsElement.textContent = '필요한 시도 횟수: ' + probabilityAttempts + '회';
+            attemptsElement.textContent = '예상 횟수: ' + probabilityAttempts + '회';
 
             // 추가된 부분: 예상 비용 및 10회 가격 출력
             var costElement = document.getElementById('cost');
@@ -119,7 +119,7 @@
             // 정수로 변환하여 소수점 이하 자리 제거
             var costInteger = parseInt(costValue, 10);
 
-            costElement.textContent = '예상 비용: ' + costInteger + 'UC';
+            costElement.textContent = '예상 비용: ' + costInteger + ' UC';
 
 
             var priceDisplay = document.getElementById('price-display');
