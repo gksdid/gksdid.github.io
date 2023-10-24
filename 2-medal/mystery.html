@@ -29,12 +29,13 @@
     <table class="css-special-table">
         <thead>
             <tr class="css-table-head">
-                <th class="css-center"><input id="select-all-checkbox" type="checkbox"></th>
+                <th class="css-center"><input id="select-all-checkbox" type="checkbox" onclick="toggleAllCheckboxes()"></th>
                 <th class="css-center">아이템 이름</th>
                 <th class="css-center">등급</th>
                 <th class="css-center">확률</th>
             </tr>
         </thead>
+
         <tbody>
             <!-- 추가된 부분: 데이터를 표에 추가 -->
         </tbody>
@@ -156,6 +157,18 @@
             // 원하는 확률 달성까지의 평균 시도 횟수 계산 (기대값)
             return Math.round((100 / probabilitySum));
         }
+
+          
+        function toggleAllCheckboxes() {
+            var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
+            var selectAllCheckbox = document.getElementById('select-all-checkbox');
+
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+            updateProbabilitySum();
+        }
+           
     </script>
 
 </body>
