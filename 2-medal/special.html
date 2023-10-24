@@ -53,11 +53,11 @@
 
     
     <script>
+        // 가격을 전역 변수로 선언
+        var price = 1080;
+
         document.addEventListener('DOMContentLoaded', function () {
             console.log('페이지가 로드될 때 실행되는 코드');
-
-            // 가격 설정
-            var price = 1080;
 
             // 체크박스 클릭 이벤트 리스너 등록
             var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
