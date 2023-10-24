@@ -4,18 +4,45 @@ body {
     padding: 50px;
 }
 
-.css-special-table {
-            width: 100%; /* 테이블 전체 너비 조절 */
-            margin: 20px auto; /* 가운데 정렬을 위한 margin 추가 */
-            border-collapse: collapse;
-        }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+}
 
-        .css-special-table th,
-        .css-special-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff6600; /* 마우스를 올렸을 때의 색상 */
+}
+
+.css-special-table {
+    width: 100%; /* 테이블 전체 너비 조절 */
+    margin: 20px auto; /* 가운데 정렬을 위한 margin 추가 */
+    border-collapse: collapse;
+}
+
+.css-special-table th,
+.css-special-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
 
         .css-table-head {
             background-color: #f2f2f2;
