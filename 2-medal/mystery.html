@@ -36,13 +36,21 @@
             </tr>
         </thead>
         <tbody>
-            <!-- 다른 행 추가 -->
+            <!-- 추가된 부분: 데이터를 표에 추가 -->
         </tbody>
     </table>
 
     <script>
         // 가격을 전역 변수로 선언
         var price = 1080;
+
+        // 추가된 부분: 데이터 배열
+        var newData = [
+            ["깜찍 람쥐 보이스(김가령 성우)", "레드", "0.20%"],
+            ["다크 어쌔신 보이스 -곽윤상 성우", "레드", "0.15%"],
+            ["모두까기 호두로봇 보이스 (김소형 성우)", "레드", "0.15%"],
+            // ... 나머지 데이터
+        ];
 
         document.addEventListener('DOMContentLoaded', function () {
             console.log('페이지가 로드될 때 실행되는 코드');
@@ -59,30 +67,30 @@
             // 초기 값 계산
             updateProbabilitySum();
 
-           // 추가된 부분: 데이터를 표에 추가
-var tableBody = document.querySelector('.css-special-table tbody');
+            // 추가된 부분: 데이터를 표에 추가
+            var tableBody = document.querySelector('.css-special-table tbody');
 
-newData.forEach(function (data) {
-    var newRow = document.createElement('tr');
-    newRow.classList.add('css-row');
+            newData.forEach(function (data) {
+                var newRow = document.createElement('tr');
+                newRow.classList.add('css-row');
 
-    // 체크박스 열 추가
-    var checkboxCell = document.createElement('td');
-    checkboxCell.classList.add('css-center');
-    var checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkboxCell.appendChild(checkbox);
-    newRow.appendChild(checkboxCell);
+                // 체크박스 열 추가
+                var checkboxCell = document.createElement('td');
+                checkboxCell.classList.add('css-center');
+                var checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkboxCell.appendChild(checkbox);
+                newRow.appendChild(checkboxCell);
 
-    data.forEach(function (cellData) {
-        var newCell = document.createElement('td');
-        newCell.classList.add('css-center');
-        newCell.textContent = cellData;
-        newRow.appendChild(newCell);
-    });
+                data.forEach(function (cellData) {
+                    var newCell = document.createElement('td');
+                    newCell.classList.add('css-center');
+                    newCell.textContent = cellData;
+                    newRow.appendChild(newCell);
+                });
 
-    tableBody.appendChild(newRow);
-});
+                tableBody.appendChild(newRow);
+            });
 
             // 추가된 부분: 체크박스 이벤트 리스너 다시 등록
             checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
