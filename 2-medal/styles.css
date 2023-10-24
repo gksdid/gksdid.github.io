@@ -4,40 +4,36 @@ body {
     padding: 50px;
 }
 
-.css-legqdg {
-            width: 100%; /* 테이블 전체 너비 조절 */
-            margin: 20px auto; /* 가운데 정렬을 위한 margin 추가 */
-            border-collapse: collapse;
-        }
+.special-box-table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
 
-        .css-legqdg th,
-        .css-legqdg td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
+.special-box-table th,
+.special-box-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
 
-        .css-a20lla {
-            background-color: #f2f2f2;
-        }
+.table-header-row {
+    background-color: #f2f2f2;
+}
 
-        .css-legqdg th.css-center,
-        .css-legqdg td.css-center {
-            text-align: center;
-        }
+.special-box-table th.centered,
+.special-box-table td.centered {
+    text-align: center;
+}
 
-        .css-legqdg td:first-child {
-            width: 5%;
-        }
+.special-box-table td:first-child {
+    width: 5%;
+}
 
-        .css-special-row td {
-            text-align: left; /* 특정 행에만 왼쪽 정렬 적용 */
-        }
+.special-box-table .special-row td {
+    text-align: left;
+}
 
-        .css-special-row td:last-child {
-             color: rgba(253, 99, 155, 0.703);
-        }
-
-        .css-center {
-            text-align: center;
-        }
+.special-box-table .special-row td.special-grade {
+    color: rgba(253, 99, 155, 0.703);
+}
