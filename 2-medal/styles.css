@@ -12,6 +12,11 @@ header {
     padding: 10px 20px;
 }
 
+header nav {
+    display: flex;
+    justify-content: center; /* 가운데 정렬을 위해 설정 */
+}
+
 nav ul {
     list-style: none;
     display: flex;
