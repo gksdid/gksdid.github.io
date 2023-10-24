@@ -41,3 +41,16 @@ body {
         .css-center {
             text-align: center;
         }
+
+        .rectangle-container {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px;
+            width: 300px; /* 직사각형의 너비 */
+        }
+
+        #probability-sum,
+        #probability-attempts,
+        #cost {
+            margin-bottom: 10px;
+        }
