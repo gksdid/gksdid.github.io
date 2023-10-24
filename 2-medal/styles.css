@@ -4,6 +4,21 @@ body {
     padding: 50px;
 }
 
+#page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    z-index: 1000; /* 다른 요소보다 위에 나타나도록 z-index 설정 */
+    padding: 10px 20px; /* 적절한 패딩 값 설정 */
+    transition: top 0.3s; /* 부드러운 이동 효과를 위한 transition 추가 */
+}
+
+#page-header.nav-up {
+    top: -60px; /* 헤더를 숨김 */
+}
+
 header {
     display: flex;
     justify-content: space-between;
