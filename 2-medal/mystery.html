@@ -171,21 +171,24 @@
 
           var gradeCells = document.querySelectorAll('.css-special-table td:nth-child(3)'); // 등급 열은 3번째 열이라 가정
     gradeCells.forEach(function (cell) {
-        var gradeText = cell.textContent.trim();
+    var gradeText = cell.textContent.trim();
 
-        switch (gradeText) {
-            case '레드':
-                cell.style.color = 'red';
-                break;
-            case '핑크':
-                cell.style.color = 'pink';
-                break;
-            case '퍼플':
-                cell.style.color = 'purple';
-                break;
-            // 다른 등급에 대한 색상 추가 가능
-        }
-         });
+    switch (gradeText) {
+        case '레드':
+            cell.style.color = 'red';
+            break;
+        case '핑크':
+            cell.style.color = 'pink';
+            break;
+        case '퍼플':
+            cell.style.color = 'purple';
+            break;
+        // 다른 등급에 대한 색상 추가 가능
+        default:
+            cell.style.color = 'black'; // 기본값은 검정색
+            break;
+    }
+});
            
     </script>
 
