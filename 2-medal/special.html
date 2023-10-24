@@ -25,7 +25,7 @@
 
         <thead>
             <tr class="css-a20lla">
-                <th class="css-1dngiia css-center"><input id="select-all-checkbox" type="checkbox"></th>
+                <th class="css-1dngiia css-center"><input id="select-all-checkbox" type="checkbox" onchange="selectAllCheckboxes()"></th>
                 <th class="css-1khgbgg css-center">아이템 이름</th>
                 <th class="css-1toy6by css-center">확률</th>
                 <th class="css-center">등급</th>
@@ -73,9 +73,6 @@ function updateProbabilitySum() {
             var row = checkbox.closest('tr');
             var probabilityCell = row.querySelector('.css-1toy6by');
             
-            // 디버깅을 위해 console.log 추가
-            console.log(probabilityCell.textContent);
-
             // 여기서 문제 발생 가능성이 높음
             var probability = parseFloat(probabilityCell.textContent.replace('%', ''));
             sum += probability;
@@ -85,6 +82,18 @@ function updateProbabilitySum() {
     // 결과를 출력하는 곳에 업데이트
     var resultElement = document.getElementById('probability-sum');
     resultElement.textContent = '확률 합계: ' + sum.toFixed(2) + '%';
+}
+
+function selectAllCheckboxes() {
+    var checkboxes = document.querySelectorAll('.css-legqdg input[type="checkbox"]');
+    var selectAllCheckbox = document.getElementById('select-all-checkbox');
+
+    checkboxes.forEach(function (checkbox) {
+        checkbox.checked = selectAllCheckbox.checked;
+    });
+
+    // 전체 선택 상태 변경 후 확률 합계 업데이트
+    updateProbabilitySum();
 }
 </script>
 
