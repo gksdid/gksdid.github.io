@@ -21,28 +21,28 @@
     <!-- 추가적인 내용 작성 -->
     <div id="probability-sum">확률 합계: 0%</div>
 
-    <table class="special-box-table">
+    <table class="css-legqdg">
 
         <thead>
-            <tr class="table-header-row">
-                <th class="centered-checkbox"><input id="select-all-checkbox" type="checkbox"></th>
-                <th class="item-name centered">아이템 이름</th>
-                <th class="probability centered">확률</th>
-                <th class="centered">등급</th>
+            <tr class="css-a20lla">
+                <th class="css-1dngiia css-center"><input id="select-all-checkbox" type="checkbox"></th>
+                <th class="css-1khgbgg css-center">아이템 이름</th>
+                <th class="css-1toy6by css-center">확률</th>
+                <th class="css-center">등급</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="table-row">
-                <td class="centered-checkbox"><input type="checkbox"></td>
-                <td class="item-name centered">유자 타이즈 세트</td>
-                <td class="probability centered">0.30%</td>
-                <td class="centered grade">핑크</td>
+            <tr class="css-1">
+                <td class="css-yed06v css-center"><input type="checkbox"></td>
+                <td class="css-yed06v css-center">유자 타이즈 세트</td>
+                <td class="css-yed06v css-center">0.30%</td>
+                <td class="css-center">핑크</td>
             </tr>
-            <tr class="table-row special-row">
-                <td class="centered-checkbox"><input type="checkbox"></td>
-                <td class="item-name centered">유자 타이즈 머리장식</td>
-                <td class="probability centered">0.35%</td>
-                <td class="centered grade special-grade">핑크</td>
+            <tr class="css-2">
+                <td class="css-yed06v css-center"><input type="checkbox"></td>
+                <td class="css-yed06v css-center">유자 타이즈 머리장식</td>
+                <td class="css-yed06v css-center">0.35%</td>
+                <td class="css-center">핑크</td>
             </tr>
             <!-- 다른 행 추가 -->
         </tbody>
@@ -50,39 +50,43 @@
     </table>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // 페이지가 로드될 때 실행되는 코드
+        document.addEventListener('DOMContentLoaded', function () {
+            // 페이지가 로드될 때 실행되는 코드
 
-        // 체크박스 클릭 이벤트 리스너 등록
-        var checkboxes = document.querySelectorAll('.special-box-table input[type="checkbox"]');
-        checkboxes.forEach(function (checkbox) {
-            checkbox.addEventListener('change', updateProbabilitySum);
+            // 체크박스 클릭 이벤트 리스너 등록
+            var checkboxes = document.querySelectorAll('.css-legqdg input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.addEventListener('change', updateProbabilitySum);
+            });
+
+            // 초기 값 계산
+            updateProbabilitySum();
         });
 
-        // 초기 값 계산
-        updateProbabilitySum();
-    });
+        function updateProbabilitySum() {
+            var checkboxes = document.querySelectorAll('.css-legqdg input[type="checkbox"]');
+            var sum = 0;
 
-    function updateProbabilitySum() {
-        var checkboxes = document.querySelectorAll('.special-box-table input[type="checkbox"]');
-        var sum = 0;
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    // 체크된 경우에만 확률을 더함
+                    var row = checkbox.closest('tr');
+                    var probabilityCell = row.querySelector('.css-1toy6by');
+                    var probability = parseFloat(probabilityCell.textContent.replace('%', ''));
+                    sum += probability;
+                }
+            });
 
-        checkboxes.forEach(function (checkbox) {
-            if (checkbox.checked) {
-                // 체크된 경우에만 확률을 더함
-                var row = checkbox.closest('tr');
-                var probabilityCell = row.querySelector('.probability');
-                var probability = parseFloat(probabilityCell.textContent.replace('%', ''));
-                sum += probability;
-            }
-        });
-
-        // 결과를 출력하는 곳에 업데이트
-        var resultElement = document.getElementById('probability-sum');
-        resultElement.textContent = '확률 합계: ' + sum.toFixed(2) + '%';
-    }
+            // 결과를 출력하는 곳에 업데이트
+            var resultElement = document.getElementById('probability-sum');
+            resultElement.textContent = '확률 합계: ' + sum.toFixed(2) + '%';
+        }
     </script>
 
+
+
+
+    <!-- 추가적인 내용 작성 -->
 </body>
 
 </html>
