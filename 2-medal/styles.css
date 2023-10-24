@@ -10,27 +10,27 @@ body {
             border-collapse: collapse;
         }
 
-        .css-legqdg th,
-        .css-legqdg td {
+        .css-table th,
+        .css-table td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
 
-        .css-a20lla {
+        .css-tablehead {
             background-color: #f2f2f2;
         }
 
-        .css-legqdg th.css-center,
-        .css-legqdg td.css-center {
+        .css-table th.css-center,
+        .css-table td.css-center {
             text-align: center;
         }
 
-        .css-legqdg td:first-child {
+        .css-table td:first-child {
             width: 5%;
         }
 
-        .css-1khgbgg {
+        .css-table {
             text-align: left;
         }
 
