@@ -95,6 +95,16 @@ nav a:hover {
 }
 
 
+/* 이벤트 배너 개체 */
+.eventbanner {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
 .css-special-table {
     width: 100%; /* 테이블 전체 너비 조절 */
     margin: 20px auto; /* 가운데 정렬을 위한 margin 추가 */
