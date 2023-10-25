@@ -52,6 +52,22 @@ nav a:hover {
     color: #ff6600; /* 마우스를 올렸을 때의 색상 */
 }
 
+.button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+}
+
 .css-special-table {
     width: 100%; /* 테이블 전체 너비 조절 */
     margin: 20px auto; /* 가운데 정렬을 위한 margin 추가 */
