@@ -102,6 +102,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 .eventbanner img {
@@ -237,6 +238,7 @@ nav a:hover {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 0 auto;
     }
 
     .eventbanner img {
