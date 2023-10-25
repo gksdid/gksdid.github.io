@@ -42,7 +42,7 @@
             var tableBody = document.querySelector('.css-special-table tbody');
 
             // ** 데이터를 불러오는 부분
-            fetch('data-eventbanner1.json')
+            fetch('data-bannerevent1.json')
                 .then(response => response.json())
                 .then(data => {
                     data.forEach(function (item) {
