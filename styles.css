@@ -188,8 +188,13 @@ nav a:hover {
     }
 
     nav ul {
-        flex-direction: column; /* 모바일에서는 세로로 나열되도록 설정 */
+        flex-direction: row; /* 모바일에서는 가로로 나열되도록 설정 */
         gap: 10px;
+        align-items: center; /* 중앙 정렬을 위해 추가 */
+    }
+
+    nav ul li {
+        margin-right: 20px; /* 기본 마진 값으로 변경 */
     }
 
     .rectangle-container {
