@@ -97,7 +97,7 @@ nav a:hover {
 
 /* 이벤트 배너 개체 */
 .eventbanner {
-    width: 30%;
+    width: 300px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -225,7 +225,7 @@ nav a:hover {
 
     /* 이벤트 배너 개체 */
     .eventbanner {
-        width: 30%;
+        width: 50px;
         height: auto;
     }
 
