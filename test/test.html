@@ -91,9 +91,12 @@
     const tryCost = parseFloat(document.getElementById('tryCost').value);
 
     if (isNaN(itemProbability) || isNaN(userBudget) || isNaN(tryCost)) {
-      alert('올바른 숫자를 입력하세요.');
-      return;
+      if (itemProbability !== null && userBudget !== null && tryCost !== null) {
+    alert('유효한 숫자를 입력해 주세요.);
     }
+  return;
+}
+
 
     // 각 시도당 확률
     const singleTryProbability = itemProbability / 100;
