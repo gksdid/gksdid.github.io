@@ -153,14 +153,15 @@ nav a:hover {
             text-align: center;
         }
 
-        /* 간단한 스타일링을 위한 CSS */
+        /* 계산된 정보를 출력하는 곳 */
        .rectangle-container {
             box-sizing: border-box;
-            border: 2px solid gray;
             padding: 20px;
             margin: 20px auto;
             width: 300px;
             text-align: left;
+            background-color: #f2f2f2;
+            border-radius: 5px;
             display: flex; /* Flexbox 사용 */
             flex-direction: column; /* 세로로 정렬하기 위해 column 설정 */
             justify-content: center; /* 세로 중앙 정렬 */
@@ -221,7 +222,7 @@ nav a:hover {
     }
 
     .rectangle-container {
-        width: 100%; /* 모바일에서 전체 폭으로 설정 */
+        width: 80%; /* 모바일에서 전체 폭으로 설정 */
         box-sizing: border-box;
         padding: 10px;
         margin: 10px 0;
