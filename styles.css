@@ -89,12 +89,9 @@ nav a:hover {
 }
 
 
-/* 배너 이벤트에 속한 개체 */
 .banner {
-    width: 50%;
+    width: 30%;
     height: auto;
-    display: block; /
-    margin: 0 auto; /* 좌우 여백을 자동으로 설정해서 가운데 정렬 */
 }
 
 
