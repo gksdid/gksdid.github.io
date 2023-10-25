@@ -7,16 +7,17 @@ body {
 #page-header {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 50%; /* 왼쪽 끝에서 50% 위치로 이동 */
+    transform: translateX(-50%); /* 자체의 너비의 50%만큼 왼쪽으로 이동하여 중앙 정렬 */
     width: 100%;
     background-color: #f2f2f2;
-    z-index: 1000; /* 다른 요소보다 위에 나타나도록 z-index 설정 */
-    padding: 10px 20px; /* 적절한 패딩 값 설정 */
-    transition: top 0.3s; /* 부드러운 이동 효과를 위한 transition 추가 */
+    z-index: 1000;
+    padding: 10px 20px;
+    transition: top 0.3s;
 }
 
 #page-header.nav-up {
-    top: -60px; /* 헤더를 숨김 */
+    top: -60px;
 }
 
 header {
@@ -25,12 +26,7 @@ header {
     align-items: center;
     background-color: #f2f2f2;
     padding: 10px 20px;
-    margin: 0 auto; /* 가운데 정렬을 위해 margin 추가 */
-}
-
-header nav {
-    display: flex;
-    justify-content: center; /* 가운데 정렬을 위해 설정 */
+    margin: 0 auto;
 }
 
 nav ul {
