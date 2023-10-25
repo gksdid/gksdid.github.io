@@ -2,7 +2,6 @@ function redirectToPage(page) {
     window.location.href = page;
 }
 
-
 // analytics.js (구글 분석)
 window.dataLayer = window.dataLayer || [];
 function gtag() {
@@ -10,7 +9,6 @@ function gtag() {
 }
 gtag('js', new Date());
 gtag('config', 'G-4VK413KLDK');
-
 
 // 페이지 헤더를 불러옵니다.
 import('./header.html')
