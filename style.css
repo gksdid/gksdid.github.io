@@ -1,0 +1,175 @@
+body {
+    font-family: 'Song Myung', cursive;
+    text-align: center;
+    padding: 50px;
+}
+
+#page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    z-index: 1000; /* 다른 요소보다 위에 나타나도록 z-index 설정 */
+    padding: 10px 20px; /* 적절한 패딩 값 설정 */
+    transition: top 0.3s; /* 부드러운 이동 효과를 위한 transition 추가 */
+}
+
+#page-header.nav-up {
+    top: -60px; /* 헤더를 숨김 */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+}
+
+header nav {
+    display: flex;
+    justify-content: center; /* 가운데 정렬을 위해 설정 */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* 항목 사이 간격 설정 */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff6600; /* 마우스를 올렸을 때의 색상 */
+}
+
+.css-special-table {
+    width: 100%; /* 테이블 전체 너비 조절 */
+    margin: 20px auto; /* 가운데 정렬을 위한 margin 추가 */
+    border-collapse: collapse;
+}
+
+.css-special-table th,
+.css-special-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.css-special-table th:first-child,
+.css-special-table td:first-child {
+    text-align: left;
+}
+
+        .css-table-head {
+            background-color: #f2f2f2;
+        }
+
+        .css-special-table th.css-center,
+        .css-special-table td.css-center {
+            text-align: center;
+        }
+
+        .css-special-table td:first-child {
+            width: 5%;
+        }
+
+        .css-row td {
+            text-align: left; /* 특정 행에만 왼쪽 정렬 적용 */
+        }
+
+        .css-center {
+            text-align: center;
+        }
+
+        /* 간단한 스타일링을 위한 CSS */
+       .rectangle-container {
+            box-sizing: border-box;
+            border: 2px solid gray;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            text-align: left;
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 세로로 정렬하기 위해 column 설정 */
+            justify-content: center; /* 세로 중앙 정렬 */
+        }
+
+        #probability-sum,
+        #probability-attempts,
+        #cost {
+            margin-bottom: 10px; /* 마지막 줄 빼고는 여백 추가 */
+        }
+
+/* 추가된 부분: 등급에 따른 클래스 스타일 */
+.red-grade-index-1 {
+    color: rgb(196, 9, 9);
+}
+
+.pink-grade-index-1 {
+    color: rgba(253, 99, 155, 0.703);
+}
+
+.purple-grade-index-1 {
+    color: rgb(130, 28, 185);
+}
+
+.blue-grade-index-1 {
+    color: rgb(74, 76, 232);
+}
+
+.default-grade-index-1 {
+    color: black; /* 기본값은 검정색 */
+}
+
+
+/* ------------------------ */
+/* 모바일 환경에서 viewport 설정 */
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 5px 5px; /* 모바일에서 좀 더 간격을 주기 위해 padding 조정 */
+    }
+
+    header {
+        padding: 5px; /* 헤더의 패딩도 모바일에 맞게 조정 */
+    }
+
+    nav ul {
+        flex-direction: column; /* 모바일에서는 세로로 나열되도록 설정 */
+        gap: 10px;
+    }
+
+    .rectangle-container {
+        width: 100%; /* 모바일에서 전체 폭으로 설정 */
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    #price-display {
+        font-size: 1.2em; /* 모바일에서 가격 크기를 키움 */
+    }
+
+    .css-special-table {
+        font-size: 12px; /* 테이블의 폰트 크기를 조정 */
+    }
+
+    .css-special-table th,
+    .css-special-table td {
+        padding: 5px;
+    }
+
+    .css-center {
+        text-align: center;
+    }
+}
