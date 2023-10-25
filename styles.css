@@ -155,16 +155,18 @@ nav a:hover {
 
         /* 계산된 정보를 출력하는 곳 */
        .rectangle-container {
-            box-sizing: border-box;
-            padding: 20px;
-            margin: 20px auto;
-            width: 100px;
-            text-align: left;
-            background-color: #f2f2f2;
-            border-radius: 5px;
-            display: flex; 
-            margin: 0 auto;
-        }        
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100px;
+    text-align: left;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+    
 
 
 /* 추가된 부분: 등급에 따른 클래스 스타일 */
