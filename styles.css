@@ -33,6 +33,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 20px; /* 항목 사이 간격 설정 */
+    flex-wrap: nowrap; /* 가로로만 나열하도록 설정 */
 }
 
 nav ul li {
