@@ -223,6 +223,11 @@ nav a:hover {
         height: auto;
     }
 
+    .eventbanner {
+        width: 80%;
+        height: auto;
+    }
+
     .css-special-table {
         font-size: 12px; /* 테이블의 폰트 크기를 조정 */
     }
