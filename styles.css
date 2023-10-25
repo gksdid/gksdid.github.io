@@ -52,6 +52,34 @@ nav a:hover {
     color: #ff6600; /* 마우스를 올렸을 때의 색상 */
 }
 
+.square-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px; /* 버튼의 고정된 너비 */
+  height: 100px; /* 버튼의 고정된 높이 */
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button-icon {
+  width: 50px; /* 이미지의 너비 */
+  height: 50px; /* 이미지의 높이 */
+  object-fit: contain; /* 이미지가 버튼에 맞게 보이도록 조절 */
+}
+
+.button-text {
+  margin-top: 5px; /* 텍스트와 이미지 사이의 간격 조절 */
+  font-size: 14px;
+}
+
 .button-container {
             display: flex;
             flex-wrap: wrap;
