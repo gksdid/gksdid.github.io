@@ -69,7 +69,7 @@ button {
 }
 
 .banner {
-    width: 50%;
+    width: 30%;
     height: auto;
 }
 
@@ -180,6 +180,11 @@ button {
 
     #price-display {
         font-size: 1.2em; /* 모바일에서 가격 크기를 키움 */
+    }
+
+    .banner {
+        width: 80%;
+        height: auto;
     }
 
     .css-special-table {
