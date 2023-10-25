@@ -158,7 +158,7 @@ nav a:hover {
             box-sizing: border-box;
             padding: 20px;
             margin: 20px auto;
-            width: 300px;
+            width: 100px;
             text-align: left;
             background-color: #f2f2f2;
             border-radius: 5px;
@@ -166,10 +166,6 @@ nav a:hover {
             margin: 0 auto;
         }        
 
-        #probability-sum,
-        #cost {
-            margin-bottom: 10px; /* 마지막 줄 빼고는 여백 추가 */
-        }
 
 /* 추가된 부분: 등급에 따른 클래스 스타일 */
 .gold-grade-index-1 {
