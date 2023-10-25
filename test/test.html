@@ -9,22 +9,30 @@
 
 <h2>아이템 획득 확률 계산기</h2>
 
-<label for="itemProbability">아이템 확률 (%)</label>
-<input type="number" id="itemProbability" min="0" max="100" step="0.01" value="0.12">
+<div class="calculator-container">
+  <h2>아이템 획득 확률 계산기</h2>
 
-<label for="userBudget">사용자 예산</label>
-<input type="number" id="userBudget" min="0" step="1" value="10000">
+  <label for="itemProbability">아이템 확률 (%)</label>
+  <input type="number" id="itemProbability" min="0" max="100" step="0.01" value="0.12">
 
-<button onclick="calculateItemProbability()">계산하기</button>
+  <label for="userBudget">사용자 예산</label>
+  <input type="number" id="userBudget" min="0" step="1" value="10000">
 
-<p id="result"></p>
+  <label for="tryCost">한 번 시도 비용</label>
+  <input type="number" id="tryCost" min="0" step="1" value="270">
+
+  <button onclick="calculateItemProbability()">계산하기</button>
+
+  <p id="result"></p>
+</div>
 
 <script>
   function calculateItemProbability() {
     const itemProbability = parseFloat(document.getElementById('itemProbability').value);
     const userBudget = parseFloat(document.getElementById('userBudget').value);
+    const tryCost = parseFloat(document.getElementById('tryCost').value);
 
-    if (isNaN(itemProbability) || isNaN(userBudget)) {
+    if (isNaN(itemProbability) || isNaN(userBudget) || isNaN(tryCost)) {
       alert('올바른 숫자를 입력하세요.');
       return;
     }
@@ -33,7 +41,7 @@
     const singleTryProbability = itemProbability / 100;
 
     // 시도 횟수 계산
-    const numberOfAttempts = Math.floor(userBudget / 270); // 여기서 270은 10회 시도 비용을 의미
+    const numberOfAttempts = Math.floor(userBudget / tryCost);
 
     // 아이템을 획득하지 못할 확률
     const failureProbability = Math.pow(1 - singleTryProbability, numberOfAttempts);
