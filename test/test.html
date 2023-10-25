@@ -96,12 +96,10 @@ function calculateItemProbability() {
   const userBudget = parseFloat(document.getElementById('userBudget').value);
   const tryCost = parseFloat(document.getElementById('tryCost').value);
 
-  if (isNaN(itemProbability) || isNaN(userBudget) || isNaN(tryCost)) {
-    if (itemProbability !== null && userBudget !== null && tryCost !== null) {
-      alert('유효한 숫자를 입력해 주세요.');
-    }
-    return;
-  }
+  if (isNaN(itemProbability) || isNaN(userBudget) || isNaN(tryCost) ) {
+  alert('유효한 숫자를 입력해 주세요.');
+  return;
+}
 
   // 각 시도당 확률
   const singleTryProbability = itemProbability / 100;
