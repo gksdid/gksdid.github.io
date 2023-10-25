@@ -154,7 +154,7 @@ nav a:hover {
         }
 
 
-/* 계산된 정보를 출력하는 곳 *?
+/* 계산된 정보를 출력하는 곳 */
 .resultbox-rectangle-container {
     display: flex;
 }
