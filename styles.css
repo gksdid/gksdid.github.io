@@ -52,6 +52,11 @@ nav a:hover {
     color: #ff6600; /* 마우스를 올렸을 때의 색상 */
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
 .square-button {
   display: flex;
   flex-direction: column;
@@ -67,8 +72,8 @@ nav a:hover {
 }
 
 .button-icon {
-  width: 80px; /* 이미지의 너비 */
-  height: 80px; /* 이미지의 높이 */
+  width: 90px; /* 이미지의 너비 */
+  height: 90px; /* 이미지의 높이 */
   object-fit: contain; /* 이미지가 버튼에 맞게 보이도록 조절 */
 }
 
@@ -76,26 +81,10 @@ nav a:hover {
   position: absolute; /* 절대적인 위치로 설정 */
   bottom: -25px; /* 아래에서 25px 위로 올려 텍스트가 보이지 않도록 함 */
   font-size: 14px;
-  color: black; 
-  font-family: 'Song Myung', cursive;
+  color: black; /* 텍스트 색상을 검정색으로 지정 */
+  font-family: 'Song Myung', cursive; /* 사용할 폰트 지정 */
 }
 
-
-.button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-button {
-    background-color: #2ecc71;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-    border: none;
-}
 
 .banner {
     width: 30%;
