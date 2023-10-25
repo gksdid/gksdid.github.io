@@ -74,6 +74,8 @@ nav a:hover {
 .button-icon {
   width: 70px; /* 이미지의 너비 */
   height: 70px; /* 이미지의 높이 */
+  margin-top: 15px; /* 아이콘을 세로 방향으로 가운데 정렬하기 위한 값 */
+  margin-bottom: 15px; /* 아이콘을 세로 방향으로 가운데 정렬하기 위한 값 */
   object-fit: contain; /* 이미지가 버튼에 맞게 보이도록 조절 */
 }
 
