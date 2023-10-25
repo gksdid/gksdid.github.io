@@ -79,8 +79,9 @@
 
   <label for="tryCost">10회 가격</label>
   <input type="number" id="tryCost" min="0" step="270" value="1080" oninput="calculateItemProbability()">
-
-  <p id="result"></p>
+    
+  <p id="result">${userBudget} UC로 약 ${numberOfAttempts}회의 시도를 할 수 있네요.</p>
+  <p id="result">의 확률로 아이템을 획득할 수 있습니다!</p>
 </div>
 
 <script>
@@ -109,7 +110,7 @@
     // 소수점 아래 2자리까지 반올림
     const roundedProbability = Math.round(successProbability * 10000) / 100;
 
-    document.getElementById('result').textContent = `${roundedProbability}%의 확률로 아이템을 획득합니다!`;
+    document.getElementById('result').textContent = `${roundedProbability}%`;
   }
 </script>
 
