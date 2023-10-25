@@ -29,10 +29,18 @@ header {
     margin: 0 auto;
 }
 
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 추가: 세로 방향 가운데 정렬 */
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px; /* 항목 사이 간격 설정 */
+    gap: 20px;
+    margin: 0; /* 기본 마진 제거 */
+    padding: 0; /* 기본 패딩 제거 */
 }
 
 nav ul li {
@@ -43,6 +51,7 @@ nav a {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    text-align: center; /* 추가: 텍스트 중앙 정렬 */
 }
 
 nav a:hover {
