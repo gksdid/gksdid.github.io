@@ -25,6 +25,7 @@ header {
     align-items: center;
     background-color: #f2f2f2;
     padding: 10px 20px;
+    margin: 0 auto; /* 가운데 정렬을 위해 margin 추가 */
 }
 
 header nav {
