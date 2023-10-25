@@ -1,10 +1,28 @@
-Access-Control-Allow-Origin: *
+<!-- header.html -->
+<header id="mainHeader">
+    <nav>
+        <ul>
+            <li><a href="../../">홈</a></li>
+            <!-- 다른 페이지에 대한 메뉴 항목 추가 -->
+        </ul>
+    </nav>
+</header>
+<br>
 
-<header>
-        <nav>
-            <ul>
-                <li><a href="../../">홈</a></li>
-                <!-- 다른 페이지에 대한 메뉴 항목 추가 -->
-            </ul>
-        </nav>
-    </header> <br>
+<script>
+const header = document.getElementById('mainHeader');
+let isHeaderFixed = false;
+
+// 스크롤 이벤트를 감지하여 헤더의 위치를 동적으로 조절
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0 && !isHeaderFixed) {
+        header.style.position = 'fixed';
+        header.style.top = '0';
+        header.style.width = '100%';
+        isHeaderFixed = true;
+    } else if (window.scrollY === 0 && isHeaderFixed) {
+        header.style.position = 'static';
+        isHeaderFixed = false;
+    }
+});
+</script>
