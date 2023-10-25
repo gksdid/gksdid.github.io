@@ -162,13 +162,11 @@ nav a:hover {
             text-align: left;
             background-color: #f2f2f2;
             border-radius: 5px;
-            display: flex; /* Flexbox 사용 */
-            flex-direction: column; /* 세로로 정렬하기 위해 column 설정 */
-            align-items: center; /* 가로 중앙 정렬 */
+            display: flex; 
+            margin: 0 auto;
         }        
 
         #probability-sum,
-        #probability-attempts,
         #cost {
             margin-bottom: 10px; /* 마지막 줄 빼고는 여백 추가 */
         }
