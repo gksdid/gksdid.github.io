@@ -222,12 +222,22 @@ nav a:hover {
         margin-right: 20px; /* 기본 마진 값으로 변경 */
     }
 
+    .resultbox-rectangle-container {
+        display: flex;
+        justify-content: center; /* 가로 중앙 정렬 */
+        align-items: center; /* 세로 중앙 정렬 */
+    }
+
     .rectangle-container {
-        width: 80%; /* 모바일에서 전체 폭으로 설정 */
         box-sizing: border-box;
         padding: 10px;
-        margin: 10px 0;
+        margin: 10px;
+        width: 90px;
+        text-align: left;
+        background-color: #f2f2f2;
+        border-radius: 5px;
     }
+
 
     #price-display {
         font-size: 1.2em; /* 모바일에서 가격 크기를 키움 */
