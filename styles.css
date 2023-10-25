@@ -153,11 +153,16 @@ nav a:hover {
             text-align: center;
         }
 
-        /* 계산된 정보를 출력하는 곳 */
-       .rectangle-container {
+
+/* 계산된 정보를 출력하는 곳 *?
+.resultbox-rectangle-container {
+    display: flex;
+}
+
+.rectangle-container {
     box-sizing: border-box;
     padding: 20px;
-    margin: 20px auto;
+    margin: 20px;
     width: 100px;
     text-align: left;
     background-color: #f2f2f2;
