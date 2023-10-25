@@ -10,3 +10,12 @@ function gtag() {
 }
 gtag('js', new Date());
 gtag('config', 'G-4VK413KLDK');
+
+
+// 페이지 헤더를 불러옵니다.
+import('./header.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('headerContainer').innerHTML = html;
+      })
+      .catch(error => console.error('Error loading header:', error));
