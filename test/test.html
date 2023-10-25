@@ -77,7 +77,7 @@
   <label for="userBudget">사용자 예산</label>
   <input type="number" id="userBudget" min="0" step="1000" value="10000" oninput="calculateItemProbability()">
 
-  <label for="tryCost">한 번 시도 비용</label>
+  <label for="tryCost">10회 가격</label>
   <input type="number" id="tryCost" min="0" step="270" value="1080" oninput="calculateItemProbability()">
 
   <p id="result"></p>
@@ -98,7 +98,7 @@
     const singleTryProbability = itemProbability / 100;
 
     // 시도 횟수 계산
-    const numberOfAttempts = Math.floor(userBudget / tryCost);
+    const numberOfAttempts = Math.floor(10 * userBudget / tryCost);
 
     // 아이템을 획득하지 못할 확률
     const failureProbability = Math.pow(1 - singleTryProbability, numberOfAttempts);
