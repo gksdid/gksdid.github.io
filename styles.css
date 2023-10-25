@@ -64,6 +64,7 @@ nav a:hover {
   margin: 10px;
   cursor: pointer;
   border: none;
+  align-items: center;
   text-align: center;
   text-decoration: none;
   position: relative; /* 상대적인 위치 지정 */
