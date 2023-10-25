@@ -59,8 +59,9 @@ nav a:hover {
   flex-direction: column;
   align-items: center;
   width: 120px; /* 버튼의 고정된 너비 */
+  height: 100px;
   background-color: #f2f2f2;
-  margin: 15px;
+  margin: 10px;
   cursor: pointer;
   border: none;
   text-align: center;
