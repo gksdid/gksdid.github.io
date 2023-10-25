@@ -14,10 +14,26 @@
     
     <p>스페셜 상자, 미스터리 상자, 배틀로얄 상자에 대한 정보를 제공합니다.</p>
 
-    <!-- 버튼 추가 -->
-    <button onclick="window.location.href='2-medal/special.html'">스페셜 상자</button> <br>
-    <button onclick="window.location.href='2-medal/mystery.html'">미스터리 상자</button> <br>
-    <button onclick="window.location.href='2-medal/battleroyale.html'">배틀로얄 상자</button> <br>
+    <div class="banner-container">
+        <img src="banner/randomboxes.png" alt="보급품" class="banner">
+    </div>
+
+   <div class="button-container">
+        <button onclick="redirectToPage('2-medal/special.html')" class="square-button">
+            <img src="../banner/box-special.png" alt="스페셜 상자" class="button-icon">
+            <span class="button-text">스페셜 상자</span>
+        </button>
+
+        <button onclick="redirectToPage('2-medal/mystery.html')" class="square-button">
+            <img src="../banner/box-mystery.png" alt="미스터리 상자" class="button-icon">
+            <span class="button-text">미스터리 상자</span>
+        </button>
+
+      <button onclick="redirectToPage('2-medal/battleroyale.html')" class="square-button">
+            <img src="../banner/box-battleroyale.png" alt="배틀로얄 상자" class="button-icon">
+            <span class="button-text">배틀로얄 상자</span>
+      </button>
+    </div>
     
     <!-- 추가적인 내용을 원하는 대로 작성하세요 -->
 </body>
