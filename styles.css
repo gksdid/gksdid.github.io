@@ -52,7 +52,6 @@ nav a:hover {
 .button-container {
   display: flex;
   justify-content: center;
-  flex-direction: column;
 }
 
 .square-button {
@@ -67,7 +66,6 @@ nav a:hover {
   text-align: center;
   text-decoration: none;
   position: relative; /* 상대적인 위치 지정 */
-  flex-direction: column;
 }
 
 .button-icon {
@@ -193,7 +191,6 @@ nav a:hover {
         box-sizing: border-box;
         padding: 10px;
         margin: 10px 0;
-        flex-direction: column;
     }
 
     #price-display {
