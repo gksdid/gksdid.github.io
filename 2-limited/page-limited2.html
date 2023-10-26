@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한정 상자 2</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Song+Myung&display=swap">
+    <link rel="stylesheet" href="../styles.css"> <!-- 상위 CSS 파일을 불러옴 -->
+</head>
+
+<body>
+        <!-- 페이지 헤더 -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../">홈</a></li>
+                <li><a href="../others/calculator.html">확률 계산기</a></li>
+            </ul>
+        </nav>
+    </header> <br>
+
+    
+    <h1>BT21 상자</h1>
+
+    <!-- 가격은 .js 파일에서 편집함. -->
+    <p>10회 가격: <span id="price-display"></span></p>
+
+    <!-- 상자 판매 기간 편집 -->
+    <p>9월 26일 (화) 11:00 ~ <br>
+
+    
+    <div class="resultbox-rectangle-container">
+        <div class="rectangle-container">
+            <div id="probability-sum">확률 합계: 0%</div>
+        </div>
+
+        <div class="rectangle-container">
+            <div id="cost">평균 비용: 0 UC</div>
+        </div>
+
+        <div class="rectangle-container">
+            <div id="probability-attempts">평균 횟수: 0회</div>
+        </div>
+    </div>
+
+
+    <br>
+
+    
+    <table class="css-special-table">
+        <thead>
+            <tr class="css-table-head">
+                <th class="css-center"><input id="select-all-checkbox" type="checkbox" onclick="toggleAllCheckboxes()"></th>
+                <th class="css-center">아이템 이름</th>
+                <th class="css-center">등급</th>
+                <th class="css-center">확률</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- 추가된 부분: 데이터를 표에 추가 -->
+        </tbody>
+    </table>
+
+   <!-- **************************************************** --> 
+   <!-- ** 자바스크립트 명령어를 불러오는 부분: 새 페이지 생성 시 수정 필요 --> 
+    <script src="js-limited2.js"></script>
+
+    
+</body>
+
+</html>
