@@ -41,7 +41,8 @@
             // 추가된 부분: 데이터를 표에 추가
             var tableBody = document.querySelector('.css-special-table tbody');
 
-            // ** 데이터를 불러오는 부분
+            // ***********************
+            // ** 데이터를 불러오는 부분 **
             fetch('data-bannerevent1.json')
                 .then(response => response.json())
                 .then(data => {
@@ -105,13 +106,13 @@
 
             var probabilityAttempts = calculateAttempts(sum);
             var attemptsElement = document.getElementById('probability-attempts');
-            attemptsElement.textContent = '예상 횟수: ' + probabilityAttempts + '회';
+            attemptsElement.textContent = '평균 횟수: ' + probabilityAttempts + '회';
 
             var costElement = document.getElementById('cost');
             var costValue = (probabilityAttempts / 10 * price).toFixed(2);
             var costInteger = parseInt(costValue, 10);
 
-            costElement.textContent = '예상 비용: ' + costInteger + ' UC';
+            costElement.textContent = '평균 비용: ' + costInteger + ' UC';
 
             var priceDisplay = document.getElementById('price-display');
             priceDisplay.textContent = price + ' UC';
