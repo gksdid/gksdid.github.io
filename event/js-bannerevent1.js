@@ -6,7 +6,7 @@
             var classPrefix = 'default-grade'; // 기본값은 검정색
 
             switch (gradeText) {
-                case '얼티밋':
+                case '골드':
                     classPrefix = 'gold-grade';
                     break;
                 case '레드':
