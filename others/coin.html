@@ -73,11 +73,12 @@
           break;
         // 추가 이벤트들에 대해 case 추가 가능
       }
+       calculateCoins();  // 이벤트가 선택될 때 바로 계산
     } else {
       // No checkbox selected, reset to default values
-      probability1 = 0;
-      probability2 = 0;
-      probability5 = 0;
+      probability1 = 0.3465;
+      probability2 = 0.2079;
+      probability5 = 0.0866;
     }
   }
 
