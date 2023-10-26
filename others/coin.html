@@ -82,17 +82,19 @@
   }
 
   function calculateCoins() {
-    const gameCurrency = parseFloat(document.getElementById('gameCurrency').value);
+  const gameCurrency = parseFloat(document.getElementById('gameCurrency').value);
 
-    if (isNaN(gameCurrency) || isNaN(price)) {
-      alert('올바른 숫자를 입력하세요.');
-      return;
-    }
-
-    const numAttempts = 10 * gameCurrency / price;
-    const resultElement = document.getElementById('result');
-    resultElement.textContent = `예상 코인 획득량: ${expectedCoins(numAttempts)}`;
+  if (isNaN(gameCurrency) || isNaN(price)) {
+    alert('올바른 숫자를 입력하세요.');
+    return;
   }
+
+  const numAttempts = 10 * gameCurrency / price;
+  const resultElement = document.getElementById('result');
+  const roundedCoins = Math.round(expectedCoins(numAttempts)); // 반올림 처리
+  resultElement.textContent = `예상 코인 획득량: ${roundedCoins}`;
+}
+
 
   function expectedCoins(numAttempts) {
     const coins1 = numAttempts * probability1;
