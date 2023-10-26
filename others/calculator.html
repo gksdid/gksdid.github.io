@@ -6,74 +6,22 @@
   <title>아이템 획득 확률 계산기</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Song+Myung&display=swap">
+  <link rel="stylesheet" href="style-calculator.css"> <!-- 외부 CSS 파일을 불러옴 -->
   <script src="../script.js"></script>
 
-
-<style>
-    body {
-      font-family: 'Song Myung', sans-serif;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    .calculator-container {
-      width: 300px;
-      height: 400px;
-      margin: auto;
-      background-color: #f2f2f2;
-      border-radius: 5px;
-      padding: 20px;
-      margin-top: 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-}
-
-    h2 {
-      text-align: center;
-    }
-
-    label {
-      margin-bottom: 5px;
-    }
-
-    input {
-      margin-bottom: 10px;
-      padding: 10px;
-      box-sizing: border-box;
-      margin-right: 5px; /* 추가된 부분 */
-    }
-
-    button {
-      background-color: #4caf50;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: 'Song Myung', sans-serif; /* 추가된 부분 */
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    #result {
-      margin-top: 20px;
-      margin-bottom: 20px; /* 추가된 부분 */
-      text-align: center;
-      line-height: 1.2; /* 줄간격 */
-    }
-
-    p {
-    text-align: center;
-  }
-
-
-  </style>
 </head>
+  
 <body>
+
+  <!-- 페이지 헤더 -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../">홈</a></li>
+                <!-- 다른 페이지에 대한 메뉴 항목 추가 -->
+            </ul>
+        </nav>
+    </header> <br>
 
   <p>적어도 한 번 아이템을 획득할 확률을 계산합니다.</p>
   
@@ -103,11 +51,6 @@ function calculateItemProbability() {
   const itemProbability = parseFloat(document.getElementById('itemProbability').value);
   const userBudget = parseFloat(document.getElementById('userBudget').value);
   const tryCost = parseFloat(document.getElementById('tryCost').value);
-
-  if (isNaN(itemProbability) || isNaN(userBudget) || isNaN(tryCost) ) {
-  alert('유효한 숫자를 입력해 주세요.');
-  return;
-}
 
   // 각 시도당 확률
   const singleProbability = itemProbability / 100;
