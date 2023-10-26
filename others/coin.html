@@ -36,74 +36,73 @@
   </div>
 
   <script>
-    var price = 0;
-    
-    let probability1 = 0;
-    let probability2 = 0;
-    let probability5 = 0;
+  let price = 0;
+  let probability1 = 0;
+  let probability2 = 0;
+  let probability5 = 0;
 
-    function updateProbabilities(checkboxId) {
-        const checkboxes = ['event1', 'event2', 'event3'];
+  function updateProbabilities(checkboxId) {
+    const checkboxes = ['event1', 'event2', 'event3'];
 
-        checkboxes.forEach(id => {
-            if (id !== checkboxId) {
-                document.getElementById(id).checked = false;
-            }
-        });
+    checkboxes.forEach(id => {
+      if (id !== checkboxId) {
+        document.getElementById(id).checked = false;
+      }
+    });
 
-        if (document.getElementById(checkboxId).checked) {
-            // Set probabilities based on the selected checkbox
-            switch (checkboxId) {
-                case 'event1':
-                    price = 600;
-                    probability1 = 0.3465;
-                    probability2 = 0.2079;
-                    probability5 = 0.0866;
-                    break;
-                case 'event2':
-                    price = 540;
-                    probability1 = 0.4;
-                    probability2 = 0.2;
-                    probability5 = 0.01;
-                    break;
-                case 'event3':
-                    price = 540;
-                    probability1 = 0.2;
-                    probability2 = 0.1;
-                    probability5 = 0.5;
-                    break;
-                // 추가 이벤트들에 대해 case 추가 가능
-            }
-        } else {
-            // No checkbox selected, reset to default values
-            probability1 = 0;
-            probability2 = 0;
-            probability5 = 0;
-        }
+    if (document.getElementById(checkboxId).checked) {
+      // Set probabilities based on the selected checkbox
+      switch (checkboxId) {
+        case 'event1':
+          price = 600;
+          probability1 = 0.3465;
+          probability2 = 0.2079;
+          probability5 = 0.0866;
+          break;
+        case 'event2':
+          price = 540;
+          probability1 = 0.4;
+          probability2 = 0.2;
+          probability5 = 0.01;
+          break;
+        case 'event3':
+          price = 540;
+          probability1 = 0.2;
+          probability2 = 0.1;
+          probability5 = 0.5;
+          break;
+        // 추가 이벤트들에 대해 case 추가 가능
+      }
+    } else {
+      // No checkbox selected, reset to default values
+      probability1 = 0;
+      probability2 = 0;
+      probability5 = 0;
+    }
+  }
+
+  function calculateCoins() {
+    const gameCurrency = parseFloat(document.getElementById('gameCurrency').value);
+
+    if (isNaN(gameCurrency) || isNaN(price)) {
+      alert('올바른 숫자를 입력하세요.');
+      return;
     }
 
-    function calculateCoins() {
-        const gameCurrency = parseFloat(document.getElementById('gameCurrency').value);
+    const numAttempts = 10 * gameCurrency / price;
+    const resultElement = document.getElementById('result');
+    resultElement.textContent = `예상 코인 획득량: ${expectedCoins(numAttempts)}`;
+  }
 
-        if (isNaN(gameCurrency) || isNaN(price)) {
-            alert('올바른 숫자를 입력하세요.');
-            return;
-        }
+  function expectedCoins(numAttempts) {
+    const coins1 = numAttempts * probability1;
+    const coins2 = numAttempts * probability2;
+    const coins5 = numAttempts * probability5;
 
-        const numAttempts = 10 * gameCurrency / price;
-        const resultElement = document.getElementById('result');
-        resultElement.textContent = `예상 코인 획득량: ${expectedCoins(numAttempts)}`;
-    }
-
-    function expectedCoins(numAttempts) {
-        const coins1 = numAttempts * probability1;
-        const coins2 = numAttempts * probability2;
-        const coins5 = numAttempts * probability5;
-
-        const totalCoins = coins1 + coins2 + coins5;
-        return totalCoins;
-    }
-  </script>
+    const totalCoins = coins1 + coins2 + coins5;
+    return totalCoins;
+  }
+</script>
 
 </body>
 </html>
