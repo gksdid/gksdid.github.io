@@ -8,91 +8,99 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Song+Myung&display=swap">
   <link rel="stylesheet" href="style-calculator.css"> <!-- 외부 CSS 파일을 불러옴 -->
   <script src="../script.js"></script>
-
 </head>
-
-  
 <body>
 
   <p> 안녕하세요.</p>
 
-  
-<div class="calculator-container">
-  <h2> 교환 코인 계산기 </h2>
+  <div class="calculator-container">
+    <h2> 교환 코인 계산기 </h2>
 
-  <label for="gameCurrency">사용자 예산 (UC): </label>
-  <input type="number" id="gameCurrency" name="gameCurrency" step="1000" value="10000" oninput="calculateCoins()">
+    <label for="gameCurrency">사용자 예산 (UC): </label>
+    <input type="number" id="gameCurrency" name="gameCurrency" step="1000" value="10000" oninput="calculateCoins()">
 
-  <label for="price">10회 가격: </label>
-  <input type="number" id="price" name="price" value="1080" oninput="calculateCoins()">
+    <label for="price">10회 가격: </label>
+    <input type="number" id="price" name="price" value="1080" oninput="calculateCoins()">
 
-  <label>이벤트 선택: </label>
+    <label>이벤트 선택: </label>
     <label>
-      <input type="checkbox" id="event1" onchange="updateProbabilities()"> 1
+      <input type="checkbox" id="event1" onchange="updateProbabilities('event1')"> 1
     </label>
     <label>
-      <input type="checkbox" id="event2" onchange="updateProbabilities()"> 2
+      <input type="checkbox" id="event2" onchange="updateProbabilities('event2')"> 2
     </label>
     <label>
-      <input type="checkbox" id="event3" onchange="updateProbabilities()"> 5
+      <input type="checkbox" id="event3" onchange="updateProbabilities('event3')"> 5
     </label>
 
-  <p id="result"></p>
-    
+    <p id="result"></p>
+  </div>
 
-</div>
+  <script>
+    let probability1 = 0;
+    let probability2 = 0;
+    let probability5 = 0;
 
-  
-<script>
-  let probability1 = 0;
-  let probability2 = 0;
-  let probability5 = 0;
+    function updateProbabilities(checkboxId) {
+        const checkboxes = ['event1', 'event2', 'event3'];
 
-function updateProbabilities() {
-    if (document.getElementById('event1').checked) {
-        probability1 = 0.3465;
-        probability2 = 0.2079;
-        probability5 = 0.0866;
-    } else if (document.getElementById('event2').checked) {
-        probability1 = 0.4;
-        probability2 = 0.2;
-        probability5 = 0.01;
-    } else if (document.getElementById('event3').checked) {
-        probability1 = 0.2;
-        probability2 = 0.1;
-        probability5 = 0.5;
-    } else {
-        // Default values if none selected
-        probability1 = 0;
-        probability2 = 0;
-        probability5 = 0;
+        checkboxes.forEach(id => {
+            if (id !== checkboxId) {
+                document.getElementById(id).checked = false;
+            }
+        });
+
+        if (document.getElementById(checkboxId).checked) {
+            // Set probabilities based on the selected checkbox
+            switch (checkboxId) {
+                case 'event1':
+                    probability1 = 0.3465;
+                    probability2 = 0.2079;
+                    probability5 = 0.0866;
+                    break;
+                case 'event2':
+                    probability1 = 0.4;
+                    probability2 = 0.2;
+                    probability5 = 0.01;
+                    break;
+                case 'event3':
+                    probability1 = 0.2;
+                    probability2 = 0.1;
+                    probability5 = 0.5;
+                    break;
+                // Add cases for additional checkboxes if needed
+            }
+        } else {
+            // No checkbox selected, reset to default values
+            probability1 = 0;
+            probability2 = 0;
+            probability5 = 0;
+        }
     }
-}
 
-function calculateCoins() {
-    const gameCurrency = parseFloat(document.getElementById('gameCurrency').value);
-    const price = parseFloat(document.getElementById('price').value);
+    function calculateCoins() {
+        const gameCurrency = parseFloat(document.getElementById('gameCurrency').value);
+        const price = parseFloat(document.getElementById('price').value);
 
-    if (isNaN(gameCurrency) || isNaN(price)) {
-        alert('올바른 숫자를 입력하세요.');
-        return;
+        if (isNaN(gameCurrency) || isNaN(price)) {
+            alert('올바른 숫자를 입력하세요.');
+            return;
+        }
+
+        const numAttempts = 10 * gameCurrency / price;
+        const resultElement = document.getElementById('result');
+        resultElement.textContent = `예상 코인 획득량: ${expectedCoins(numAttempts)}`;
     }
 
-    const numAttempts = 10 * gameCurrency / price;
-    const resultElement = document.getElementById('result');
-    resultElement.textContent = `예상 코인 획득량: ${expectedCoins(numAttempts)}`;
-}
+    function expectedCoins(numAttempts) {
+        const coins1 = numAttempts * probability1;
+        const coins2 = numAttempts * probability2;
+        const coins5 = numAttempts * probability5;
 
-function expectedCoins(numAttempts) {
-    const coins1 = numAttempts * probability1;
-    const coins2 = numAttempts * probability2;
-    const coins5 = numAttempts * probability5;
-
-    const totalCoins = coins1 + coins2 + coins5;
-    return totalCoins;
-}
-</script>
-  
+        const totalCoins = coins1 + coins2 + coins5;
+        return totalCoins;
+    }
+  </script>
 
 </body>
 </html>
