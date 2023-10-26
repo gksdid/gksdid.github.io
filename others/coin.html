@@ -85,10 +85,6 @@
   function calculateCoins() {
   const gameCurrency = parseFloat(document.getElementById('gameCurrency').value);
 
-  if (isNaN(gameCurrency) || isNaN(price)) {
-    alert('올바른 숫자를 입력하세요.');
-    return;
-  }
 
   const numAttempts = 10 * gameCurrency / price;
   const resultElement = document.getElementById('result');
