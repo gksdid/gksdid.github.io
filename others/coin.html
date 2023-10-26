@@ -98,9 +98,9 @@
 
 
   function expectedCoins(numAttempts) {
-    const coins1 = numAttempts * probability1;
-    const coins2 = numAttempts * probability2;
-    const coins5 = numAttempts * probability5;
+    const coins1 = 1 * numAttempts * probability1;
+    const coins2 = 2 * numAttempts * probability2;
+    const coins5 = 5 * numAttempts * probability5;
 
     const totalCoins = coins1 + coins2 + coins5;
     return totalCoins;
