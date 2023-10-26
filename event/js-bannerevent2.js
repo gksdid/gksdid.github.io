@@ -1,5 +1,5 @@
  // 가격을 전역 변수로 선언. 가격 변동시 수정 필요
-        var price = 600;
+        var price = 540;
 
         // 추가된 부분: 등급에 따른 클래스 스타일
         function getGradeClass(index, gradeText) {
