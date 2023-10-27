@@ -26,7 +26,6 @@ header {
     align-items: center;
     background-color: #f2f2f2;
     padding: 10px 20px;
-    margin: 0 auto;
 }
 
 nav ul {
@@ -44,12 +43,12 @@ nav ul li {
 nav a {
     text-decoration: none;
     color: black;
-    font-weight: bold;
 }
 
 nav a:hover {
     color: #ff6600; /* 마우스를 올렸을 때의 색상 */
 }
+
 
 .button-container {
   display: flex;
