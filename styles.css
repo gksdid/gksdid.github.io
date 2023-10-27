@@ -103,7 +103,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px auto; /* 아래에 간격을 줌 */
+    margin: 3px auto; /* 아래에 간격을 줌 */
 }
 
 .eventbanner img {
@@ -203,8 +203,8 @@ nav a:hover {
 }
 
 
-/* ------------------------ */
-/* 모바일 환경에서 viewport 설정 */
+/* -------------------------------------------------------------- */
+/* ----------------- 모바일 환경에서 viewport 설정 ------------------  */
 
 @media only screen and (max-width: 600px) {
     body {
