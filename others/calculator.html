@@ -63,6 +63,8 @@ function calculateItemProbability() {
   // 시도횟수 동안 단 한번도 아이템을 획득하지 못할 확률
   const failure = Math.pow(1 - singleProbability, numberOfAttempts);
 
+  const roundedFailure = Math.round(failure * 10000) / 100;
+
   // 아이템을 획득할 확률
   const success = 1 - failure;
 
@@ -71,7 +73,7 @@ function calculateItemProbability() {
 
   document.getElementById('result').innerHTML = `${userBudget} UC로 약 ${Math.floor(10 * userBudget / tryCost)}회의 시도를 할 수 있네요.<br><br>${roundedProbability}%의 확률로<br>적어도 하나를 획득할 수 있어요!`;
   
-  document.getElementById('alternative').innerHTML = `그동안 해당 아이템을 단 한 번도 얻지 못할 확률은<br>${Math.round(failure * 10000)} / 100;}%의 입니다.`;
+  document.getElementById('alternative').innerHTML = `해당 아이템을 단 한 번도 얻지 못할 확률은<br>${roundedFailure}% 입니다.`;
 
 }
 
