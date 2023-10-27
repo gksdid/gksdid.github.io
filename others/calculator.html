@@ -18,13 +18,13 @@
         <nav>
             <ul>
                 <li><a href="../../">홈</a></li>
+                <li><a href="coin.html">교환코인 계산기</a></li>
                 <!-- 다른 페이지에 대한 메뉴 항목 추가 -->
             </ul>
         </nav>
     </header> <br>
 
   <p>적어도 한 번 아이템을 획득할 확률을 계산합니다.</p>
-  
 
 <div class="calculator-container">
   <h2>아이템 획득 확률 계산기</h2>
@@ -41,6 +41,8 @@
    <p id="result"></p>
 
 </div>
+
+  <p id="alternative"></p>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -68,6 +70,9 @@ function calculateItemProbability() {
   const roundedProbability = Math.round(success * 10000) / 100;
 
   document.getElementById('result').innerHTML = `${userBudget} UC로 약 ${Math.floor(10 * userBudget / tryCost)}회의 시도를 할 수 있네요.<br><br>${roundedProbability}%의 확률로<br>적어도 하나를 획득할 수 있어요!`;
+  
+  document.getElementById('alternative').innerHTML = `그동안 해당 아이템을 단 한 번도 얻지 못할 확률은<br>${Math.round(failure * 10000) / 100;}%의 입니다.`;
+
 }
 
 </script>
