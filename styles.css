@@ -98,18 +98,18 @@ nav a:hover {
 
 /* 이벤트 배너 개체 */
 .eventbanner {
-    width: 100%;
+    width: 300px;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px auto; /* 아래에 간격을 줌 */
+    margin: 5px auto; /* 아래에 간격을 줌 */
 }
 
 .eventbanner img {
     max-width: 100%;
     height: auto;
-    margin: 20px auto; /* 이미지 간격을 조절 */
+    margin: 5px auto; /* 이미지 간격을 조절 */
 }
 
 
@@ -253,7 +253,6 @@ nav a:hover {
         height: auto;
     }
 
-    /* 이벤트 배너 개체 */
    /* 이벤트 배너 개체 */
     .eventbanner {
         width: 200px;
