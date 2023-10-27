@@ -98,17 +98,18 @@ nav a:hover {
 
 /* 이벤트 배너 개체 */
 .eventbanner {
-    width: 200px;
+    width: 500;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 20 auto;
 }
 
 .eventbanner img {
     max-width: 100%; /* 이미지가 부모 요소를 넘지 않도록 최대 폭 설정 */
     height: auto; 
+    margin: 20px auto;
 }
 
 
