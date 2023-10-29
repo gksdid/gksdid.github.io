@@ -1,5 +1,10 @@
-// 코인 계산기
+// 페이지에 노출되는 이벤트명
+let event1 = "The Fool's Blessing";
+let event2 = "The CHAOSBOUND OF ERANGEL";
+let event3 = "Wings Whispering";
+let event4 = "Unleashed Muscle (Dodge)";
 
+// 기본값: 수정 필요하지 않음
   let price = 600;
   let probability1 = 0;
   let probability2 = 0;
@@ -8,7 +13,7 @@
   let probability10 = 0;
 
   function updateProbabilities(checkboxId) {
-    const checkboxes = ['event1', 'event2', 'event3', 'event4'];
+    const checkboxes = ['event1', 'event2', 'event3', 'event4']; // 이벤트 추가 시 수정 필요
 
     checkboxes.forEach(id => {
       if (id !== checkboxId) {
@@ -54,6 +59,7 @@
         // 추가 이벤트들에 대해 case 추가 가능
       }
        calculateCoins();  // 이벤트가 선택될 때 바로 계산
+      
     } else {
       // No checkbox selected, reset to default values
       probability1 = 0;
