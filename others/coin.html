@@ -12,14 +12,7 @@
 <body>
 
   <!-- 페이지 헤더 -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="../../">홈</a></li>
-                <!-- 다른 페이지에 대한 메뉴 항목 추가 -->
-            </ul>
-        </nav>
-    </header> <br>
+  <div id="header-container"></div>
 
   <p>획득 가능한 교환코인 개수의 평균을 계산합니다.</p>
 
@@ -115,7 +108,7 @@
 
 }
 
-
+    
   function expectedCoins(numAttempts) {
     const coins1 = 1 * numAttempts * probability1;
     const coins2 = 2 * numAttempts * probability2;
@@ -129,6 +122,8 @@
 
     window.onload = calculateCoins;
 </script>
+
+  <script src="load-header.js"></script>
 
 </body>
 </html>
