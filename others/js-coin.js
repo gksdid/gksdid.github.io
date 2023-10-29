@@ -8,7 +8,7 @@
   let probability10 = 0;
 
   function updateProbabilities(checkboxId) {
-    const checkboxes = ['event1', 'event2', 'event3'];
+    const checkboxes = ['event1', 'event2', 'event3', 'event4'];
 
     checkboxes.forEach(id => {
       if (id !== checkboxId) {
@@ -42,6 +42,14 @@
           probability3 = 0;
           probability5 = 0;
           probability10 = 0;
+          break;
+        case 'event4':
+          price = 540;
+          probability1 = 0.6395;
+          probability2 = 0;
+          probability3 = 0.22;
+          probability5 = 0;
+          probability10 = 0.08;
           break;
         // 추가 이벤트들에 대해 case 추가 가능
       }
