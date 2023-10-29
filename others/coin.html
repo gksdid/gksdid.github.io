@@ -38,21 +38,36 @@
     
     <label>이벤트 선택: </label>
     <label>
-      <input type="checkbox" id="event1" onchange="updateProbabilities('event1')"> The Fool's Blessing
+      <input type="checkbox" id="event1" onchange="updateProbabilities('event1')">
+      <span id="event1-label"></span>
     </label>
+
     <label>
-      <input type="checkbox" id="event2" onchange="updateProbabilities('event2')"> The CHAOSBOUND OF ERANGEL
+      <input type="checkbox" id="event2" onchange="updateProbabilities('event2')">
+      <span id="event2-label"></span>
     </label>
+
     <label>
-      <input type="checkbox" id="event3" onchange="updateProbabilities('event3')"> Wings Whispering
+      <input type="checkbox" id="event3" onchange="updateProbabilities('event3')">
+      <span id="event3-label"></span>
     </label>
+
     <label>
-      <input type="checkbox" id="event4" onchange="updateProbabilities('event4')"> Unleashed Muscle (Dodge)
+      <input type="checkbox" id="event4" onchange="updateProbabilities('event4')">
+      <span id="event4-label"></span>
     </label>
 
     <p id="result"></p>
     
   </div>
+
+  <script>
+    document.getElementById("event1-label").textContent = event1;
+    document.getElementById("event2-label").textContent = event2;
+    document.getElementById("event3-label").textContent = event3;
+    document.getElementById("event4-label").textContent = event4;
+ </script>
+  
 
   
 </body>
