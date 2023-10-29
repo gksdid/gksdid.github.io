@@ -3,6 +3,7 @@ let event1 = "The Fool's Blessing";
 let event2 = "The CHAOSBOUND OF ERANGEL";
 let event3 = "Wings Whispering";
 let event4 = "Unleashed Muscle (Dodge)";
+let event5 = "Lucky Spin - 도토리";
 
 // 기본값: 수정 필요하지 않음
   let price = 600;
@@ -13,7 +14,7 @@ let event4 = "Unleashed Muscle (Dodge)";
   let probability10 = 0;
 
   function updateProbabilities(checkboxId) {
-    const checkboxes = ['event1', 'event2', 'event3', 'event4']; // 이벤트 추가 시 수정 필요
+    const checkboxes = ['event1', 'event2', 'event3', 'event4', 'event5'];
 
     checkboxes.forEach(id => {
       if (id !== checkboxId) {
@@ -55,6 +56,14 @@ let event4 = "Unleashed Muscle (Dodge)";
           probability3 = 0.22;
           probability5 = 0;
           probability10 = 0.08;
+          break;
+        case 'event5':
+          price = 540;
+          probability1 = 0.515;
+          probability2 = 0;
+          probability3 = 0.3189;
+          probability5 = 0.13;
+          probability10 = 0;
           break;
         // 추가 이벤트들에 대해 case 추가 가능
       }
