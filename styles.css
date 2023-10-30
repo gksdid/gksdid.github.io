@@ -343,12 +343,6 @@ nav a:hover {
     }
 
 
-.square-button {
-  width: auto; /* 버튼의 고정된 너비 */
-  height: auto;
-  margin: 8px;
-}
-
     .css-center {
         text-align: center;
     }
