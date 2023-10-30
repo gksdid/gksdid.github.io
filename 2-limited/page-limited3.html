@@ -22,9 +22,9 @@
     </header>
     <br>
 
-    <h1>디스커버리 상자</h1>
+    <h1>BT21 상자</h1>
 
-    <!-- 가격은 .js 파일에서 편집함. -->
+    <!-- 가격은 하단의 스크립트에서 수정함. -->
     <p><span id="price-display"></span> / 10회</p>
 
     <!-- 상자 판매 기간 편집 -->
@@ -57,12 +57,14 @@
         </thead>
 
         <tbody>
-            <!-- 추가된 부분: 데이터를 표에 추가 -->
+            <!-- 데이터를 표에 추가 -->
         </tbody>
     </table>
 
-    <!-- ** 자바스크립트 명령어를 불러오는 부분 --> 
-    <script src="../js-datasetup.js"></script>
+    <!-- ** 자바스크립트 명령어를 불러오는 부분 -->
+    <script>
+        var price = 450; // ***** 가격 설정
+    </script>
     <script>
         // HTML 파일 1
         document.addEventListener('DOMContentLoaded', function () {
@@ -77,9 +79,10 @@
             // 초기 값 계산
             updateProbabilitySum();
 
-            // ** 데이터를 불러오는 부분
+            // ***************** 데이터를 불러오는 부분
             var tableBody = document.querySelector('.css-special-table tbody');
 
+            // ****************** 중요 ******************
             fetch('data-limited3.json')
                 .then(response => response.json())
                 .then(data => {
@@ -115,13 +118,16 @@
                         });
                     });
 
-                setPrice(450); // 원하는 가격으로 설정
+
+                // ***** 가격 설정 *****
+                setPrice(810); // 원하는 가격으로 설정
                 var currentPrice = getPrice(); // 현재 가격 가져오기
                     
                 })
                 .catch(error => console.error('Error fetching data:', error));
         });
     </script>
+    <script src="../js-datasetup.js"></script>
 </body>
 
 </html>
