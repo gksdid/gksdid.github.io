@@ -191,7 +191,7 @@ nav a:hover {
     box-sizing: border-box;
     padding: 20px;
     margin: 15px;
-    width: 115px;
+    width: auto;
     text-align: left;
     background-color: #f2f2f2;
     border-radius: 5px;
