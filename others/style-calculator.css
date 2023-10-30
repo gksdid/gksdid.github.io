@@ -107,6 +107,10 @@ nav a:hover {
     color: #ff6600; /* 마우스를 올렸을 때의 색상 */
 }
 
+.text-category {
+    font-weight: bold;
+}
+
 
     p {
     text-align: center;
