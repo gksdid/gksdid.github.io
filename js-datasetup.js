@@ -48,7 +48,7 @@ function updateProbabilitySum() {
 
     var resultElement = document.getElementById('probability-sum');
     // resultElement.textContent = '확률 합계: ' + sum.toFixed(2) + '%';
-    resulttElement.innerHTML = '확률 합계: <br>' + sum.toFixed(2) + '%';
+    resultElement.innerHTML = '확률 합계: <br>' + sum.toFixed(2) + '%';
 
 
     var probabilityAttempts = calculateAttempts(sum);
