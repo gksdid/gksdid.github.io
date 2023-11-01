@@ -73,7 +73,7 @@ function calculateItemProbability() {
   document.getElementById('result').innerHTML = `약 <span class="text-highlight">${Math.floor(10 * userBudget / tryCost)}회</span>의 시도가 가능하네요.<br>
   <span class="text-highlight">${roundedProbability}%</span>의 확률로 최소 하나를 얻을 수 있어요!`;
   
-  document.getElementById('alternative').innerHTML = `그동안 단 한 번도 얻지 못할 확률은 ${roundedFailure}%입니다.`;
+  document.getElementById('alternative').innerHTML = `단 한 번도 나오지 않을 확률은 ${roundedFailure}%입니다.`;
 
 }
 
