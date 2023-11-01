@@ -24,12 +24,10 @@
     </nav>
   </header>
 
-  <br>
-  <h2>아이템 획득 확률 계산기</h2>
-  
-  <p class="sub-text">적어도 한 번 아이템을 획득할 확률을 계산합니다.</p>
+  <p>적어도 한 번 아이템을 획득할 확률을 계산합니다.</p>
 
 <div class="calculator-container">
+  <h2>아이템 획득 확률 계산기</h2>
 
   <label for="itemProbability">아이템 확률 (%)</label>
   <input type="number" id="itemProbability" min="0" max="100" step="0.01" value="0.30" oninput="calculateItemProbability()">
@@ -39,16 +37,13 @@
 
   <label for="tryCost">10회 가격</label>
   <input type="number" id="tryCost" min="0" step="270" value="1080" oninput="calculateItemProbability()">
+    
+   <p id="result"></p>
 
 </div>
 
-  <div class="result-container">
-
-    <p id="result"></p>
-    <br>
-    <p id="alternative"></p>
-
-  </div>
+  <br>
+  <p id="alternative"></p>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
