@@ -7,9 +7,11 @@
 
 body {
       font-family: 'Ycomputer-Regular', sans-serif;
-      background-color: black;
+      linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
       background-image: url("../banner/wallpaper/wallpaper1.jpeg");
-      background-blend-mode: darken;
       margin: 0;
       padding: 0;
     }
