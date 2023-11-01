@@ -37,7 +37,12 @@ if (targetDateAttribute !== null) {
             const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-            countdownElement.innerHTML = `남은 시간: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+            // countdownElement에 값을 넣기 전에, 값이 유효한지 확인
+            if (!isNaN(days) && !isNaN(hours) && !isNaN(minutes) && !isNaN(seconds)) {
+                countdownElement.innerHTML = `남은 시간: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+            } else {
+                console.error("Invalid time values");
+            }
         }
 
         // 페이지 로드 시 초기 업데이트
