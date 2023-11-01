@@ -170,7 +170,7 @@ p {
       content: "";
       position: absolute;
       left: 0;
-      bottom: 0;
+      bottom: -5px;
       z-index: -1;
       width: 100%;
       height: 10px; 
