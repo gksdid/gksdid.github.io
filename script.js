@@ -12,9 +12,15 @@ gtag('config', 'G-4VK413KLDK');
 
 
 // 타이머
+
 // HTML에서 data-target-date 값을 가져옴.
 const targetDateAttribute = document.getElementById("countdown").getAttribute("data-target-date");
-const targetDate = new Date(targetDateAttribute);
+console.log("targetDateAttribute:", targetDateAttribute);
+
+// 대한민국 시간대
+const targetDate = new Date(targetDateAttribute + "T00:00:00");
+targetDate.toLocaleString("en-US", { timeZone: "Asia/Seoul" });
+console.log("targetDate:", targetDate);
 
 function updateCountdown() {
     const currentDate = new Date();
@@ -34,4 +40,3 @@ updateCountdown();
 
 // 1초마다 업데이트
 setInterval(updateCountdown, 1000);
-
