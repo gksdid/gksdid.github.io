@@ -12,7 +12,6 @@ gtag('config', 'G-4VK413KLDK');
 
 
 // 타이머
-
 // HTML에서 id가 "countdown"인 요소를 가져옴
 const countdownElement = document.getElementById("countdown");
 
@@ -24,7 +23,6 @@ console.log("targetDateAttribute:", targetDateAttribute);
 // 데이터 속성이 null이 아닌지 확인
 if (targetDateAttribute !== null) {
     const targetDate = new Date(targetDateAttribute);
-    console.log("targetDate:", targetDate);
 
     // targetDate가 유효한 날짜인지 확인
     if (!isNaN(targetDate.getTime())) {
