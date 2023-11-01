@@ -21,10 +21,12 @@ const targetDateAttribute = countdownElement.dataset.targetDate;
 
 console.log("targetDateAttribute:", targetDateAttribute);
 
-if (targetDateAttribute) {
+// 데이터 속성이 null이 아닌지 확인
+if (targetDateAttribute !== null) {
     const targetDate = new Date(targetDateAttribute);
     console.log("targetDate:", targetDate);
 
+    // targetDate가 유효한 날짜인지 확인
     if (!isNaN(targetDate.getTime())) {
         function updateCountdown() {
             const currentDate = new Date();
