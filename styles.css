@@ -170,7 +170,7 @@ p {
       content: "";
       position: absolute;
       left: 0;
-      bottom: 0;
+      top: 100%;
       width: 100%;
       height: 5px; /* 원하는 높이로 조절해봐 */
       background-color: #FFDB58; /* 머스타드 색 */
