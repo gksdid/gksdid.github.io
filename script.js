@@ -13,6 +13,8 @@ gtag('config', 'G-4VK413KLDK');
 
 // 타이머
 document.addEventListener("DOMContentLoaded", function() {
+        const scriptElement = document.currentScript;
+
             // HTML에서 data-target-date 값을 가져옴.
             const targetDateAttribute = scriptElement.getAttribute("data-target-date");
             const targetDate = new Date(targetDateAttribute);
