@@ -7,7 +7,12 @@
 
 body {
       font-family: 'Ycomputer-Regular', sans-serif;
-      background-color: white;
+         background: linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        url('../banner/wallpaper/wallpaper1.jpeg') center/cover fixed no-repeat;
+      height: 100vh;
       margin: 0;
       padding: 0;
     }
