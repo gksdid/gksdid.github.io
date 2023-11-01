@@ -87,8 +87,8 @@ let event5 = "Lucky Spin - 도토리";
   const resultElement = document.getElementById('result');
   const roundedCoins = Math.round(expectedCoins(numAttempts)); // 반올림 처리
   // resultElement.innerHTML = `평균 코인 획득량: ${roundedCoins} 코인<br>(${Math.round(numAttempts)} 시도)`;
-  resultElement.innerHTML = `${gameCurrency} UC로 약 <span class="text-highlight">${Math.round(numAttempts)}회</span>의 시도를 할 수 있네요.<br>
-  평균적으로 <span class="text-highlight">${roundedCoins}개</span>의 교환 코인을 획득할 수 있어요!`;
+  resultElement.innerHTML = `약 <span class="text-highlight">${Math.round(numAttempts)}회</span>의 시도가 가능하네요.<br>
+  평균적으로 <span class="text-highlight">${roundedCoins}개</span>의 교환코인을 획득합니다!`;
 
 }
 
