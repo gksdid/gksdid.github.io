@@ -13,7 +13,13 @@ gtag('config', 'G-4VK413KLDK');
 
 // 타이머
 
-const targetDateAttribute = document.getElementById("countdown").dataset.targetDate;
+// HTML에서 id가 "countdown"인 요소를 가져옴
+const countdownElement = document.getElementById("countdown");
+
+// 데이터 속성을 가져올 때 countdownElement에서 직접 가져오도록 변경
+const targetDateAttribute = countdownElement.dataset.targetDate;
+
+console.log("targetDateAttribute:", targetDateAttribute);
 
 if (targetDateAttribute) {
     const targetDate = new Date(targetDateAttribute);
@@ -29,7 +35,6 @@ if (targetDateAttribute) {
             const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-            const countdownElement = document.getElementById("countdown");
             countdownElement.innerHTML = `남은 시간: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
         }
 
