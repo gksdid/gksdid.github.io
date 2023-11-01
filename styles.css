@@ -160,6 +160,23 @@ p {
 }
 
 
+/* 형광펜 */
+.highlight-box {
+      position: relative;
+      display: inline;
+    }
+
+    .highlight-box::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 5px; /* 원하는 높이로 조절해봐 */
+      background-color: #FFDB58; /* 머스타드 색 */
+    }
+
+
 
 
 .css-special-table {
