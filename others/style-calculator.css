@@ -7,11 +7,13 @@
 
 body {
       font-family: 'Ycomputer-Regular', sans-serif;
-      linear-gradient(
+      background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
           rgba(0, 0, 0, 0.7), 
           rgba(0, 0, 0, 0.7)
         ),
-      background-image: url("../banner/wallpaper/wallpaper1.jpeg");
+        url("../banner/wallpaer/wallpaper1.jpeg");
       margin: 0;
       padding: 0;
     }
