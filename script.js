@@ -28,8 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // targetDate가 유효한 날짜인지 확인
         if (!isNaN(targetDate.getTime())) {
             function updateCountdown() {
-                const currentDate = new Date();
-                const timeDifference = targetDate - currentDate;
+                // 대한민국 시간대로 변경
+                const koreanDate = new Date(targetDate.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
+                const currentDate = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
+                const timeDifference = koreanDate - new Date(currentDate);
 
                 const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -38,7 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // countdownElement에 값을 넣기 전에, 값이 유효한지 확인
                 if (!isNaN(days) && !isNaN(hours) && !isNaN(minutes) && !isNaN(seconds)) {
-                    countdownElement.innerHTML = `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+                    // 대한민국 시간대로 변환하여 표시
+                    const koreanTime = `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+                    countdownElement.innerHTML = koreanTime;
                 } else {
                     console.error("Invalid time values");
                 }
