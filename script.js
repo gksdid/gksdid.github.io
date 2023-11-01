@@ -19,11 +19,12 @@ console.log("targetDateAttribute:", targetDateAttribute);
 
 // 대한민국 시간대
 const targetDate = new Date(targetDateAttribute + "T00:00:00");
-targetDate.toLocaleString("en-US", { timeZone: "Asia/Seoul" });
+targetDate.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
 console.log("targetDate:", targetDate);
 
 function updateCountdown() {
     const currentDate = new Date();
+    currentDate.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
     const timeDifference = targetDate - currentDate;
 
     const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
