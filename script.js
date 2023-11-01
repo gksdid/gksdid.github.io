@@ -13,29 +13,30 @@ gtag('config', 'G-4VK413KLDK');
 
 // 타이머
 document.addEventListener("DOMContentLoaded", function() {
-    // 각 HTML에서 날짜 설정
-    const targetDateAttribute = document.currentScript.getAttribute("data-target-date");
-    const targetDate = new Date(targetDateAttribute);
+            // HTML에서 data-target-date 값을 가져옴.
+            const scriptElement = document.querySelector('script[src="countdown.js"]');
+            const targetDateAttribute = scriptElement.getAttribute("data-target-date");
+            const targetDate = new Date(targetDateAttribute);
 
-    function updateCountdown() {
-        const currentDate = new Date();
-        const timeDifference = targetDate - currentDate;
+            function updateCountdown() {
+                const currentDate = new Date();
+                const timeDifference = targetDate - currentDate;
 
-        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-        const countdownElement = document.getElementById("countdown");
-        countdownElement.innerHTML = `남은 시간: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
-    }
+                const countdownElement = document.getElementById("countdown");
+                countdownElement.innerHTML = `남은 시간: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+            }
 
-    // 페이지 로드 시 초기 업데이트
-    updateCountdown();
+            // 페이지 로드 시 초기 업데이트
+            updateCountdown();
 
-    // 1초마다 업데이트
-    setInterval(updateCountdown, 1000);
-});
+            // 1초마다 업데이트
+            setInterval(updateCountdown, 1000);
+        });
 
 
 
