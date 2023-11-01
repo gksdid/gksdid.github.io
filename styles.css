@@ -76,6 +76,10 @@ h1 {
     margin-bottom: 0.6em;
 }
 
+h2 {
+    margin-bottom: 0.6em;
+}
+
 p {
     margin-bottom: 0.5em; /* p 요소의 위쪽 여백 조절 */
 }
