@@ -71,6 +71,9 @@ nav a:hover {
     color: #ff6600; /* 마우스를 올렸을 때의 색상 */
 }
 
+h1 {
+    margin-top: 0.5em;
+}
 
 .button-container {
   display: flex;
