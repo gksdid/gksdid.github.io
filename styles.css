@@ -75,6 +75,10 @@ h1 {
     margin-top: 0.5em;
 }
 
+p {
+    margin-bottom: 0.5em; /* p 요소의 위쪽 여백 조절 */
+}
+
 .button-container {
   display: flex;
   justify-content: center;
