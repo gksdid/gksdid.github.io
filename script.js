@@ -13,31 +13,34 @@ gtag('config', 'G-4VK413KLDK');
 
 // 타이머
 
-// HTML에서 data-target-date 값을 가져옴.
-const targetDateAttribute = document.getElementById("countdown").getAttribute("data-target-date");
-console.log("targetDateAttribute:", targetDateAttribute);
+const targetDateAttribute = document.getElementById("countdown").dataset.targetDate;
 
-// 대한민국 시간대
-const targetDate = new Date(targetDateAttribute + "T00:00:00");
-targetDate.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
-console.log("targetDate:", targetDate);
+if (targetDateAttribute) {
+    const targetDate = new Date(targetDateAttribute);
+    console.log("targetDate:", targetDate);
 
-function updateCountdown() {
-    const currentDate = new Date();
-    currentDate.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
-    const timeDifference = targetDate - currentDate;
+    if (!isNaN(targetDate.getTime())) {
+        function updateCountdown() {
+            const currentDate = new Date();
+            const timeDifference = targetDate - currentDate;
 
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-    const countdownElement = document.getElementById("countdown");
-    countdownElement.innerHTML = `남은 시간: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+            const countdownElement = document.getElementById("countdown");
+            countdownElement.innerHTML = `남은 시간: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+        }
+
+        // 페이지 로드 시 초기 업데이트
+        updateCountdown();
+
+        // 1초마다 업데이트
+        setInterval(updateCountdown, 1000);
+    } else {
+        console.error("Invalid targetDate format");
+    }
+} else {
+    console.error("targetDateAttribute is null");
 }
-
-// 페이지 로드 시 초기 업데이트
-updateCountdown();
-
-// 1초마다 업데이트
-setInterval(updateCountdown, 1000);
