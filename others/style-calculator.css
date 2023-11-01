@@ -43,6 +43,7 @@ body {
 }
 
 .text-highlight {
+      font-weight: bold;
       position: relative;
       display: inline;
 }
