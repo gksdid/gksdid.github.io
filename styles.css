@@ -168,9 +168,9 @@ p {
 .highlight-box {
       position: relative;
       display: inline;
-    }
+}
 
-    .highlight-box::after {
+.highlight-box::after {
       content: "";
       position: absolute;
       left: 0;
@@ -179,10 +179,10 @@ p {
       width: 100%;
       height: 11px; 
       background-color: #a4e4dc; 
-    }
+}
 
 
-
+/* ----- 테이블 ----- */
 
 .css-special-table {
     width: 100%; /* 테이블 전체 너비 조절 */
@@ -202,26 +202,26 @@ p {
     text-align: left;
 }
 
-        .css-table-head {
-            background-color: #f2f2f2;
-        }
+.css-table-head {
+    background-color: #f2f2f2;
+}
 
-        .css-special-table th.css-center,
-        .css-special-table td.css-center {
-            text-align: center;
-        }
+.css-special-table th.css-center,
+.css-special-table td.css-center {
+    text-align: center;
+}
 
-        .css-special-table td:first-child {
-            width: 5%;
-        }
+.css-special-table td:first-child {
+    width: 5%;
+}
 
-        .css-row td {
-            text-align: left; /* 특정 행에만 왼쪽 정렬 적용 */
-        }
+.css-row td {
+    text-align: left; /* 특정 행에만 왼쪽 정렬 적용 */
+}
 
-        .css-center {
-            text-align: center;
-        }
+.css-center {
+    text-align: center;
+}
 
 
 /* 계산된 정보를 출력하는 곳 */
@@ -244,8 +244,7 @@ p {
 
     
 
-
-/* 추가된 부분: 등급에 따른 클래스 스타일 */
+/* 추가된 부분: 등급에 따른 스타일 */
 .gold-grade-index-1 {
     color: rgb(255, 220, 42);;
     font-weight: bold;
@@ -265,6 +264,10 @@ p {
 
 .blue-grade-index-1 {
     color: rgb(74, 76, 232);
+}
+
+.green-grade-index-1 {
+    color: #33AA67;
 }
 
 .default-grade-index-1 {
@@ -290,6 +293,10 @@ p {
 }
 
 .blue-grade-index-2 {
+    font-family: 'JSongMyung-Regular-KO', sans-serif;
+}
+
+.green-grade-index-2 {
     font-family: 'JSongMyung-Regular-KO', sans-serif;
 }
 
