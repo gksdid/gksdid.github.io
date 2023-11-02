@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>배틀오얄 상자</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Song+Myung&display=swap">
+    <title>배틀로얄 상자</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VK413KLDK"></script> 
+    <link rel="icon" href="../banner/wallpaper/pubg.png" type="image/png"> 
     <link rel="stylesheet" href="../styles.css"> <!-- 상위 CSS 파일을 불러옴 -->
 </head>
 
@@ -19,16 +19,18 @@
                 <li><a href="../others/calculator.html">확률 계산기</a></li>
             </ul>
         </nav>
-    </header>
-    <br>
+    </header> <br>
 
-    <h1>배틀로얄 상자</h1>
+    <p>10월 20일 (일) ~ 11월 13일 (월) </p>
 
-    <!-- 가격은 하단의 스크립트에서 수정함. -->
+    <h1><span class="highlight-box">배틀로얄 상자</span></h1>
+
+    <!-- 가격 -->
     <p><span id="price-display"></span> / 10회</p>
 
-    <!-- 상자 판매 기간 편집 -->
-    <p>10월 20일 (일) 11:00 ~ </p>
+     <!-- **** 상자 판매 기간 **** -->
+    <div id="countdown" data-target-date="2023-11-13T10:59:59"></div> <br>
+
 
     <div class="resultbox-rectangle-container">
         <div class="rectangle-container">
@@ -124,6 +126,8 @@
         });
     </script>
     <script src="../js-datasetup.js"></script>
+    <script src="../script.js"></script>
+    
 </body>
 
 </html>
