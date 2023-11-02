@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한정 상자 1</title>
+    <title>한정 상자</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VK413KLDK"></script>
-    <link rel="icon" href="../banner/wallpaper/pubg.png" type="image/png"> 
+    <link rel="icon" href="../banner/wallpaper/pubg.png" type="image/png">
     <link rel="stylesheet" href="../styles.css"> <!-- 상위 CSS 파일을 불러옴 -->
 </head>
 
@@ -22,15 +22,14 @@
     </header> <br>
 
     <!-- 상자 판매 기간 편집 -->
-    <p>10월 16일 ~ 11월 20일 </p>
+    <p id="sale-period"></p>
 
-    <h1><span class="highlight-box">2023 할로윈 상자</span></h1>
+    <h1><span class="highlight-box" id="page-title"></span></h1>
 
     <!-- 가격은 하단의 스크립트에서 수정함. -->
     <p><span id="price-display"></span> / 10회</p>
 
-    <div id="countdown" data-target-date="2023-11-20T10:59:59"></div> <br>
-    
+    <div id="countdown"></div> <br>
 
     <div class="resultbox-rectangle-container">
         <div class="rectangle-container">
@@ -65,66 +64,60 @@
 
     <!-- ** 자바스크립트 명령어를 불러오는 부분 -->
     <script>
-        var price = 810; // ***** 가격 설정
-    </script>
-    <script>
-        // HTML 파일 1
+        var pagesData = [
+            {
+                title: "2023 할로윈 상자",
+                price: 810,
+                dataUrl: 'data-limited1.json',
+                salePeriod: "10월 16일 ~ 11월 20일",
+                targetDate: "2023-11-20T10:59:59"
+            },
+            {
+                title: "다른 페이지 상자",
+                price: 950,
+                dataUrl: 'data-limited2.json',
+                salePeriod: "다른 날짜",
+                targetDate: "2023-12-01T12:00:00"
+            },
+            // 추가 페이지 데이터...
+        ];
+
+        // 페이지 초기화
         document.addEventListener('DOMContentLoaded', function () {
-            // 체크박스 클릭 이벤트 리스너 등록
-            var checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
-            checkboxes.forEach(function (checkbox) {
-                checkbox.addEventListener('change', function () {
-                    setTimeout(updateProbabilitySum, 0); // 비동기 처리를 위해 setTimeout 사용
-                });
-            });
-
-        
-            // ***************** 데이터를 불러오는 부분
-            var tableBody = document.querySelector('.css-special-table tbody');
-
-            // ****************** 중요 ******************
-            fetch('data-limited1.json')
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(function (item) {
-                        var newRow = document.createElement('tr');
-                        newRow.classList.add('css-row');
-
-                        // 체크박스 열 추가
-                        var checkboxCell = document.createElement('td');
-                        checkboxCell.classList.add('css-center');
-                        var checkbox = document.createElement('input');
-                        checkbox.type = 'checkbox';
-                        checkboxCell.appendChild(checkbox);
-                        newRow.appendChild(checkboxCell);
-
-                        // 데이터 셀 추가
-                        Object.values(item).forEach(function (cellData, index) {
-                            var newCell = document.createElement('td');
-                            var gradeClass = getGradeClass(index, cellData); // 색상 클래스 가져오기
-                            newCell.classList.add('css-center', gradeClass);
-                            newCell.textContent = cellData;
-                            newRow.appendChild(newCell);
-                        });
-
-                        tableBody.appendChild(newRow);
-                    });
-
-                    // 체크박스 이벤트 리스너 다시 등록
-                    checkboxes = document.querySelectorAll('.css-special-table input[type="checkbox"]');
-                    checkboxes.forEach(function (checkbox) {
-                        checkbox.addEventListener('change', function () {
-                            setTimeout(updateProbabilitySum, 0);
-                        });
-                    });
-                    
-                })
-
-                .catch(error => console.error('Error fetching data:', error));
+            // 페이지 인덱스를 얻어오는 함수 호출
+            var pageIndex = getPageIndexFromUrl();
+            setPageData(pagesData[pageIndex]);
         });
+
+        function setPageData(data) {
+            // 페이지 데이터 설정
+            document.getElementById('page-title').textContent = data.title;
+            document.getElementById('price-display').textContent = data.price;
+            document.getElementById('countdown').setAttribute('data-target-date', data.targetDate);
+            document.getElementById('sale-period').textContent = data.salePeriod;
+
+            // 데이터 로드 및 처리
+            fetchDataAndPopulateTable(data.dataUrl);
+        }
+
+        function getPageIndexFromUrl() {
+            // 현재 URL에서 "page" 파라미터 값을 찾아냄
+            var urlParams = new URLSearchParams(window.location.search);
+            var pageIndex = urlParams.get('page');
+
+            // 만약 "page" 파라미터가 없다면 기본값으로 0을 반환
+            return pageIndex ? parseInt(pageIndex, 10) : 0;
+        }
     </script>
     <script src="../js-datasetup.js"></script>
     <script src="../script.js"></script>
+
+    <script>
+        // HTML 파일 1
+        document.addEventListener('DOMContentLoaded', function () {
+            setPageData(pageData);
+        });
+    </script>
 </body>
 
 </html>
