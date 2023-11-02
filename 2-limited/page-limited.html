@@ -84,20 +84,28 @@
 
         // 페이지 초기화
         document.addEventListener('DOMContentLoaded', function () {
-            // 페이지 인덱스를 얻어오는 함수 호출
-            var pageIndex = getPageIndexFromUrl();
-            setPageData(pagesData[pageIndex]);
+            // 페이지 데이터를 설정하고 처리
+            setPageData();
         });
 
-        function setPageData(data) {
+        function setPageData() {
+            // 현재 URL에서 "page" 파라미터 값을 얻어오기
+            var pageIndex = getPageIndexFromUrl();
+            
             // 페이지 데이터 설정
-            document.getElementById('page-title').textContent = data.title;
-            document.getElementById('price-display').textContent = data.price;
-            document.getElementById('countdown').setAttribute('data-target-date', data.targetDate);
-            document.getElementById('sale-period').textContent = data.salePeriod;
+            var data = pagesData[pageIndex];
+            if (data) {
+                document.getElementById('page-title').textContent = data.title;
+                document.getElementById('price-display').textContent = data.price;
+                document.getElementById('countdown').setAttribute('data-target-date', data.targetDate);
+                document.getElementById('sale-period').textContent = data.salePeriod;
 
-            // 데이터 로드 및 처리
-            fetchDataAndPopulateTable(data.dataUrl);
+                // 데이터 로드 및 처리
+                fetchDataAndPopulateTable(data.dataUrl);
+            } else {
+                // 페이지 데이터가 없을 경우에 대한 처리
+                console.error('Page data not found.');
+            }
         }
 
         function getPageIndexFromUrl() {
@@ -105,19 +113,12 @@
             var urlParams = new URLSearchParams(window.location.search);
             var pageIndex = urlParams.get('page');
 
-            // 만약 "page" 파라미터가 없다면 기본값으로 0을 반환
-            return pageIndex ? parseInt(pageIndex, 10) : 0;
+            // "page" 파라미터 값이 없거나 잘못된 경우에 기본값으로 0을 반환
+            return pageIndex && !isNaN(pageIndex) ? parseInt(pageIndex, 10) : 0;
         }
     </script>
     <script src="../js-datasetup.js"></script>
     <script src="../script.js"></script>
-
-    <script>
-        // HTML 파일 1
-        document.addEventListener('DOMContentLoaded', function () {
-            setPageData(pageData);
-        });
-    </script>
 </body>
 
 </html>
