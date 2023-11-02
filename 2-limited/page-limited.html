@@ -88,25 +88,17 @@
             setPageData();
         });
 
-        function setPageData() {
-            // 현재 URL에서 "page" 파라미터 값을 얻어오기
-            var pageIndex = getPageIndexFromUrl();
-            
+        function setPageData(data) {
             // 페이지 데이터 설정
-            var data = pagesData[pageIndex];
-            if (data) {
-                document.getElementById('page-title').textContent = data.title;
-                document.getElementById('price-display').textContent = data.price;
-                document.getElementById('countdown').setAttribute('data-target-date', data.targetDate);
-                document.getElementById('sale-period').textContent = data.salePeriod;
+            document.getElementById('page-title').textContent = data.title;
+            document.getElementById('price-display').textContent = data.price;
+            document.getElementById('countdown').setAttribute('data-target-date', data.targetDate);
+            document.getElementById('sale-period').textContent = data.salePeriod;
 
-                // 데이터 로드 및 처리
-                fetchDataAndPopulateTable(data.dataUrl);
-            } else {
-                // 페이지 데이터가 없을 경우에 대한 처리
-                console.error('Page data not found.');
-            }
+            // 데이터 로드 및 처리
+            fetchDataAndPopulateTable(data.dataUrl);
         }
+
 
         function getPageIndexFromUrl() {
             // 현재 URL에서 "page" 파라미터 값을 찾아냄
