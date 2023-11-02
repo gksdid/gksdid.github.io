@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>한정 상자 2</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Song+Myung&display=swap">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VK413KLDK"></script> 
+    <link rel="icon" href="../banner/wallpaper/pubg.png" type="image/png">     
     <link rel="stylesheet" href="../styles.css"> <!-- 상위 CSS 파일을 불러옴 -->
 </head>
 
@@ -19,16 +19,19 @@
                 <li><a href="../others/calculator.html">확률 계산기</a></li>
             </ul>
         </nav>
-    </header>
-    <br>
-
-    <h1>BT21 상자</h1>
+    </header> <br>
+    
+    <!-- 상자 판매 기간 편집 -->
+    <p>9월 26일 ~ 11월 25일 </p>
+    
+    <h1><span class="highlight-box">BT21 상자</span></h1>
 
     <!-- 가격은 하단의 스크립트에서 수정함. -->
     <p><span id="price-display"></span> / 10회</p>
 
-    <!-- 상자 판매 기간 편집 -->
-    <p>9월 26일 (화) 11:00 ~ </p>
+    <div id="countdown" data-target-date="2023-11-25T11:00:00"></div> <br>
+   
+
 
     <div class="resultbox-rectangle-container">
         <div class="rectangle-container">
@@ -122,6 +125,7 @@
         });
     </script>
     <script src="../js-datasetup.js"></script>
+    <script src="../script.js"></script>
 </body>
 
 </html>
