@@ -56,3 +56,34 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error("targetDateAttribute is undefined");
     }
 });
+
+
+// html 통합 테스트
+
+// 페이지 초기화
+document.addEventListener('DOMContentLoaded', function () {
+    // 페이지 인덱스를 얻어오는 함수 호출
+    var pageIndex = getPageIndexFromUrl();
+    setPageData(pagesData[pageIndex]);
+});
+
+function setPageData(data) {
+    // 페이지 데이터 설정
+    document.getElementById('page-title').textContent = data.title;
+    document.getElementById('price-display').textContent = data.price;
+    document.getElementById('countdown').setAttribute('data-target-date', data.targetDate);
+    document.getElementById('sale-period').textContent = data.salePeriod;
+
+    // 데이터 로드 및 처리
+    fetchDataAndPopulateTable(data.dataUrl);
+}
+
+function getPageIndexFromUrl() {
+    // 현재 URL에서 "page" 파라미터 값을 찾아냄
+    var urlParams = new URLSearchParams(window.location.search);
+    var pageIndex = urlParams.get('page');
+
+    // 만약 "page" 파라미터가 없다면 기본값으로 0을 반환
+    return pageIndex ? parseInt(pageIndex, 10) : 0;
+}
+
