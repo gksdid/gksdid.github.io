@@ -97,7 +97,6 @@
                 salePeriod: '10월 16일 ~ 11월 20일',
                 dataUrl: 'data-limited1.json'
             };
-            // price 설정 후에 return
             price = data.price;
             return data;
         case 2:
@@ -108,7 +107,36 @@
                 salePeriod: '9월 26일 ~ 11월 25일',
                 dataUrl: 'data-limited2.json'
             };
-            // price 설정 후에 return
+            price = data.price;
+            return data;
+        case 3:
+            var data = {
+                title: '디스커버리 상자',
+                price: 450,
+                targetDate: '2023-11-21T11:00:009',
+                salePeriod: '10월 26일 (목) 11:00 ~',
+                dataUrl: 'data-limited3.json'
+            };
+            price = data.price;
+            return data;
+        case 4:
+            var data = {
+                title: '빙하 상자',
+                price: 1080,
+                targetDate: '2023-11-21T11:00:00',
+                salePeriod: '10월 31일 ~ 11월 21일',
+                dataUrl: 'data-limited4.json'
+            };
+            price = data.price;
+            return data;
+        case 5:
+            var data = {
+                title: 'BT21 상자',
+                price: 810,
+                targetDate: '2023-11-25T10:59:59',
+                salePeriod: '9월 26일 ~ 11월 25일',
+                dataUrl: 'data-limited5.json'
+            };
             price = data.price;
             return data;
         // 다른 케이스들 추가
@@ -118,7 +146,6 @@
 // 페이지 로드 시 실행
 var dataIndex = getPageDataFromUrl();
 setPageData(getDataForIndex(dataIndex));
-
 
 
         function fetchDataAndPopulateTable(dataUrl) {
