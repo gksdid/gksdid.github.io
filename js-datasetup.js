@@ -1,5 +1,7 @@
 // datasetup
 
+var price = 0;
+
 // 등급에 따른 클래스 스타일
 function getGradeClass(index, gradeText) {
     var classPrefix = 'default-grade'; // 기본값은 검정색
