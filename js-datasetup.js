@@ -1,8 +1,7 @@
 // datasetup
 
-var price = 0;
 
-// 등급에 따른 클래스 스타일
+// 추가된 부분: 등급에 따른 클래스 스타일
 function getGradeClass(index, gradeText) {
     var classPrefix = 'default-grade'; // 기본값은 검정색
 
@@ -53,6 +52,7 @@ function updateProbabilitySum() {
 
     var resultElement = document.getElementById('probability-sum');
     resultElement.innerHTML = '확률 합계: <br>' + sum.toFixed(2) + '%';
+
 
     var probabilityAttempts = calculateAttempts(sum);
     var attemptsElement = document.getElementById('probability-attempts');
