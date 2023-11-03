@@ -71,6 +71,8 @@
             document.getElementById('countdown').setAttribute('data-target-date', data.targetDate);
             document.getElementById('sale-period').textContent = data.salePeriod;
 
+            price = parseFloat(data.price);
+
             // 데이터 로드 및 처리
             fetchDataAndPopulateTable(data.dataUrl);
         }
