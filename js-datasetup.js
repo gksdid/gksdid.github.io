@@ -65,7 +65,7 @@ function updateProbabilitySum() {
     costElement.innerHTML = '평균 비용: <br>' + costInteger + ' UC';
 
     var priceDisplay = document.getElementById('price-display');
-    priceDisplay.textContent = price + ' UC';
+    priceDisplay.textContent = price;
 }
 
 function calculateAttempts(probabilitySum) {
