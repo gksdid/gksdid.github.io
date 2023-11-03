@@ -1,6 +1,5 @@
 // datasetup
 
-var = data;
 // 등급에 따른 클래스 스타일
 function getGradeClass(index, gradeText) {
     var classPrefix = 'default-grade'; // 기본값은 검정색
@@ -57,19 +56,14 @@ function updateProbabilitySum() {
     var attemptsElement = document.getElementById('probability-attempts');
     attemptsElement.innerHTML = '평균 횟수: <br>' + probabilityAttempts + '회';
 
-    /* var costElement = document.getElementById('cost');
-    var costValue = (probabilityAttempts / 10 * price).toFixed(2);
-    var costInteger = parseInt(costValue, 10); */
-
-    // data.price를 사용하여 cost 계산
     var costElement = document.getElementById('cost');
-    var costValue = (probabilityAttempts / 10 * data.price).toFixed(2);
+    var costValue = (probabilityAttempts / 10 * price).toFixed(2);
     var costInteger = parseInt(costValue, 10);
 
     costElement.innerHTML = '평균 비용: <br>' + costInteger + ' UC';
 
     var priceDisplay = document.getElementById('price-display');
-    priceDisplay.textContent = data.price + ' UC';
+    priceDisplay.textContent = price + ' UC';
 }
 
 function calculateAttempts(probabilitySum) {
