@@ -82,17 +82,33 @@
             // 추가 페이지 데이터...
         ];
 
-        // 페이지 초기화
-        document.addEventListener('DOMContentLoaded', function () {
-            // URL에서 페이지 인덱스 가져오기
-            var pageIndex = getPageIndexFromUrl();
+        document.addEventListener('DOMContentLoaded', init);
 
-            // pagesData 배열에서 해당하는 데이터 가져오기
-            var currentPageData = pagesData[pageIndex];
+        function init() {
+    // URL에서 페이지 인덱스 가져오기
+    var pageIndex = getPageIndexFromUrl();
+    console.log('pageIndex from init:', pageIndex);
 
-            // 페이지 데이터 설정
-            setPageData(currentPageData);
-        });
+    // pagesData 배열에서 해당하는 데이터 가져오기
+    var currentPageData = pagesData[pageIndex];
+
+    // 페이지 데이터 설정
+    setPageData(currentPageData);
+}
+
+// 페이지 변경 시 호출할 함수
+function onPageChange() {
+    // URL에서 페이지 인덱스 가져오기
+    var pageIndex = getPageIndexFromUrl();
+    console.log('pageIndex from onPageChange:', pageIndex);
+
+    // pagesData 배열에서 해당하는 데이터 가져오기
+    var currentPageData = pagesData[pageIndex];
+
+    // 페이지 데이터 설정
+    setPageData(currentPageData);
+}
+
 
         function setPageData(data) {
             // 페이지 데이터 설정
