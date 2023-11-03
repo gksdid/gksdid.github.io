@@ -89,25 +89,30 @@
         function getDataForIndex(index) {
             // 여기에서 각 데이터 인덱스에 따라 다른 데이터를 반환
             switch(index) {
-                case 1:
-                    return {
-                        title: '2023 할로윈 상자',
-                        price: '810',
-                        targetDate: '2023-11-20T10:59:59',
-                        salePeriod: '10월 16일 ~ 11월 20일',
-                        dataUrl: 'data-limited1.json'
-                    };
-                case 2:
-                    return {
-                        title: 'BT21 상자',
-                        price: '810',
-                        targetDate: '2023-11-25T10:59:59',
-                        salePeriod: '9월 26일 ~ 11월 25일',
-                        dataUrl: 'data-limited2.json'
-                    };
-            
-                // 다른 케이스들 추가
-            }
+        case 1:
+            var data = {
+                title: '2023 할로윈 상자',
+                price: 810,
+                targetDate: '2023-11-20T10:59:59',
+                salePeriod: '10월 16일 ~ 11월 20일',
+                dataUrl: 'data-limited1.json'
+            };
+            // price 설정 후에 return
+            price = data.price;
+            return data;
+        case 2:
+            var data = {
+                title: 'BT21 상자',
+                price: 810,
+                targetDate: '2023-11-25T10:59:59',
+                salePeriod: '9월 26일 ~ 11월 25일',
+                dataUrl: 'data-limited2.json'
+            };
+            // price 설정 후에 return
+            price = data.price;
+            return data;
+        // 다른 케이스들 추가
+    }
         }
 
 // 페이지 로드 시 실행
