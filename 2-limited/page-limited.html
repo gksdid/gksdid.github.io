@@ -64,52 +64,6 @@
 
     <!-- ** 자바스크립트 명령어를 불러오는 부분 -->
     <script>
-        var pagesData = [
-            {
-                title: "2023 할로윈 상자",
-                price: 810,
-                dataUrl: 'data-limited1.json',
-                salePeriod: "10월 16일 ~ 11월 20일",
-                targetDate: "2023-11-20T10:59:59"
-            },
-            {
-                title: "다른 페이지 상자",
-                price: 950,
-                dataUrl: 'data-limited2.json',
-                salePeriod: "다른 날짜",
-                targetDate: "2023-12-01T12:00:00"
-            },
-            // 추가 페이지 데이터...
-        ];
-
-        document.addEventListener('DOMContentLoaded', init);
-
-        function init() {
-    // URL에서 페이지 인덱스 가져오기
-    var pageIndex = getPageIndexFromUrl();
-    console.log('pageIndex from init:', pageIndex);
-
-    // pagesData 배열에서 해당하는 데이터 가져오기
-    var currentPageData = pagesData[pageIndex];
-
-    // 페이지 데이터 설정
-    setPageData(currentPageData);
-}
-
-// 페이지 변경 시 호출할 함수
-function onPageChange() {
-    // URL에서 페이지 인덱스 가져오기
-    var pageIndex = getPageIndexFromUrl();
-    console.log('pageIndex from onPageChange:', pageIndex);
-
-    // pagesData 배열에서 해당하는 데이터 가져오기
-    var currentPageData = pagesData[pageIndex];
-
-    // 페이지 데이터 설정
-    setPageData(currentPageData);
-}
-
-
         function setPageData(data) {
             // 페이지 데이터 설정
             document.getElementById('page-title').textContent = data.title;
@@ -121,14 +75,44 @@ function onPageChange() {
             fetchDataAndPopulateTable(data.dataUrl);
         }
 
-        function getPageIndexFromUrl() {
-            // 현재 URL에서 "page" 파라미터 값을 찾아냄
+        function getPageDataFromUrl() {
+            // 현재 URL에서 "data" 파라미터 값을 찾아냄
             var urlParams = new URLSearchParams(window.location.search);
-            var pageIndex = urlParams.get('page');
+            var dataParam = urlParams.get('data');
 
-            // "page" 파라미터 값이 없거나 잘못된 경우에 기본값으로 0을 반환
-            return pageIndex && !isNaN(pageIndex) ? parseInt(pageIndex, 10) : 0;
+            // "data" 파라미터 값이 없으면 기본값으로 1을 반환
+            return dataParam && !isNaN(dataParam) ? parseInt(dataParam, 10) : 1;
         }
+
+        function getDataForIndex(index) {
+            // 여기에서 각 데이터 인덱스에 따라 다른 데이터를 반환
+            switch(index) {
+                case 1:
+                    return {
+                        title: '2023 할로윈 상자',
+                        price: '810',
+                        targetDate: '2023-11-20T10:59:59',
+                        salePeriod: '10월 16일 ~ 11월 20일',
+                        dataUrl: 'data-limited1.json'
+                    };
+                case 2:
+                    return {
+                        title: 'BT21 상자',
+                        price: '810',
+                        targetDate: '2023-11-25T10:59:59',
+                        salePeriod: '9월 26일 ~ 11월 25일',
+                        dataUrl: 'data-limited2.json'
+                    };
+            
+                // 다른 케이스들 추가
+            }
+        }
+
+// 페이지 로드 시 실행
+var dataIndex = getPageDataFromUrl();
+setPageData(getDataForIndex(dataIndex));
+
+
 
         function fetchDataAndPopulateTable(dataUrl) {
             // 테이블 body 엘리먼트를 참조
@@ -176,37 +160,6 @@ function onPageChange() {
     </script>
     <script src="../js-datasetup.js"></script>
     <script src="../script.js"></script>
-    <script>
-        // 페이지 초기화
-function init() {
-    // URL에서 페이지 인덱스 가져오기
-    var pageIndex = getPageIndexFromUrl();
-
-    // pagesData 배열에서 해당하는 데이터 가져오기
-    var currentPageData = pagesData[pageIndex];
-
-    // 페이지 데이터 설정
-    setPageData(currentPageData);
-}
-
-// 페이지 변경 시 호출할 함수
-function onPageChange() {
-    // URL에서 페이지 인덱스 가져오기
-    var pageIndex = getPageIndexFromUrl();
-
-    // pagesData 배열에서 해당하는 데이터 가져오기
-    var currentPageData = pagesData[pageIndex];
-
-    // 페이지 데이터 설정
-    setPageData(currentPageData);
-}
-
-document.addEventListener('DOMContentLoaded', init);
-
-// 추가로 페이지 변경 시에도 데이터 업데이트
-window.onpopstate = onPageChange;
-
-    </script>
 </body>
 
 </html>
