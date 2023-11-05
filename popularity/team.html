@@ -77,6 +77,18 @@ function totalScore() {
     winner = 2; // 2가 승리
     result = `<span class="text-highlight">패배</span>하였습니다.`
   }
+  else if ( team1Wins == team2Wins ) {
+    if ( totalScore1 > totalScore2 ) {
+      winner = 1; // 1이 승리
+      result = `무승부입니다.<br>
+      합산된 인기도를 기준으로 <span class="text-highlight">승리</span>하셨습니다!`
+    }
+    else if ( totalScore1 < totalScore2 ) {
+      winner = 2; // 2가 승리
+      result = `무승부입니다.<br>
+      합산된 인기도를 기준으로 <span class="text-highlight">패배</span>하였습니다.`
+    }
+  }
   else {
     result = `<span class="text-highlight">무승부</span>입니다.`
   } 
