@@ -115,15 +115,15 @@ function pointInfo() {
   let point = 0;
   let loot = 0;
 
-  if ( winner == 0 ) {
+  if ( winner === 0 ) {
     point = calculatePoint(totalScore1);
     loot = 0;
   }
-  else if ( winner == 1 ) {
+  else if ( winner === 1 ) {
     point = calculatePoint(totalScore1);
     loot = 0.5 * calculatePoint(totalScore2);
   }
-  else if ( winner == 2 ) {
+  else if ( winner === 2 ) {
     point =  0.5 * calculatePoint(totalScore1);
     loot = 0;
   }
