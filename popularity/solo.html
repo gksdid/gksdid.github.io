@@ -43,8 +43,8 @@ let score2 = 0;
 let winner = 0; // 무승부
 
 function totalScore() {
-  const inputNumber1 = document.getElementById('numberInput1').value;
-  const inputNumber2 = document.getElementById('numberInput2').value;
+  const inputNumber1 = parseFloat(document.getElementById('numberInput1').value);
+  const inputNumber2 = parseFloat(document.getElementById('numberInput2').value);
   
   let result = "무승부입니다.";
   if (inputNumber1 > inputNumber2) {
@@ -55,10 +55,11 @@ function totalScore() {
     result = `<span class="text-highlight">패배</span>하였습니다.`;
   } else {
     winner = 0;
-    result = `<span class="text-highlight">무승부</span>입니다.`; // 여기서 따옴표를 닫아줘야 해
+    result = `<span class="text-highlight">무승부</span>입니다.`;
   }
   document.getElementById('result').innerHTML = `${result}`;
 }
+
 
 
 function calculatePoint(score) {
