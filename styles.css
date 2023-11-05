@@ -19,6 +19,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
      font-family: 'Ycomputer-Regular', cursive;
     text-align: center;
@@ -181,6 +188,14 @@ p {
       background-color: #a4e4dc; 
 }
 
+.copyright {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* ----- 테이블 ----- */
 
@@ -277,31 +292,31 @@ p {
 
 /* 추가된 부분: 등급에 따른 클래스 스타일 */
 .gold-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
 .red-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
 .pink-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
 .purple-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
 .blue-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
 .green-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
 .default-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
 
