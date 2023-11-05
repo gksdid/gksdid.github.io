@@ -30,13 +30,14 @@
       <span class="team-name">우리팀</span>
       <span id="total1" class="total"> </span>
   </div>
-  <input type="text" id="numbersInput1" oninput="totalScore(); pointInfo()">
+  <input type="text" id="numbersInput1" oninput="totalScore(); pointInfo()" onclick="clearInputMessage()" placeholder="팀 멤버의 인기도를 스페이스로 구분하여 나열해 주세요.">
+
 
   <div class="team-container">
       <span class="team-name">상대팀</span>
       <span id="total2" class="total"> </span>
   </div>
-  <input type="text" id="numbersInput2" oninput="totalScore(); pointInfo()">
+  <input type="text" id="numbersInput2" oninput="totalScore(); pointInfo()" onclick="clearInputMessage()" placeholder="(예) 10000 20000 30000 40000 50000">
 
 </div>
 
