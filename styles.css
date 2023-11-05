@@ -125,18 +125,18 @@ p {
 
 
 .button-icon {
-  width: 70px; /* 이미지의 너비 */
-  height: 70px; /* 이미지의 높이 */
-  margin-top: 15px; /* 아이콘을 세로 방향으로 가운데 정렬하기 위한 값 */
-  margin-bottom: 15px; /* 아이콘을 세로 방향으로 가운데 정렬하기 위한 값 */
-  object-fit: contain; /* 이미지가 버튼에 맞게 보이도록 조절 */
+  width: 70px; 
+  height: 70px; 
+  margin-top: 15px; 
+  margin-bottom: 15px; 
+  object-fit: contain; 
 }
 
 .button-text {
-  position: absolute; /* 절대적인 위치로 설정 */
-  bottom: -25px; /* 아래에서 25px 위로 올려 텍스트가 보이지 않도록 함 */
+  position: absolute; 
+  bottom: -25px;
   font-size: 15px;
-  color: black; /* 텍스트 색상을 검정색으로 지정 */
+  color: black;
   font-family: 'Ycomputer-Regular', sans-serif;
 }
 
@@ -154,13 +154,13 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 3px auto; /* 아래에 간격을 줌 */
+    margin: 3px auto; 
 }
 
 .eventbanner img {
     max-width: 100%;
     height: auto;
-    margin: 5px auto; /* 이미지 간격을 조절 */
+    margin: 5px auto; 
 }
 
 
@@ -188,19 +188,23 @@ p {
     margin: auto;
     text-align: center;
     font-family: 'NanumSquareNeo-Variable', sans-serif;
+    display: inline-block;
+    border: none;
+    outline: none;
+    background-color: #03c75b;
 }
 
 .copyright-text {
-  font-size: 15px;
-  color: black;
+  font-size: 13px;
+  color: white;
   font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
 /* ----- 테이블 ----- */
 
 .css-special-table {
-    width: 100%; /* 테이블 전체 너비 조절 */
-    margin: 20px auto; /* 가운데 정렬을 위한 margin 추가 */
+    width: 100%; 
+    margin: 20px auto; 
     border-collapse: collapse;
 }
 
