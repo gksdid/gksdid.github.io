@@ -13,9 +13,19 @@ body {
       padding: 0;
     }
 
-.total1, .total2 {
-  margin-bottom: 1em;
+.team-container {
+  display: flex;
+  justify-content: space-between;
 }
+
+.team-name {
+  text-align: left;
+}
+
+.total {
+  text-align: right;
+}
+
 
 
 .calculator-container {
