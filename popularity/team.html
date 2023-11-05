@@ -115,7 +115,9 @@ function pointInfo() {
     point = calculatePoint(totalScore1);
   }
   let finalPoint = point + loot;
-  document.getElementById('finalPoint').innerHTML = `총 <span class="text-highlight">${finalPoint}</span> 포인트를 획득합니다.<br>
+  document.getElementById('finalPoint').innerHTML = `
+  총 <span class="text-highlight">${finalPoint}</span> 포인트를 획득합니다.<br><br>
+  
   인기도 포인트: ${point}<br>
   약탈 포인트: ${loot} `;
   
