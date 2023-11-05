@@ -114,7 +114,12 @@ function calculatePoint(score) {
 function pointInfo() {
   let point = 0;
   let loot = 0;
-  if ( winner == 1 ) {
+
+  if {
+    point = calculatePoint(totalScore1);
+    loot = 0;
+  }
+  else if ( winner == 1 ) {
     point = calculatePoint(totalScore1);
     loot = 0.5 * calculatePoint(totalScore2);
   }
@@ -122,10 +127,7 @@ function pointInfo() {
     point =  0.5 * calculatePoint(totalScore1);
     loot = 0;
   }
-  else {
-    point = calculatePoint(totalScore1);
-    loot = 0;
-  }
+
   let finalPoint = point + loot;
   document.getElementById('finalPoint').innerHTML = `
   총 <span class="text-highlight">${finalPoint}</span> 포인트를 획득합니다.<br>
