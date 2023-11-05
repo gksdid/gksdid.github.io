@@ -27,7 +27,7 @@ p {
 .team-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 7px;
+  margin-bottom: 6px;
 }
 
 .team-name {
@@ -94,7 +94,7 @@ h2 {
 }
 
 input {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       padding: 12px;
       box-sizing: border-box;
       font-family: 'NanumSquareNeo-Variable', sans-serif;
