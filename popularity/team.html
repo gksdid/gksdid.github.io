@@ -51,8 +51,8 @@ function totalScore() {
   const totalScore1 = numbersArray1.reduce((acc, num) => acc + num, 0);
   const totalScore2 = numbersArray2.reduce((acc, num) => acc + num, 0);
 
-  document.getElementById('total1').innerHTML = `합계: <span class="text-highlight">${totalScore1}</span>`;
-  document.getElementById('total2').innerHTML = `합계: <span class="text-highlight">${totalScore2}</span>`;
+  document.getElementById('total1').innerHTML = `<span class="text-highlight">${totalScore1}</span> `;
+  document.getElementById('total2').innerHTML = `<span class="text-highlight">${totalScore2}</span> `;
 
   let team1Wins = 0;
   let team2Wins = 0;
