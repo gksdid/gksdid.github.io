@@ -187,7 +187,7 @@ p {
     padding: 7px;
     margin: auto;
     text-align: center;
-    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    font-family: 'Ycomputer-Regular', sans-serif;
     display: inline-block;
     border: none;
     outline: none;
@@ -197,7 +197,7 @@ p {
 .copyright-text {
   font-size: 13px;
   color: white;
-  font-family: 'NanumSquareNeo-Variable', sans-serif;
+  font-family: 'Ycomputer-Regular', sans-serif;
 }
 
 /* ----- 테이블 ----- */
