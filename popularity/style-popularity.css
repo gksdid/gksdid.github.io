@@ -19,11 +19,11 @@ body {
 }
 
 .team-name {
-  text-align: left;
+  margin-right: auto;
 }
 
 .total {
-  text-align: right;
+  margin-left: auto;
 }
 
 
