@@ -22,7 +22,7 @@
   <p>우리팀</p>  <p id="total1" style="display: inline;"></p>
   <input type="text" id="numbersInput1" oninput="totalScore()">
 
-  <p>우리팀</p>  <p id="total2" style="display: inline;"></p>
+  <p>상대팀</p>  <p id="total2" style="display: inline;"></p>
   <input type="text" id="numbersInput2" oninput="totalScore()">
 
 </div>
@@ -44,8 +44,8 @@ function totalScore() {
   const totalScore1 = numbersArray1.reduce((acc, num) => acc + num, 0);
   const totalScore2 = numbersArray2.reduce((acc, num) => acc + num, 0);
 
-  document.getElementById('total1').innerHTML = `총합: <span class="text-highlight">${totalScore1}</span>`;
-  document.getElementById('total2').innerHTML = `총합: <span class="text-highlight">${totalScore2}</span>`;
+  document.getElementById('total1').innerHTML = `합계: <span class="text-highlight">${totalScore1}</span>`;
+  document.getElementById('total2').innerHTML = `합계: <span class="text-highlight">${totalScore2}</span>`;
 
 }
 
