@@ -119,9 +119,11 @@ function pointInfo() {
   }
   else if ( winner == 2 ) {
     point =  0.5 * calculatePoint(totalScore1);
+    loot = 0;
   }
   else {
     point = calculatePoint(totalScore1);
+    loot = 0;
   }
   let finalPoint = point + loot;
   document.getElementById('finalPoint').innerHTML = `
