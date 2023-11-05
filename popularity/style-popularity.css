@@ -71,14 +71,3 @@ input {
       box-sizing: border-box;
       margin-right: 5px; 
 }
-
-.text-category {
-    font-weight: bold;
-}
-
-
-p {
-    text-align: center;
-    margin-bottom: 0.5em;
-    line-height: 1.5;
-}
