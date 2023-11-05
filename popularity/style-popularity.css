@@ -91,3 +91,50 @@ input {
       padding: 12px;
       box-sizing: border-box;
 }
+
+
+#page-header {
+    position: fixed;
+    top: 0;
+    left: 50%; /* 왼쪽 끝에서 50% 위치로 이동 */
+    transform: translateX(-50%); /* 자체의 너비의 50%만큼 왼쪽으로 이동하여 중앙 정렬 */
+    width: 100%;
+    background-color: #f2f2f2;
+    z-index: 1000;
+    padding: 10px 20px;
+    transition: top 0.3s;
+}
+
+#page-header.nav-up {
+    top: -60px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    margin: 0 auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; 
+    flex-wrap: nowrap; 
+    justify-content: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover {
+    color: #ff6600; /* 마우스를 올렸을 때의 색상 */
+}
