@@ -60,9 +60,9 @@ function totalScore() {
   }
 
   let result = "무승부입니다.";
-  if (team1Wins > team2Wins) { result = "승리하셨습니다!"; }
-  else { result = "패배하셨습니다."; } 
-  document.getElementById('result').innerHTML = `<span class="text-highlight">${team1Wins}:${totalScore2}로 ${result}</span>`;
+  if (team1Wins > team2Wins) { result = `<span class="text-highlight">승리</span>하셨습니다!` }
+  else { result = `<span class="text-highlight">패배</span>하셨습니다.` } 
+  document.getElementById('result').innerHTML = `<span class="text-highlight">${team1Wins}:${team2Wins}</span>로 ${result}`;
 
   
 }
