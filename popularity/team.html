@@ -20,10 +20,10 @@
 <div class="calculator-container">
 
   <p>우리팀</p>  <p id="total1"></p>
-  <input type="number" id="scoreInput1" min="0" max="100" step="0.01" value="0.30" oninput="totalScore()">
+  <input type="number" id="numbersInput1" min="0" max="100" step="0.01" value="0.30" oninput="totalScore()">
 
   <p>우리팀</p>  <p id="total2"></p>
-  <input type="number" id="scoreInput2" min="0" step="1000" value="10000" oninput="totalScore()">
+  <input type="number" id="numbersInput2" min="0" step="1000" value="10000" oninput="totalScore()">
 
 </div>
 
@@ -31,12 +31,18 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  calculateItemProbability();
+  totalScore();
 });
 
 function totalScore() {
-  const totalScore1 = parseFloat(document.getElementById('scoreInput1').value);
-  const totalScore2 = parseFloat(document.getElementById('scoreInput2').value);
+  const inputText1 = document.getElementById('numbersInput1').value;
+  const inputText2 = document.getElementById('numbersInput2').value;
+  
+  const numbersArray1 = inputText1.split(' ').map(parseFloat);
+  const numbersArray2 = inputText2.split(' ').map(parseFloat);
+
+  const totalScore1 = numbersArray1.reduce((acc, num) => acc + num, 0);
+  const totalScore2 = numbersArray2.reduce((acc, num) => acc + num, 0);
 
   document.getElementById('total1').innerHTML = `총합: <span class="text-highlight">${totalScore1}</span>`;
   document.getElementById('total2').innerHTML = `총합: <span class="text-highlight">${totalScore2}</span>`;
