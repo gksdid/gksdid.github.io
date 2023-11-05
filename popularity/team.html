@@ -90,6 +90,7 @@ function totalScore() {
     }
   }
   else {
+    winner = 0; // 무승부
     result = `<span class="text-highlight">무승부</span>입니다.`
   } 
   document.getElementById('result').innerHTML = `<span class="text-highlight">${team1Wins}:${team2Wins}</span>로 ${result}`;
