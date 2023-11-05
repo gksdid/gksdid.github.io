@@ -27,7 +27,7 @@
 
 </div>
 
-  <p id="result"></p>
+  <p>${team1Wins}:${totalScore2}로 ${result}.</p>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -47,6 +47,23 @@ function totalScore() {
   document.getElementById('total1').innerHTML = `합계: <span class="text-highlight">${totalScore1}</span>`;
   document.getElementById('total2').innerHTML = `합계: <span class="text-highlight">${totalScore2}</span>`;
 
+  let team1Wins = 0;
+  let team2Wins = 0;
+
+  for (let i = 0; i < 4; i++) {
+    if (numbersArray1[i] > numbersArray2[i]) {
+      team1Wins++;
+    } else if (numbersArray1[i] < numbersArray2[i]) {
+      team2Wins++;
+    }
+  }
+
+  let result = "무승부입니다.";
+  if (team1Wins > team2Wins) { result = "승리하셨습니다!"; }
+  else { result = "패배하셨습니다."; } 
+  document.getElementById('result').innerHTML = `<span class="text-highlight">${result}</span>`;
+
+  
 }
 
 </script>
