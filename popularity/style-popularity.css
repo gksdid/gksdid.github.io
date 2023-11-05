@@ -13,6 +13,10 @@ body {
       padding: 0;
     }
 
+p {
+    line-height: 1.5;
+}    
+
 .team-container {
   display: flex;
   justify-content: space-between;
