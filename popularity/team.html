@@ -34,7 +34,6 @@
 </div>
 
   <p id="result"></p>
-
   <p id="finalPoint"></p>
 
 <script>
@@ -89,15 +88,15 @@ function totalScore() {
 
 function calculatePoint(score) {
   let point = 6;
-  if ( score >= 4492 ) point = 10;
-  else if ( score >= 12462 ) point = 14;
-  else if ( score >= 25610 ) point = 16;
-  else if ( score >= 48502 ) point = 20;
-  else if ( score >= 125690 ) point = 24;
-  else if ( score >= 202070 ) point = 28;
-  else if ( score >= 415640 ) point = 32;
-  else if ( score >= 646111 ) point = 34;
-  else if ( score >= 875529 ) point = 36;
+  if (score >= 875529) point = 36;
+  else if (score >= 646111) point = 34;
+  else if (score >= 415640) point = 32;
+  else if (score >= 202070) point = 28;
+  else if (score >= 125690) point = 24;
+  else if (score >= 48502) point = 20;
+  else if (score >= 25610) point = 16;
+  else if (score >= 12462) point = 14;
+  else if (score >= 4492) point = 10;
   return point;
 }
 
@@ -116,10 +115,8 @@ function pointInfo() {
   }
   let finalPoint = point + loot;
   document.getElementById('finalPoint').innerHTML = `
-  총 <span class="text-highlight">${finalPoint}</span> 포인트를 획득합니다.<br><br>
-  
-  인기도 포인트: ${point}<br>
-  약탈 포인트: ${loot} `;
+  총 <span class="text-highlight">${finalPoint}</span> 포인트를 획득합니다.<br>
+  ${point} 인기도 + ${loot} 약탈`;
   
 }
 
