@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>인기도 대결</title>
   <link rel="icon" href="../banner/wallpaper/pubg.png" type="image/png">  
-  <link rel="stylesheet" href="style-calculator.css"> <!-- 외부 CSS 파일을 불러옴 -->
+  <link rel="stylesheet" href="style-popularity.css"> <!-- 외부 CSS 파일을 불러옴 -->
   <script src="../script.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VK413KLDK"></script> 
 
@@ -38,8 +38,8 @@ function totalScore() {
   const totalScore1 = parseFloat(document.getElementById('scoreInput1').value);
   const totalScore2 = parseFloat(document.getElementById('scoreInput2').value);
 
-  document.getElementById('total1').innerHTML = `총합: <span class="text-highlight">${totalScore1}%</span>`;
-  document.getElementById('total2').innerHTML = `총합: <span class="text-highlight">${totalScore2}%</span>`;
+  document.getElementById('total1').innerHTML = `총합: <span class="text-highlight">${totalScore1}</span>`;
+  document.getElementById('total2').innerHTML = `총합: <span class="text-highlight">${totalScore2}</span>`;
 
 }
 
