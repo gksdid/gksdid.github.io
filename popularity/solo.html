@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인기도 대결</title>
+  <link rel="icon" href="../banner/wallpaper/pubg.png" type="image/png">  
+  <link rel="stylesheet" href="style-popularity.css"> <!-- 외부 CSS 파일을 불러옴 -->
+  <script src="../script.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VK413KLDK"></script> 
+
+</head>
+  
+<body> <br>
+ 
+  <h2><span class="highlight-box">개인 인기도 대결</span></h2> <br>
+
+<div class="calculator-container">
+
+  <div class="team-container">
+      <span class="team-name">나</span>
+  </div>
+  <input type="number" id="numberInput1" oninput="totalScore(); pointInfo()">
+
+  <div class="team-container">
+      <span class="team-name">상대</span>
+  </div>
+  <input type="number" id="numberInput2" oninput="totalScore(); pointInfo()">
+
+</div>
+
+  <p id="result"></p>
+  <p id="finalPoint"></p>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  totalScore();
+  pointInfo();
+});
+
+let winner = 0; // 무승부
+
+function totalScore() {
+  const inputNumber1 = document.getElementById('numberInput1').value;
+  const inputNumber2 = document.getElementById('numberInput2').value;
+  
+  let result = "무승부입니다.";
+  if (inputNumber1 > inputNumber2) {
+    winner = 1; // 1이 승리
+    result = `<span class="text-highlight">승리</span>하셨습니다!`;
+  } else if (inputNumber1 < inputNumber2) {
+    winner = 2; // 2가 승리
+    result = `<span class="text-highlight">패배</span>하였습니다.`;
+  } else {
+    winner = 0;
+    result = `<span class="text-highlight">무승부</span>입니다.`; // 여기서 따옴표를 닫아줘야 해
+  }
+  document.getElementById('result').innerHTML = `${result}`;
+}
+
+
+function calculatePoint(score) {
+  let point = 6;
+  if (score >= 7276000) point = 44;
+  else if (score >= 2124000) point = 42;
+  else if (score >= 886000) point = 40;
+  else if (score >= 501000) point = 36;
+  else if (score >= 260039) point = 32;
+  else if (score >= 120042) point = 28;
+  else if (score >= 50005) point = 24;
+  else if (score >= 15001) point = 20;
+  else if (score >= 8801) point = 16;
+  else if (score >= 4030) point = 14;
+  else if (score >= 2001) point = 10;
+  return point;
+}
+
+function pointInfo() {
+  totalScore();
+  let point = 0;
+  let loot = 0;
+
+  if ( winner === 0 ) {
+    point = calculatePoint(totalScore1);
+    loot = 0;
+  }
+  else if ( winner === 1 ) {
+    point = calculatePoint(totalScore1);
+    loot = 0.5 * calculatePoint(totalScore2);
+  }
+  else if ( winner === 2 ) {
+    point =  0.5 * calculatePoint(totalScore1);
+    loot = 0;
+  }
+  
+  let finalPoint = point + loot;
+  document.getElementById('finalPoint').innerHTML = `
+  총 <span class="text-highlight">${finalPoint}</span> 포인트를 획득합니다.<br>
+  ${point} 인기도 + ${loot} 약탈`;
+  
+}
+</script>
+
+</body>
+</html>
