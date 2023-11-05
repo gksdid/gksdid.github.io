@@ -27,7 +27,7 @@
 }
 
 body {
-     font-family: 'Ycomputer-Regular', cursive;
+    font-family: 'Ycomputer-Regular', sans-serif;
     text-align: center;
     padding: 50px;
 }
@@ -194,6 +194,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
 
