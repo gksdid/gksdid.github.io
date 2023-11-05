@@ -13,8 +13,9 @@ body {
       padding: 0;
     }
 
-#total1 {
+span {
   margin-bottom: 0.5em;
+}
 
 .calculator-container {
       width: 300px;
