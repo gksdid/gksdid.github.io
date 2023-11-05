@@ -197,6 +197,11 @@ p {
     font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
+.copyright-text {
+  font-size: 15px;
+  color: black;
+  font-family: 'NanumSquareNeo-Variable', sans-serif;
+}
 
 /* ----- 테이블 ----- */
 
