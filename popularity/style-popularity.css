@@ -23,7 +23,7 @@ body {
 }
 
 .total {
-  margin-left: 5px;
+  margin-left: auto;
 }
 
 
@@ -85,5 +85,4 @@ input {
       margin-bottom: 15px;
       padding: 12px;
       box-sizing: border-box;
-      margin-right: 5px; 
 }
