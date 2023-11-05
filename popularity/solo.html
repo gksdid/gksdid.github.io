@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", function() {
   pointInfo();
 });
 
+let score1 = 0;
+let score2 = 0;
 let winner = 0; // 무승부
 
 function totalScore() {
@@ -81,15 +83,15 @@ function pointInfo() {
   let loot = 0;
 
   if ( winner === 0 ) {
-    point = calculatePoint(totalScore1);
+    point = calculatePoint(score1);
     loot = 0;
   }
   else if ( winner === 1 ) {
-    point = calculatePoint(totalScore1);
-    loot = 0.5 * calculatePoint(totalScore2);
+    point = calculatePoint(score1);
+    loot = 0.5 * calculatePoint(score2);
   }
   else if ( winner === 2 ) {
-    point =  0.5 * calculatePoint(totalScore1);
+    point =  0.5 * calculatePoint(score1);
     loot = 0;
   }
   
