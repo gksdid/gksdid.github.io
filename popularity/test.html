@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테스트</title>
+  <link rel="icon" href="../banner/wallpaper/pubg.png" type="image/png">  
+  <link rel="stylesheet" href="style-popularity.css"> <!-- 외부 CSS 파일을 불러옴 -->
+  <script src="../script.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VK413KLDK"></script> 
+
+</head>
+  
+<body>
+
+  <header>
+        <nav>
+            <ul>
+                <li><a href="../">홈</a></li>
+                <li><a href="team.html">4vs4</a></li>
+            </ul>
+        </nav>
+    </header> <br>
+ 
+  <h2><span class="highlight-box">테스트 페이지입니다</span></h2>
+
+<div class="calculator-container">
+
+  <div class="team-container">
+      <span class="team-name">나</span>
+  </div>
+  <input type="number" id="numberInput1" oninput="pointInfo()">
+
+  <div class="team-container">
+      <span class="team-name">상대</span>
+  </div>
+  <input type="number" id="numberInput2" oninput="pointInfo()">
+
+</div>
+
+  <p id="result"></p>
+  <p id="finalPoint"></p>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  pointInfo();
+});
+
+let score1 = 0;
+let score2 = 0;
+let winner = 0; // 무승부
+
+function totalScore() {
+  score1 = parseFloat(document.getElementById('numberInput1').value);
+  score2 = parseFloat(document.getElementById('numberInput2').value);
+  
+  let result = "무승부입니다.";
+  if (score1 > score2) {
+    winner = 1; // 1이 승리
+    result = `<span class="text-highlight">승리</span>하셨습니다!`;
+  } else if (score1 < score2) {
+    winner = 2; // 2가 승리
+    result = `<span class="text-highlight">패배</span>하였습니다.`;
+  } else {
+    winner = 0;
+    result = `<span class="text-highlight">무승부</span>입니다.`;
+  }
+  document.getElementById('result').innerHTML = `${result}`;
+}
+
+let remainingScore = 0; // 다음 포인트 구간까지 남은 인기도
+
+// 인기도-포인트 구간 변경 시 수정 필요
+const point44 = [44, 7276000];
+const point42 = [42, 2124000];
+const point40 = [40, 886000];
+const point36 = [36, 501000];
+const point32 = [32, 260039];
+const point28 = [28, 120042];
+const point24 = [24, 50005];
+const point20 = [20, 15001];
+const point16 = [16, 8801];
+const point14 = [14, 4030];
+const point10 = [10, 2001];
+
+function calculatePoint(score) {
+  let point = 6;
+  remainingScore = score - point10[1]; // 10점까지 남은 인기도
+  
+  if (score >= point44[1]) {
+    point = 44;
+  }
+  else if (score >= point42[1]) {
+    point = 42;
+    remainingScore = score - point44[1]; // 44점까지 남은 인기도
+  }
+  else if ( score >= point40[1] ) {
+    point = 40;
+    remainingScore = score - point42[1] ;
+  }
+  else if ( score >= point36[1] ) {
+    point = 36;
+    remainingScore = score - point40[1] ;
+  }
+  else if ( score >= point32[1] ) {
+    point = 32;
+    remainingScore = score - point36[1] ;
+  }
+  else if ( score >= point28[1] ) {
+    point = 28;
+    remainingScore = score - point32[1] ;
+  }
+  else if ( score >= point24[1] ) {
+    point = 24;
+    remainingScore = score - point28[1] ;
+  }
+  else if ( score >= point20[1] ) {
+    point = 20;
+    remainingScore = score - point24[1] ;
+  }
+  else if ( score >= point16[1] ) {
+    point = 16;
+    remainingScore = score - point20[1] ;
+  }
+  else if ( score >= point14[1] ) { 
+    point = 14;
+    remainingScore = score - point16[1] ;
+  }
+  else if ( score >= point10[1] ) {
+    point = 10;
+    remainingScore = score - point14[1] ;
+  }
+  return point;
+}
+
+function pointInfo() {
+  totalScore();
+  let point = 0;
+  let loot = 0;
+
+  if ( winner === 0 ) {
+    point = calculatePoint(score1);
+    loot = 0;
+  }
+  else if ( winner === 1 ) {
+    point = calculatePoint(score1);
+    loot = 0.5 * calculatePoint(score2);
+  }
+  else if ( winner === 2 ) {
+    point =  0.5 * calculatePoint(score1);
+    loot = 0;
+  }
+  
+  let finalPoint = point + loot;
+  document.getElementById('finalPoint').innerHTML = `
+  총 <span class="text-highlight">${finalPoint}</span> 포인트를 획득합니다.<br>
+  ${point} 인기도 + ${loot} 약탈`;
+  
+}
+</script>
+
+</body>
+</html>
