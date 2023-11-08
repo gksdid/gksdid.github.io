@@ -182,6 +182,22 @@ p {
       background-color: #a4e4dc; 
 }
 
+.highlight-box-yellow {
+      position: relative;
+      display: inline;
+}
+
+.highlight-box-yellow::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      z-index: -1;
+      width: 100%;
+      height: 11px; 
+      background-color: #fcc45c; 
+}
+
 .copyright {
     width: auto;
     height: auto;
