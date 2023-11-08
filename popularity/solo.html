@@ -30,11 +30,15 @@
       <span class="team-name">나</span>
   </div>
   <input type="number" id="numberInput1" oninput="pointInfo()">
+  <span id="nextPoint1" class="remain"> </span>
 
+  
   <div class="team-container">
       <span class="team-name">상대</span>
   </div>
   <input type="number" id="numberInput2" oninput="pointInfo()">
+  <span id="nextPoint2" class="remain"> </span>
+
 
 </div>
 
@@ -49,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
 let score1 = 0;
 let score2 = 0;
 let winner = 0; // 무승부
-let remainingScore = 0;
 
 function totalScore() {
   score1 = parseFloat(document.getElementById('numberInput1').value);
@@ -69,43 +72,76 @@ function totalScore() {
   document.getElementById('result').innerHTML = `${result}`;
 }
 
+let remainingScore1 = 0; // 다음 포인트 구간까지 남은 인기도
+let remainingScore2 = 0;
 
+// 인기도-포인트 구간 변경 시 수정 필요
+const point44 = 7276000;
+const point42 = 2124000;
+const point40 = 886000;
+const point36 = 501000;
+const point32 = 260039;
+const point28 = 120042;
+const point24 = 50005;
+const point20 = 15001;
+const point16 = 8801;
+const point14 = 4030;
+const point10 = 2001;
 
-function calculatePoint(score) {
+function calculatePoint(score, team) {
   let point = 6;
-  if (score >= 7276000) {
+  let remainingScore = 0;
+  
+  remainingScore = point10 - score; // 10점까지 남은 인기도
+  
+  if (score >= point44) {
     point = 44;
+    remaingingScore = '데이터 없음';
   }
-  else if (score >= 2124000) {
+  else if (score >= point42) {
     point = 42;
+    remainingScore = point44 - score; // 44점까지 남은 인기도
   }
-  else if (score >= 886000) {
+  else if ( score >= point40 ) {
     point = 40;
+    remainingScore = point42 - score ;
   }
-  else if (score >= 501000) {
+  else if ( score >= point36 ) {
     point = 36;
+    remainingScore = point40 - score ;
   }
-  else if (score >= 260039) {
+  else if ( score >= point32 ) {
     point = 32;
+    remainingScore = point36 - score ;
   }
-  else if (score >= 120042) {
+  else if ( score >= point28 ) {
     point = 28;
+    remainingScore = point32 - score ;
   }
-  else if (score >= 50005) {
+  else if ( score >= point24 ) {
     point = 24;
+    remainingScore = point28 - score ;
   }
-  else if (score >= 15001) {
+  else if ( score >= point20 ) {
     point = 20;
+    remainingScore = point24 - score ;
   }
-  else if (score >= 8801) {
+  else if ( score >= point16 ) {
     point = 16;
+    remainingScore = point20 - score ;
   }
-  else if (score >= 4030) { 
+  else if ( score >= point14 ) { 
     point = 14;
+    remainingScore = point16 - score ;
   }
-  else if (score >= 2001) {
+  else if ( score >= point10 ) {
     point = 10;
+    remainingScore = point14 - score;
   }
+
+  if ( team == 1 ) remainingScore1 = remainingScore;
+  else if ( team == 2 ) remainingScore2 = remainingScore;
+  
   return point;
 }
 
@@ -115,15 +151,15 @@ function pointInfo() {
   let loot = 0;
 
   if ( winner === 0 ) {
-    point = calculatePoint(score1);
+    point = calculatePoint(score1, 1);
     loot = 0;
   }
   else if ( winner === 1 ) {
-    point = calculatePoint(score1);
-    loot = 0.5 * calculatePoint(score2);
+    point = calculatePoint(score1, 1);
+    loot = 0.5 * calculatePoint(score2, 2);
   }
   else if ( winner === 2 ) {
-    point =  0.5 * calculatePoint(score1);
+    point =  0.5 * calculatePoint(score1, 1);
     loot = 0;
   }
   
@@ -131,6 +167,13 @@ function pointInfo() {
   document.getElementById('finalPoint').innerHTML = `
   총 <span class="text-highlight">${finalPoint}</span> 포인트를 획득합니다.<br>
   ${point} 인기도 + ${loot} 약탈`;
+
+  calculatePoint(score1, 1);
+  calculatePoint(score2, 2);
+  document.getElementById('nextPoint1').innerHTML = `
+  다음 포인트까지 <span class="text-highlight">${remainingScore1}</span>`;
+  document.getElementById('nextPoint2').innerHTML = `
+  다음 포인트까지 <span class="text-highlight">${remainingScore2}</span>`;
   
 }
 </script>
