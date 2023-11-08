@@ -28,14 +28,14 @@
 
   <div class="team-container">
       <span class="team-name">나</span>
-      <span id="nextPoint1" class="total"> </span>
   </div>
+  <span id="nextPoint1" class="total"> </span>
   <input type="number" id="numberInput1" oninput="pointInfo()">
 
   <div class="team-container">
       <span class="team-name">상대</span>
-     <span id="nextPoint2" class="total"> </span>
   </div>
+  <span id="nextPoint2" class="total"> </span>
   <input type="number" id="numberInput2" oninput="pointInfo()">
 
 </div>
@@ -170,7 +170,7 @@ function pointInfo() {
   document.getElementById('nextPoint1').innerHTML = `
   다음 포인트까지 <span class="text-highlight">${remainingScore1}</span>`;
   document.getElementById('nextPoint2').innerHTML = `
-  다음 포인트까지 <span class="text-highlight">${remainingScore1}</span>`;
+  다음 포인트까지 <span class="text-highlight">${remainingScore2}</span>`;
   
 }
 </script>
