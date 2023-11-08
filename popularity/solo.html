@@ -96,7 +96,7 @@ function calculatePoint(score, team) {
   
   if (score >= point44) {
     point = 44;
-    remaingingScore = '데이터 없음';
+    remainingScore = '데이터 없음';
   }
   else if (score >= point42) {
     point = 42;
@@ -139,6 +139,10 @@ function calculatePoint(score, team) {
     remainingScore = point14 - score;
   }
 
+  if (isNaN(remainingScore)) {
+    remainingScore = 0;
+  }
+
   if ( team == 1 ) remainingScore1 = remainingScore;
   else if ( team == 2 ) remainingScore2 = remainingScore;
   
@@ -171,9 +175,9 @@ function pointInfo() {
   calculatePoint(score1, 1);
   calculatePoint(score2, 2);
   document.getElementById('nextPoint1').innerHTML = `
-  다음 포인트까지 <span class="text-highlight">${remainingScore1}</span>`;
+  다음 포인트까지 <span class="text-highlight">${remainingScore1} 인기도</span>`;
   document.getElementById('nextPoint2').innerHTML = `
-  다음 포인트까지 <span class="text-highlight">${remainingScore2}</span>`;
+  다음 포인트까지 <span class="text-highlight">${remainingScore2} 인기도</span>`;
   
 }
 </script>
