@@ -164,6 +164,8 @@ function pointInfo() {
   총 <span class="text-highlight">${finalPoint}</span> 포인트를 획득합니다.<br>
   ${point} 인기도 + ${loot} 약탈`;
 
+  calculatePoint(score1, 1);
+  calculatePoint(score2, 2);
   document.getElementById('nextPoint').innerHTML = `
   나: 다음 포인트까지 <span class="text-highlight">${remainingScore1}</span> 인기도 남음<br>
   상대: 다음 포인트까지 <span class="text-highlight">${remainingScore2}</span> 인기도 남음`;
