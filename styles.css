@@ -20,7 +20,7 @@
 }
 
 body {
-    font-family: 'Ycomputer-Regular', sans-serif;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
     text-align: center;
     padding: 50px;
 }
@@ -72,6 +72,7 @@ nav a:hover {
 }
 
 h1 {
+    font-family: 'Ycomputer-Regular', sans-serif;
     margin-top: 0.2em;
     margin-bottom: 0.6em;
 }
@@ -137,7 +138,7 @@ p {
   bottom: -25px;
   font-size: 15px;
   color: black;
-  font-family: 'Ycomputer-Regular', sans-serif;
+  font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
 
@@ -174,7 +175,7 @@ p {
       content: "";
       position: absolute;
       left: 0;
-      bottom: +2px;
+      bottom: -1px;
       z-index: -1;
       width: 100%;
       height: 11px; 
