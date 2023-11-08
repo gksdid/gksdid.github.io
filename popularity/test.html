@@ -89,50 +89,50 @@ function calculatePoint(score, team) {
   let point = 6;
   let remainingScore = 0;
   
-  remainingScore = score - point10; // 10점까지 남은 인기도
+  remainingScore = point10 - score; // 10점까지 남은 인기도
   
   if (score >= point44) {
     point = 44;
   }
   else if (score >= point42) {
     point = 42;
-    remainingScore = score - point44; // 44점까지 남은 인기도
+    remainingScore = point44 - score; // 44점까지 남은 인기도
   }
   else if ( score >= point40 ) {
     point = 40;
-    remainingScore = score - point42 ;
+    remainingScore = point42 - score ;
   }
   else if ( score >= point36 ) {
     point = 36;
-    remainingScore = score - point40 ;
+    remainingScore = point40 - score ;
   }
   else if ( score >= point32 ) {
     point = 32;
-    remainingScore = score - point36 ;
+    remainingScore = point36 - score ;
   }
   else if ( score >= point28 ) {
     point = 28;
-    remainingScore = score - point32 ;
+    remainingScore = point32 - score ;
   }
   else if ( score >= point24 ) {
     point = 24;
-    remainingScore = score - point28 ;
+    remainingScore = point28 - score ;
   }
   else if ( score >= point20 ) {
     point = 20;
-    remainingScore = score - point24 ;
+    remainingScore = point24 - score ;
   }
   else if ( score >= point16 ) {
     point = 16;
-    remainingScore = score - point20 ;
+    remainingScore = point20 - score ;
   }
   else if ( score >= point14 ) { 
     point = 14;
-    remainingScore = score - point16 ;
+    remainingScore = point16 - score ;
   }
   else if ( score >= point10 ) {
     point = 10;
-    remainingScore = score - point14 ;
+    remainingScore = point14 - score;
   }
 
   if ( team == 1 ) remainingScore1 = remainingScore;
@@ -165,8 +165,8 @@ function pointInfo() {
   ${point} 인기도 + ${loot} 약탈`;
 
   document.getElementById('nextPoint').innerHTML = `
-  나: 다음 포인트까지 <span class="text-highlight">${remainingScore1}</span> 인기도 남음.<br>
-  상대: 다음 포인트까지 <span class="text-highlight">${remainingScore2}</span> 인기도 남음.`;
+  나: 다음 포인트까지 <span class="text-highlight">${remainingScore1}</span> 인기도 남음<br>
+  상대: 다음 포인트까지 <span class="text-highlight">${remainingScore2}</span> 인기도 남음`;
   
 }
 </script>
