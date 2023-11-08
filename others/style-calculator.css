@@ -33,6 +33,16 @@ body {
       align-items: stretch;
 }
 
+.team-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.team-name {
+  margin-right: auto;
+}
+
 /* 형광펜 */
 .highlight-box {
       position: relative;
