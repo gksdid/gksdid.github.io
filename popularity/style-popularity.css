@@ -40,6 +40,13 @@ p {
   font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
+.remain {
+  margin-bottom: 20px;
+  margin-left: auto;
+  font-size: 0.8em;
+  font-family: 'NanumSquareNeo-Variable', sans-serif;
+}
+
 
 
 .calculator-container {
@@ -97,7 +104,6 @@ h2 {
 }
 
 input {
-      margin-bottom: 20px;
       padding: 12px;
       box-sizing: border-box;
       font-family: 'NanumSquareNeo-Variable', sans-serif;
