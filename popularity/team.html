@@ -67,6 +67,14 @@ function totalScore() {
   totalScore1 = numbersArray1.reduce((acc, num) => acc + num, 0);
   totalScore2 = numbersArray2.reduce((acc, num) => acc + num, 0);
 
+  if ( isNaN(inputText1) ) {
+    totalScore1 = '값을 입력하세요';
+  }
+
+  if ( isNaN(inputText2) ) {
+    totalScore2 = '값을 입력하세요';
+  }
+
   document.getElementById('total1').innerHTML = `<span class="text-highlight">${totalScore1}</span>`;
   document.getElementById('total2').innerHTML = `<span class="text-highlight">${totalScore2}</span>`;
 
