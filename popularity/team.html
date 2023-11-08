@@ -133,7 +133,7 @@ function calculatePoint(score, team) {
   
   if (score >= point36) {
     point = 36;
-    remaingingScore = '데이터 없음';
+    remainingScore = '데이터 없음';
   }
   else if ( score >= point34 ) {
     point = 34;
@@ -166,6 +166,10 @@ function calculatePoint(score, team) {
   else if ( score >= point10 ) {
     point = 10;
     remainingScore = point14 - score;
+  }
+
+  if (isNaN(remainingScore)) {
+    remainingScore = 0;
   }
 
   if ( team == 1 ) remainingScore1 = remainingScore;
