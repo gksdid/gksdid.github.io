@@ -115,25 +115,39 @@ let remainingScore1 = 0; // 다음 포인트 구간까지 남은 인기도
 let remainingScore2 = 0;
 
 // 인기도-포인트 구간 변경 시 수정 필요
+const point42 = 7912501;
+const point40 = 4068263;
+const point38 = 2090640;
 const point36 = 810886;
-const point34 = 646111;
+const point34 = 594928;
 const point32 = 415640;
 const point28 = 202070;
 const point24 = 120082;
 const point20 = 48502;
-const point16 = 25610;
+const point16 = 24001;
 const point14 = 12462;
-const point10 = 4492;
+const point10 = 4140;
   
 function calculatePoint(score, team) {
   let point = 6;
   let remainingScore = 0;
   
   remainingScore = point10 - score; // 10점까지 남은 인기도
-  
-  if (score >= point36) {
-    point = 36;
+  if (score >= point42) {
+    point = 42;
     remainingScore = '데이터 없음';
+  }
+  else if (score >= point40) {
+    point = 40;
+    remainingScore = point42 - score;
+  }
+  else if (score >= point38) {
+    point = 38;
+    remainingScore = point40 - score;
+  }
+  else if (score >= point36) {
+    point = 36;
+    remainingScore = point38 - score;
   }
   else if ( score >= point34 ) {
     point = 34;
