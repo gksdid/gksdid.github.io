@@ -1,6 +1,6 @@
 // 페이지에 노출되는 이벤트명
 let event1 = "The Fool's Blessing";
-let event2 = "The Chaosbound OF Erangel";
+let event2 = "The Chaosbound of Erangel";
 let event3 = "Wings Whispering";
 let event4 = "PAGANI 상자";
 let event5 = "Lucky Spin - 도토리";
