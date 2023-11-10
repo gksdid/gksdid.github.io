@@ -1,8 +1,8 @@
 // 페이지에 노출되는 이벤트명
 let event1 = "The Fool's Blessing";
-let event2 = "The CHAOSBOUND OF ERANGEL";
+let event2 = "The Chaosbound OF Erangel";
 let event3 = "Wings Whispering";
-let event4 = "Pagani 상자";
+let event4 = "PAGANI 상자";
 let event5 = "Lucky Spin - 도토리";
 
 // 기본값: 수정 필요하지 않음
@@ -27,7 +27,7 @@ let event5 = "Lucky Spin - 도토리";
     if (document.getElementById(checkboxId).checked) {
       // Set probabilities based on the selected checkbox
       switch (checkboxId) {
-        case 'event1':
+        case 'event1': // Fool's Blessing
           price = 600;
           probability1 = 0.3465;
           probability2 = 0.2079;
@@ -37,7 +37,7 @@ let event5 = "Lucky Spin - 도토리";
           probability50 = 0;
           probability100 = 0;
           break;
-        case 'event2':
+        case 'event2': // Chaosbound of Erangel
           price = 540;
           probability1 = 0.2;
           probability2 = 0;
@@ -47,7 +47,7 @@ let event5 = "Lucky Spin - 도토리";
           probability50 = 0;
           probability100 = 0;
           break;
-        case 'event3':
+        case 'event3': // Wings Whispering
           price = 540;
           probability1 = 0.3421;
           probability2 = 0;
@@ -57,7 +57,7 @@ let event5 = "Lucky Spin - 도토리";
           probability50 = 0;
           probability100 = 0;
           break;
-        case 'event4':
+        case 'event4': // 파가니
           price = 1620;
           probability1 = 0;
           probability2 = 0;
@@ -67,7 +67,7 @@ let event5 = "Lucky Spin - 도토리";
           probability50 = 0.02;
           probability100 = 0.008;
           break;
-        case 'event5':
+        case 'event5': // 도토리
           price = 540;
           probability1 = 0.515;
           probability2 = 0;
