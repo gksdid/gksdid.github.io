@@ -2,7 +2,7 @@
 let event1 = "The Fool's Blessing";
 let event2 = "The CHAOSBOUND OF ERANGEL";
 let event3 = "Wings Whispering";
-let event4 = "Unleashed Muscle (Dodge)";
+let event4 = "Pagani 상자";
 let event5 = "Lucky Spin - 도토리";
 
 // 기본값: 수정 필요하지 않음
@@ -12,6 +12,8 @@ let event5 = "Lucky Spin - 도토리";
   let probability3 = 0;
   let probability5 = 0;
   let probability10 = 0;
+  let probability50 = 0;
+  let probability100 = 0;
 
   function updateProbabilities(checkboxId) {
     const checkboxes = ['event1', 'event2', 'event3', 'event4', 'event5'];
@@ -32,6 +34,8 @@ let event5 = "Lucky Spin - 도토리";
           probability3 = 0;
           probability5 = 0.0866;
           probability10 = 0;
+          probability50 = 0;
+          probability100 = 0;
           break;
         case 'event2':
           price = 540;
@@ -40,6 +44,8 @@ let event5 = "Lucky Spin - 도토리";
           probability3 = 0.15;
           probability5 = 0;
           probability10 = 0.05;
+          probability50 = 0;
+          probability100 = 0;
           break;
         case 'event3':
           price = 540;
@@ -48,14 +54,18 @@ let event5 = "Lucky Spin - 도토리";
           probability3 = 0;
           probability5 = 0;
           probability10 = 0;
+          probability50 = 0;
+          probability100 = 0;
           break;
         case 'event4':
-          price = 540;
-          probability1 = 0.6395;
+          price = 1620;
+          probability1 = 0;
           probability2 = 0;
-          probability3 = 0.22;
+          probability3 = 0;
           probability5 = 0;
-          probability10 = 0.08;
+          probability10 = 0;
+          probability50 = 0.02;
+          probability100 = 0.008;
           break;
         case 'event5':
           price = 540;
@@ -64,6 +74,8 @@ let event5 = "Lucky Spin - 도토리";
           probability3 = 0.3189;
           probability5 = 0.13;
           probability10 = 0;
+          probability50 = 0;
+          probability100 = 0;
           break;
         // 추가 이벤트들에 대해 case 추가 가능
       }
@@ -75,7 +87,9 @@ let event5 = "Lucky Spin - 도토리";
       probability2 = 0;
       probability3 = 0;
       probability5 = 0;
-      probability10 = 0.;
+      probability10 = 0;
+      probability50 = 0;
+      probability100 = 0;
     }
   }
 
@@ -99,8 +113,10 @@ let event5 = "Lucky Spin - 도토리";
     const coins3 = 3 * numAttempts * probability3;
     const coins5 = 5 * numAttempts * probability5;
     const coins10 = 10 * numAttempts * probability10;
+    const coins50 = 50 * numAttempts * probability50;
+    const coins100 = 100 * numAttempts * probability100;
 
-    const totalCoins = coins1 + coins2 + coins3 + coins5 + coins10;
+    const totalCoins = coins1 + coins2 + coins3 + coins5 + coins10 + coins50 + coins100;
     return totalCoins;
   }
 
