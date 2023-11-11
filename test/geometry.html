@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기하 분포 그래프</title>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myChart" width="800" height="400"></canvas>
+
+    <br>
+
+    <!-- 입력 폼 -->
+    <label for="startX">시작 X:</label>
+    <input type="number" id="startX" step="100" value="1" min="1" oninput="updateChart()">
+
+    <label for="endX">종료 X:</label>
+    <input type="number" id="endX" step="100" value="500" min="1" max="1600" oninput="updateChart()">
+
+    <br>
+    <!-- 결과 출력 -->
+    <div id="result"></div>
+
+    <script>
+        // 기하 분포 파라미터 설정
+        const p = 0.0024;
+
+        // 기하 분포 계산 (각 확률에 100을 곱해줌)
+        const labels = Array.from({ length: 1600 }, (_, i) => i + 1);
+        const probabilities = labels.map(k => (Math.pow(1 - p, k - 1) * p) * 100);
+
+        // 초기에 사용자 입력을 가져오기
+        let startX = parseInt(document.getElementById('startX').value);
+        let endX = parseInt(document.getElementById('endX').value);
+
+        // 차트 생성
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: '기하 분포',
+                        data: probabilities,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: true,
+                        backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                    },
+                    {
+                        label: '강조 영역',
+                        data: probabilities.map((val, index) => {
+                            return (index >= labels.indexOf(startX) && index <= labels.indexOf(endX)) ? val : null;
+                        }),
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        fill: true,
+                        backgroundColor: 'rgba(75, 192, 192, 0.4)',
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                    },
+                    y: {
+                        type: 'linear',
+                        position: 'left',
+                    },
+                },
+            },
+        });
+
+        // 사용자 입력을 기반으로 차트를 업데이트하는 함수
+        function updateChart() {
+            startX = parseInt(document.getElementById('startX').value);
+            endX = parseInt(document.getElementById('endX').value);
+
+            // 데이터셋 갱신
+            myChart.data.datasets[1].data = probabilities.map((val, index) => {
+                return (index >= labels.indexOf(startX) && index <= labels.indexOf(endX)) ? val : null;
+            });
+
+            // 차트 업데이트
+            myChart.update();
+
+            // 영역을 재계산하고 표시
+            const newArea = calculateArea(labels, probabilities, startX, endX);
+            displayArea(startX, endX, newArea);
+        }
+
+        // 리만 적분
+        function calculateArea(labels, probabilities, startX, endX) {
+            const startIndex = labels.indexOf(startX);
+            const endIndex = labels.indexOf(endX);
+
+            let area = 0;
+            for (let i = startIndex; i < endIndex - 1; i++) {
+                const width = labels[i + 1] - labels[i];
+                const heightAvg = (probabilities[i] + probabilities[i + 1]) / 2;
+                area += width * heightAvg;
+            }
+
+            return area;
+        }
+
+        // 결과 출력 함수
+        function displayArea(startX, endX, area) {
+            const roundedArea = area.toFixed(2); // 소수 2째자리로 반올림
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `x=${startX}부터 x=${endX}까지의 곡선 아래 영역: ${roundedArea}`;
+        }
+    </script>
+</body>
+</html>
