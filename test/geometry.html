@@ -9,6 +9,7 @@
     <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
     </script>
+
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
@@ -26,13 +27,13 @@
     <!-- 입력 폼 -->
     <div class=inputNum>
         <span>성공 확률이 </span>
-        <input type="number" id="pValue" step="0.01" value="0.24" min="0" max="1" oninput="updateChart()">
+        <input type="number" id="pValue" step="0.01" value="0.24" min="0" max="100" oninput="updateChart()">
         <span>% 일 때,</span>
     </div>
     <div class=inputNum>
         <input type="number" id="startX" step="50" value="1" min="1" oninput="updateChart()">
         <span>번째와 </span>
-        <input type="number" id="endX" step="50" value="500" min="1" min="5000" oninput="updateChart()">
+        <input type="number" id="endX" step="50" value="500" min="30" max="5000" oninput="updateChart()">
         <span>번째 시도 내에서<br>처음으로 성공할 확률:</span>
     </div>
     
@@ -52,11 +53,22 @@
             p = parseFloat(document.getElementById('pValue').value / 100);
             startX = parseInt(document.getElementById('startX').value);
             endX = parseInt(document.getElementById('endX').value);
+
+            if (p > 0.05) {
+             p = 0.05;
+             document.getElementById('pValue').value = p * 100;
+            }
+
+            startX = Math.max(1, Math.min(startX, 5000));
+            document.getElementById('startX').value = startX;
+
+            endX = Math.max(30, Math.min(endX, 5000));
+            document.getElementById('endX').value = endX;
         }
 
         // 기하 분포의 확률 계산 함수
         function calculateProbabilities(startX, endX) {
-            return Array.from({ length: endX+100 }, (_, i) => (Math.pow(1 - p, i) * p) * 100);
+            return Array.from({ length: endX+50 }, (_, i) => (Math.pow(1 - p, i) * p) * 100);
         }
 
         // 차트 업데이트 함수
@@ -81,22 +93,29 @@
             MathJax.typeset();
         }
 
-        // 리만 적분을 통한 영역 계산 함수
-        function calculateArea(labels, probabilities, startX, endX) {
-        const startIndex = labels.indexOf(startX);
-        const endIndex = labels.indexOf(endX);
+        // 사다리꼴 적분을 통한 영역 계산 함수
+        function calculateAreaSimpson(labels, probabilities, startX, endX) {
+    const startIndex = labels.indexOf(startX);
+    const endIndex = labels.indexOf(endX);
+    
+    let area = 0;
+    const labelDiff = labels[1] - labels[0]; // 간격 계산
 
-        let area = 0;
-        const labelDiff = labels[1] - labels[0]; // 간격 계산
+    for (let i = startIndex; i < endIndex; i += 2) {
+        const width = labelDiff * 2;
+        const height1 = probabilities[i];
+        const height2 = probabilities[i + 2];
+        const heightMid = probabilities[i + 1] * 4;
 
-        for (let i = startIndex; i < endIndex - 1; i++) {
-            const width = labelDiff;
-            const heightAvg = (probabilities[i] + probabilities[i + 1]) / 2;
-            area += width * heightAvg;
-        }
-
-        return area;
+        area += (height1 + heightMid + height2) * width / 6;
     }
+
+    return area;
+}
+
+function calculateArea(labels, probabilities, startX, endX) {
+    return calculateAreaSimpson(labels, probabilities, startX, endX);
+}
 
         // 결과 출력 함수
         function displayArea(startX, endX, area) {
@@ -106,7 +125,7 @@
         }
 
         // 라벨 생성
-        const labels = Array.from({ length: 5000 }, (_, i) => i + 1);
+        const labels = Array.from({ length: 5000 }, (_, i) => i +1);
 
         // 차트 생성
         const canvas = document.getElementById('myChart');
@@ -139,7 +158,7 @@
                     x: {
                         type: 'linear',
                         position: 'bottom',
-                        max: endX + 100,
+                        max: endX + 50,
                     },
                     y: {
                         type: 'linear',
@@ -151,6 +170,16 @@
 
         initializeParams(); // 초기화 함수 호출
         updateChart(); // 초기 차트 업데이트
+
+        document.addEventListener('click', function(event) {
+        // 클릭된 요소가 특정 입력 요소인지 확인
+        const clickedElementId = event.target.id;
+        const inputElements = ['pValue', 'startX', 'endX']; // 여기에 사용자 입력 요소의 ID 추가
+        if (!inputElements.includes(clickedElementId)) {
+            // 클릭된 요소가 사용자 입력 요소가 아니라면 초기화 함수 호출
+            initializeParams();
+        }
+    });
 
         
     </script>
