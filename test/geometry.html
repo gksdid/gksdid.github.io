@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기하 분포 그래프</title>
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #myChart {
+            max-width: 800px;
+            width: 100%;
+            max-height: 400px;
+        }
+    </style>
 </head>
 <body>
-    <canvas id="myChart" width="800" height="400"></canvas>
-
-    <br>
-
     <!-- 입력 폼 -->
+    <label for="pValue">확률 (%):</label>
+    <input type="number" id="pValue" step="0.01" value="0.24" min="0" max="1" oninput="updateChart()">
+
     <label for="startX">시작 X:</label>
     <input type="number" id="startX" step="100" value="1" min="1" oninput="updateChart()">
 
@@ -21,67 +27,35 @@
 
     <br>
     <!-- 결과 출력 -->
-    <div id="result"></div>
+    <span>결과: </span><div id="result"></div>
+
+    <!-- 차트 캔버스 -->
+    <canvas id="myChart"></canvas>
 
     <script>
-        // 기하 분포 파라미터 설정
-        const p = 0.0024;
+        // 초기 파라미터 설정
+        let p, startX, endX;
 
-        // 기하 분포 계산 (각 확률에 100을 곱해줌)
-        const labels = Array.from({ length: 1600 }, (_, i) => i + 1);
-        const probabilities = labels.map(k => (Math.pow(1 - p, k - 1) * p) * 100);
-
-        // 초기에 사용자 입력을 가져오기
-        let startX = parseInt(document.getElementById('startX').value);
-        let endX = parseInt(document.getElementById('endX').value);
-
-        // 차트 생성
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: '기하 분포',
-                        data: probabilities,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 2,
-                        fill: true,
-                        backgroundColor: 'rgba(75, 192, 192, 0.1)',
-                    },
-                    {
-                        label: '강조 영역',
-                        data: probabilities.map((val, index) => {
-                            return (index >= labels.indexOf(startX) && index <= labels.indexOf(endX)) ? val : null;
-                        }),
-                        borderColor: 'transparent',
-                        borderWidth: 0,
-                        fill: true,
-                        backgroundColor: 'rgba(75, 192, 192, 0.4)',
-                    },
-                ],
-            },
-            options: {
-                scales: {
-                    x: {
-                        type: 'linear',
-                        position: 'bottom',
-                    },
-                    y: {
-                        type: 'linear',
-                        position: 'left',
-                    },
-                },
-            },
-        });
-
-        // 사용자 입력을 기반으로 차트를 업데이트하는 함수
-        function updateChart() {
+        // 초기화 함수
+        function initializeParams() {
+            p = parseFloat(document.getElementById('pValue').value / 100);
             startX = parseInt(document.getElementById('startX').value);
             endX = parseInt(document.getElementById('endX').value);
+        }
+
+        // 기하 분포의 확률 계산 함수
+        function calculateProbabilities() {
+            return Array.from({ length: 1600 }, (_, i) => (Math.pow(1 - p, i) * p) * 100);
+        }
+
+        // 차트 업데이트 함수
+        function updateChart() {
+            initializeParams();
+
+            const probabilities = calculateProbabilities();
 
             // 데이터셋 갱신
+            myChart.data.datasets[0].data = probabilities;
             myChart.data.datasets[1].data = probabilities.map((val, index) => {
                 return (index >= labels.indexOf(startX) && index <= labels.indexOf(endX)) ? val : null;
             });
@@ -94,7 +68,7 @@
             displayArea(startX, endX, newArea);
         }
 
-        // 리만 적분
+        // 리만 적분을 통한 영역 계산 함수
         function calculateArea(labels, probabilities, startX, endX) {
             const startIndex = labels.indexOf(startX);
             const endIndex = labels.indexOf(endX);
@@ -111,10 +85,56 @@
 
         // 결과 출력 함수
         function displayArea(startX, endX, area) {
-            const roundedArea = area.toFixed(2); // 소수 2째자리로 반올림
+            const roundedArea = area.toFixed(3);
             const resultElement = document.getElementById('result');
             resultElement.innerHTML = `x=${startX}부터 x=${endX}까지의 곡선 아래 영역: ${roundedArea}`;
         }
+
+        // 라벨 생성
+        const labels = Array.from({ length: 1600 }, (_, i) => i + 1);
+
+        // 차트 생성
+        const canvas = document.getElementById('myChart');
+        const ctx = canvas.getContext('2d');
+
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: '기하 분포',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1,
+                        fill: true,
+                        backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                    },
+                    {
+                        label: '강조 영역',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        fill: true,
+                        backgroundColor: 'rgba(75, 192, 192, 0.4)',
+                    },
+                ],
+            },
+            options: {
+                maintainAspectRatio: true,
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                    },
+                    y: {
+                        type: 'linear',
+                        position: 'left',
+                    },
+                },
+            },
+        });
+
+        initializeParams(); // 초기화 함수 호출
+        updateChart(); // 초기 차트 업데이트
     </script>
 </body>
 </html>
