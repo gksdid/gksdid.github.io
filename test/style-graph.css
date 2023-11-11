@@ -34,20 +34,25 @@ body {
 }
 
 .inputNum {
-    margin-bottom: 15px;
-    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.inputNum span {
+    margin-bottom: 0.5em;
 }
 
 .resultBox {
     width: auto;
     margin: auto;
+    margin-top: 25px;
+    margin-bottom: 15px;
     background-color: #f2f2f2;
     border-radius: 5px;
     padding: 15px;
 }
 
-#startX, #endX {
-    width: 60px;
+#pValue, #startX, #endX {
+    width: 50px;
 }
 
 .mathExpression {
@@ -89,15 +94,9 @@ body {
       background-color: #a4e4dc; 
 }
 
-
-label {
-      margin-bottom: 0.3em;
-}
-
 input {
     position: relative;
     top: -2px;
-      margin-bottom: 15px;
       padding-bottom: 1px;
       box-sizing: border-box;
       text-align: center;
@@ -162,7 +161,11 @@ nav a:hover {
 p {
     text-align: center;
     margin-bottom: 0.5em;
-    line-height: 1.5;
+}
+
+span {
+    text-align: center;
+    margin-bottom: 0.5em;
 }
 
 @media only screen and (max-width: 767px) {
