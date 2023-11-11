@@ -1,36 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기하 분포 그래프</title>
+    <link rel="stylesheet" href="style-calculator.css"> <!-- 외부 CSS 파일을 불러옴 -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        #myChart {
-            max-width: 800px;
-            width: 100%;
-            max-height: 400px;
-        }
-    </style>
+    
 </head>
 <body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="../../">홈</a></li>
+            <li><a href="coin.html">교환코인 계산기</a></li>
+            <!-- 다른 페이지에 대한 메뉴 항목 추가 -->
+          </ul>
+        </nav>
+      </header> <br>
+
     <!-- 입력 폼 -->
-    <label for="pValue">확률 (%):</label>
-    <input type="number" id="pValue" step="0.01" value="0.24" min="0" max="1" oninput="updateChart()">
-
-    <label for="startX">시작 X:</label>
-    <input type="number" id="startX" step="100" value="1" min="1" oninput="updateChart()">
-
-    <label for="endX">종료 X:</label>
-    <input type="number" id="endX" step="100" value="500" min="1"  oninput="updateChart()">
-
-    <br>
+    <div class=inputNum>
+        <span>성공 확률: </span>
+        <input type="number" id="pValue" step="0.01" value="0.24" min="0" max="1" oninput="updateChart()">
+        <span>%</span>
+    </div>
+    <div class=inputNum>
+        <input type="number" id="startX" step="50" value="1" min="1" oninput="updateChart()">
+        <span>번째와 </span>
+        <input type="number" id="endX" step="50" value="500" min="1" min="5000" oninput="updateChart()">
+        <span>번째 시도 사이에 처음 성공할 확률:</span>
+    </div>
+    
     <!-- 결과 출력 -->
-    <span>결과: </span><div id="result"></div>
-
+    <div id="result" class="resultBox"></div>
+    
     <!-- 차트 캔버스 -->
     <canvas id="myChart"></canvas>
+
 
     <script>
         // 초기 파라미터 설정
@@ -66,6 +78,8 @@
             // 영역을 재계산하고 표시
             const newArea = calculateArea(labels, probabilities, startX, endX);
             displayArea(startX, endX, newArea);
+
+            MathJax.typeset();
         }
 
         // 리만 적분을 통한 영역 계산 함수
@@ -89,7 +103,7 @@
         function displayArea(startX, endX, area) {
             const roundedArea = area.toFixed(3);
             const resultElement = document.getElementById('result');
-            resultElement.innerHTML = `x=${startX}부터 x=${endX}까지의 곡선 아래 영역: ${roundedArea}`;
+            resultElement.innerHTML = `\\( \\int_{${startX}}^{${endX}} P(x) \\, dx = ${roundedArea}\\% \\)`;
         }
 
         // 라벨 생성
@@ -138,6 +152,8 @@
 
         initializeParams(); // 초기화 함수 호출
         updateChart(); // 초기 차트 업데이트
+
+        
     </script>
 </body>
 </html>
