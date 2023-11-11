@@ -168,7 +168,7 @@ span {
     margin-bottom: 0.5em;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 600px) {
     /* 모바일 스타일 */
     #myChart {
         max-height: 600px;
