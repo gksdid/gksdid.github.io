@@ -238,4 +238,7 @@ span {
     #myChart {
         max-height: 600px;
     }
+    #overlay-content {
+        font-size: 13px; 
+    }
 }
