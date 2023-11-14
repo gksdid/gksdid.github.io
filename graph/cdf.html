@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>누적 분포 함수</title>
+    <link rel="stylesheet" href="style-graph.css"> <!-- 외부 CSS 파일을 불러옴 -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <!-- 추가한 부분: 창 안내문 -->
+    <div id="overlay">
+        <div id="overlay-content">
+            <h2><a href="https://ko.wikipedia.org/wiki/%EA%B8%B0%ED%95%98_%EB%B6%84%ED%8F%AC" target="_blank" class="link-highlight-white">기하 분포</a></h2>
+            <p>
+                x는 처음으로 성공할 때까지 걸리는 시행 횟수를 나타냅니다.<br>
+                x회 동안 적어도 한 번 성공할 확률을 계산합니다.<br><br>
+                과부하를 방지하기 위해 상한값은 최대 5000으로 제한됩니다.
+            </p>
+            <button id="close-btn" onclick="closeOverlay()">확인했어요!</button>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../">홈</a></li>
+                <!-- 다른 페이지에 대한 메뉴 항목 추가 -->
+            </ul>
+        </nav>
+    </header>
+
+    <button id="showOverlayButton" class="overlayButton" onclick="toggleOverlay()">안내 다시보기</button>
+
+    <!-- 입력 폼 -->
+    <div class=inputNum>
+        <span>성공 확률이 </span>
+        <input type="number" id="pValue" step="0.01" value="0.24" min="0" max="100" oninput="updateChart()">
+        <span>% 일 때,</span>
+    </div>
+    <div class=inputNum>
+        <input type="number" id="endX" step="50" value="100" min="1" max="5000" oninput="updateChart()">
+        <span>번째 시도 내에서<br>처음으로 성공할 확률:</span>
+    </div>
+
+    <!-- 결과 출력 -->
+    <div id="result" class="resultBox"></div>
+
+    <!-- 차트 캔버스 -->
+    <canvas id="myChart"></canvas>
+
+    <script>
+        // 초기 파라미터 설정
+        let p, endX;
+        const startX = 1;
+
+        // 추가한 부분: 창 안내문 닫기
+        function closeOverlay() {
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        // 초기화 함수
+        function initializeParams() {
+            p = parseFloat(document.getElementById('pValue').value / 100);
+            endX = parseInt(document.getElementById('endX').value);
+
+            endX = Math.max(1, Math.min(endX, 5000));
+        }
+
+        // 확률 질량 함수 계산 함수
+        function calculateProbabilities(startX, endX) {
+            return Array.from({ length: endX + 50 }, (_, i) => Math.pow(1 - p, i) * p);
+        }
+
+        // 추가한 부분: 누적 확률 계산 함수
+        function calculateCumulativeProbabilities(startX, endX) {
+            const probabilities = calculateProbabilities(startX, endX);
+            return probabilities.reduce((cumulativeProbabilities, probability) => {
+                const lastValue = cumulativeProbabilities.length > 0 ? cumulativeProbabilities[cumulativeProbabilities.length - 1] : 0;
+                cumulativeProbabilities.push(lastValue + probability);
+                return cumulativeProbabilities;
+            }, []);
+        }
+
+        // 차트 업데이트 함수
+        function updateChart() {
+            initializeParams();
+
+            const cumulativeProbabilities = calculateCumulativeProbabilities(startX, endX);
+
+            // 데이터셋 갱신
+            myChart.data.datasets[0].data = cumulativeProbabilities.map(prob => prob * 100);
+            myChart.data.datasets[1].data = cumulativeProbabilities.map((val, index) => {
+                return (index >= labels.indexOf(startX) && index <= labels.indexOf(endX)) ? val * 100 : null;
+            });
+
+            // 차트 업데이트
+            myChart.update();
+
+            // 영역을 재계산하고 표시
+            const newArea = cumulativeProbabilities[labels.indexOf(endX)] - cumulativeProbabilities[labels.indexOf(startX)];
+            displayArea(startX, endX, newArea);
+
+            MathJax.typeset();
+        }
+
+        // 결과 출력 함수
+        function displayArea(startX, endX, area) {
+            const roundedArea = (area * 100).toFixed(3);
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `\\( P(${startX} \\leq X \\leq ${endX}) = ${roundedArea}\\% \\)`;
+        }
+
+        
+
+        // 라벨 생성
+        const labels = Array.from({ length: 5000 }, (_, i) => i + 1);
+
+        // 차트 생성
+        const canvas = document.getElementById('myChart');
+        const ctx = canvas.getContext('2d');
+
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                        label: '기하 분포',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1,
+                        fill: true,
+                        backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                    },
+                    {
+                        label: '확률',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        fill: true,
+                        backgroundColor: 'rgba(75, 192, 192, 0.4)',
+                    },
+                ],
+            },
+            options: {
+                maintainAspectRatio: true,
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                        max: endX + 50,
+                    },
+                    y: {
+                        type: 'linear',
+                        position: 'left',
+                    },
+                },
+            },
+        });
+
+        // 추가한 부분: x=endX 위치의 값 표시 함수
+function displayEndXValue(probability) {
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = `\\( P(X = ${endX}) = ${(probability * 100).toFixed(3)}\\% \\)`;
+    MathJax.typeset();
+}
+
+// 차트 업데이트 함수
+function updateChart() {
+    initializeParams();
+
+    const cumulativeProbabilities = calculateCumulativeProbabilities(startX, endX);
+
+    // 데이터셋 갱신
+    myChart.data.datasets[0].data = cumulativeProbabilities.map(prob => prob * 100);
+    myChart.data.datasets[1].data = cumulativeProbabilities.map((val, index) => {
+        return (index >= labels.indexOf(startX) && index <= labels.indexOf(endX)) ? val * 100 : null;
+    });
+
+    // 차트 업데이트
+    myChart.update();
+
+    // 영역을 재계산하고 표시
+    const newArea = cumulativeProbabilities[labels.indexOf(endX)] - cumulativeProbabilities[labels.indexOf(startX)];
+    displayArea(startX, endX, newArea);
+    displayEndXValue(cumulativeProbabilities[labels.indexOf(endX)]);  // x=endX 위치의 값 출력
+
+    MathJax.typeset();
+}
+
+        initializeParams(); // 초기화 함수 호출
+        updateChart(); // 초기 차트 업데이트
+
+        function toggleOverlay() {
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = overlay.style.display === 'none' ? 'block' : 'none';
+        }
+
+    </script>
+</body>
+
+</html>
