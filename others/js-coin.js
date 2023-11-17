@@ -69,10 +69,10 @@ let event5 = "Hola Buddy";
           break;
         case 'event5': // 버디
           price = 270;
-          probability1 = 0.515;
+          probability1 = 0.5926;
           probability2 = 0;
-          probability3 = 0.3189;
-          probability5 = 0.13;
+          probability3 = 0;
+          probability5 = 0;
           probability10 = 0;
           probability50 = 0;
           probability100 = 0;
