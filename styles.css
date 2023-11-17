@@ -389,6 +389,7 @@ p {
     }
 
     .button-text {
+     bottom: -30px;
      margin-bottom: 7px; 
      font-size: 0.98em;
 }
