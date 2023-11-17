@@ -384,6 +384,14 @@ p {
         line-height: 1.5;
     }
 
+    .button-text {
+          position: absolute; 
+          bottom: -25px;
+          font-size: 0.8em;
+          color: black;
+          font-family: 'NanumSquareNeo-Variable', sans-serif;
+}
+
 
     #price-display {
         font-size: 1.2em; /* 모바일에서 가격 크기를 키움 */
