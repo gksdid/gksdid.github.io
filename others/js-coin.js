@@ -1,9 +1,9 @@
 // 페이지에 노출되는 이벤트명
 let event1 = "The Fool's Blessing";
-let event2 = "The Chaosbound of Erangel";
+let event2 = "종료된 이벤트";
 let event3 = "Wings Whispering";
 let event4 = "PAGANI 상자";
-let event5 = "Lucky Spin - 도토리";
+let event5 = "Hola Buddy";
 
 // 기본값: 수정 필요하지 않음
   let price = 600;
@@ -67,8 +67,8 @@ let event5 = "Lucky Spin - 도토리";
           probability50 = 0.02;
           probability100 = 0.008;
           break;
-        case 'event5': // 도토리
-          price = 540;
+        case 'event5': // 버디
+          price = 270;
           probability1 = 0.515;
           probability2 = 0;
           probability3 = 0.3189;
