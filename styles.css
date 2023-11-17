@@ -389,11 +389,8 @@ p {
     }
 
     .button-text {
-          position: absolute; 
-          bottom: -25px;
-          font-size: 0.97em;
-          color: black;
-          font-family: 'NanumSquareNeo-Variable', sans-serif;
+     margin-bottom: 7px; 
+     font-size: 0.98em;
 }
 
 
