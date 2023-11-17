@@ -387,7 +387,7 @@ p {
     .button-text {
           position: absolute; 
           bottom: -25px;
-          font-size: 0.8em;
+          font-size: 0.95em;
           color: black;
           font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
