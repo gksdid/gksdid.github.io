@@ -23,24 +23,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 데이터 속성이 undefined가 아닌지 확인
     if (targetDateAttribute !== undefined) {
+        // 대한민국 표준시로 targetDate 가져오기
         const targetDate = new Date(targetDateAttribute);
 
         // targetDate가 유효한 날짜인지 확인
         if (!isNaN(targetDate.getTime())) {
             function updateCountdown() {
-                const currentDate = new Date();
+                // 대한민국 표준시로 현재 날짜를 가져오기
+                const koreaStandardTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Seoul"});
+                const koreaStandardTimeDate = new Date(koreaStandardTime);
+
+                const currentDate = koreaStandardTimeDate;
                 const timeDifference = targetDate - currentDate;
 
-                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-                // countdownElement에 값을 넣기 전에, 값이 유효한지 확인
-                if (!isNaN(days) && !isNaN(hours) && !isNaN(minutes) && !isNaN(seconds)) {
-                    countdownElement.innerHTML = `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+                if (timeDifference <= 0) {
+                    // 이벤트가 종료되었습니다.
+                    countdownElement.innerHTML = '이벤트가 종료되었습니다.';
                 } else {
-                    console.error("Invalid time values");
+                    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                    // countdownElement에 값을 넣기 전에, 값이 유효한지 확인
+                    if (!isNaN(days) && !isNaN(hours) && !isNaN(minutes) && !isNaN(seconds)) {
+                        countdownElement.innerHTML = `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+                    } else {
+                        console.error("Invalid time values");
+                    }
                 }
             }
 
@@ -56,6 +66,5 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error("targetDateAttribute is undefined");
     }
 });
-
 
 
