@@ -140,15 +140,12 @@ p {
 }
 
 @media only screen and (max-width: 600px) {
-    body {
-        padding: 5px 5px;
-    }
-
+   
     .table {
         font-size: 12px; 
         width: 100%;
         margin: auto;
-        margin-top: 15px;
+        margin: 15px 20px;
     }
 
     .table th,
