@@ -111,8 +111,8 @@ input {
       border-bottom: 2px solid #a4e4dc;
 }
 
-#budget {
-    width: 25px;
+#gameCurrency {
+    width: 100px;
 }
 
 p {
