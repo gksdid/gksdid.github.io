@@ -6,8 +6,8 @@
 }
 
 @font-face {
-    font-family: 'JSongMyung-Regular-KO';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2') format('woff2');
+    font-family: 'GyeonggiBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -335,31 +335,31 @@ p {
 
 /* 추가된 부분: 등급에 따른 클래스 스타일 */
 .gold-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'GyeonggiBatang', sans-serif;
 }
 
 .red-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'GyeonggiBatang', sans-serif;
 }
 
 .pink-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'GyeonggiBatang', sans-serif;
 }
 
 .purple-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'GyeonggiBatang', sans-serif;
 }
 
 .blue-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'GyeonggiBatang', sans-serif;
 }
 
 .green-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'GyeonggiBatang', sans-serif;
 }
 
 .default-grade-index-2 {
-    font-family: 'JSongMyung-Regular-KO', sans-serif;
+    font-family: 'GyeonggiBatang', sans-serif;
 }
 
 
