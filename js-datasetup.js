@@ -52,21 +52,21 @@ function updateProbabilitySum() {
 
     var resultElement = document.getElementById('probability-sum');
     // resultElement.innerHTML = '확률 합계: <br>' + sum.toFixed(2) + '%';
-    resultElement.innerHTML = '확률 합계: <br><span class="text-highlight">' + sum.toFixed(2) + '</span>%';
+    resultElement.innerHTML = '확률 합계: <br><span class="text-highlight">' + sum.toFixed(2) + '%</span>';
+
 
     
 
     var probabilityAttempts = calculateAttempts(sum);
     var attemptsElement = document.getElementById('probability-attempts');
-    attemptsElement.innerHTML = '평균 횟수: <br><span class="text-highlight">' + probabilityAttempts + '</span>회';
+    attemptsElement.innerHTML = '평균 횟수: <br><span class="text-highlight">' + probabilityAttempts + ' 회</span>';
 
     var costElement = document.getElementById('cost');
     var costValue = (probabilityAttempts / 10 * price).toFixed(2);
     var costInteger = parseInt(costValue, 10);
 
     // costElement.innerHTML = '평균 비용: <br>' + costInteger + ' UC';
-    costElement.innerHTML = '평균 비용: <br><span class="text-highlight">' + costInteger + '</span>UC';
-
+    costElement.innerHTML = '평균 비용: <br><span class="text-highlight">' + costInteger + ' UC</span>';
     
 
     var priceDisplay = document.getElementById('price-display');
