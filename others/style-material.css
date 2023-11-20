@@ -122,8 +122,9 @@ p {
 }
 
 .table {
-    width: 500px; 
-    margin: 20px auto; 
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
     border-collapse: collapse;
 }
 
@@ -140,11 +141,14 @@ p {
 
 @media only screen and (max-width: 600px) {
     body {
-        padding: 5px 5px; /* 모바일에서 좀 더 간격을 주기 위해 padding 조정 */
+        padding: 5px 5px;
     }
 
     .table {
-        font-size: 12px; /* 테이블의 폰트 크기를 조정 */
+        font-size: 12px; 
+        width: 100%;
+        margin: auto;
+        margin-top: 15px;
     }
 
     .table th,
