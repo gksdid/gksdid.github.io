@@ -137,3 +137,18 @@ p {
 .table th {
     background-color: #f2f2f2;
 }
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 5px 5px; /* 모바일에서 좀 더 간격을 주기 위해 padding 조정 */
+    }
+
+    .table {
+        font-size: 12px; /* 테이블의 폰트 크기를 조정 */
+    }
+
+    .table th,
+    .td {
+        padding: 5px;
+    }
+}
