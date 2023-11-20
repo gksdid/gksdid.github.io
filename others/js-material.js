@@ -1,98 +1,90 @@
 // 페이지에 노출되는 이벤트명
 let event1 = "배틀로얄 상자";
-let event2 = "동물의 왕국 상자";
-let event3 = "빙하 상자";
-let event4 = "신비 상자";
-let event5 = "Fool's Blessing";
-let event6 = "Wings Whispering"
+let event2 = "레벨업 차량 상자";
+let event3 = "커스텀 차량 상자";
+let event4 = "레벨업 오토바이 상자";
+let event5 = "동물의 왕국 상자";
+let event6 = "빙하 상자";
+let event7 = "신비 상자";
+let event8 = "Fool's Blessing";
+let event9 = "Wings Whispering";
 
 document.addEventListener('DOMContentLoaded', function () {
     calculate();
 });
 
-let price, material1, material2, material3, material4, piece1, piece2;
-let paint1, paint2, paint3; paint5;
+let price;
+let piece1, piece2;
+let material1, material2, material3, material4;
+let paint1, paint2, paint3, paint5;
+
 
 function calculateExpectedValues(event) {
+    piece1 = 0;
+    piece2 = 0;
+    material1 = 0;
+    material2 = 0;
+    material3 = 0;
+    material4 = 0;
+    paint1 = 0;
+    paint2 = 0;
+    paint3 = 0;
+    paint5 = 0;
+
     switch (event) {
         case 'event1': // 배틀로얄 상자
           price = 1080;
-          piece1 = 0;
-          piece2 = 0;
           material1 = 0.003;
           material2 = 0.002;
           material3 = 0.001;
           material4 = 0.0005;
-          paint1 = 0;
-          paint2 = 0;
-          paint3 = 0;
-          paint5 = 0;
           break;
-        case 'event2': // 동물의 왕국 상자
-          price = 1080;
-          piece1 = 0;
-          piece2 = 0;
-          material1 = 0.002;
-          material2 = 0.001;
-          material3 = 0.0005;
-          material4 = 0;
-          paint1 = 0;
-          paint2 = 0;
-          paint3 = 0;
-          paint5 = 0;
+        case 'event2': // 레벨업 차량 상자
+          price = 420;
+          paint5 = 0.01;
+          paint3 = 0.02;
+          paint2 = 0.0334;
           break;
-        case 'event3': // 빙하 상자
-          price = 1080;
-          piece1 = 0;
-          piece2 = 0;
-          material1 = 0.002;
-          material2 = 0.001;
-          material3 = 0.0005;
-          material4 = 0;
-          paint1 = 0;
-          paint2 = 0;
-          paint3 = 0;
-          paint5 = 0;
+        case 'event3': // 커스텀 차량 상자
+          price = 420;
+          paint5 = 0.01;
+          paint3 = 0.02;
+          paint2 = 0.0334;
           break;
-        case 'event4': // 신비 상자
+        case 'event4': // 레벨업 오토바이 상자
           price = 540;
-          piece1 = 0;
-          piece2 = 0;
-          material1 = 0.0015;
-          material2 = 0;
-          material3 = 0;
-          material4 = 0;
-          paint1 = 0;
-          paint2 = 0;
-          paint3 = 0;
-          paint5 = 0;
+          paint5 = 0.01;
+          paint3 = 0.018;
+          paint2 = 0.0234;
           break;
-        case 'event5': // Fool's Blessing
+        case 'event5': // 동물의 왕국 상자
+          price = 1080;
+          material1 = 0.002;
+          material2 = 0.001;
+          material3 = 0.0005;
+          break;
+        case 'event6': // 빙하 상자
+          price = 1080;
+          material1 = 0.002;
+          material2 = 0.001;
+          material3 = 0.0005;
+          break;
+        case 'event7': // 신비 상자
+          price = 540;
+          material1 = 0.0015;
+          break;
+        case 'event8': // Fool's Blessing
           price = 600;
           piece1 = 0.1040;
-          piece2 = 0;
-          material1 = 0;
-          material2 = 0;
-          material3 = 0;
-          material4 = 0;
-          paint1 = 0;
-          paint2 = 0;
-          paint3 = 0;
-          paint5 = 0;
           break;
-        case 'event6': // Wings Whispering
+        case 'event9': // Wings Whispering
           price = 540;
           piece1 = 0.0195;
           piece2 = 0.0098;
           material1 = 0.0059;
-          material2 = 0;
-          material3 = 0;
-          material4 = 0;
-          paint5 = 0;
           paint3 = 0.0489;
           paint2 = 0.0684;
           paint1 = 0.0977;
-          
           break;
         // 추가 이벤트들에 대해 case 추가 가능
     }
@@ -111,23 +103,25 @@ function calculateExpectedValues(event) {
 
 
     const material = document.getElementById(`${event}-material`);
-    material.innerHTML = `<span>${materialTotal}`;
+    material.innerHTML = `<span>${materialTotal != 0 ? materialTotal : '·'}</span>`;
 
     const piece = document.getElementById(`${event}-piece`);
-    piece.innerHTML = `<span>${pieceTotal}`;
+    piece.innerHTML = `<span>${pieceTotal != 0 ? pieceTotal : '·'}</span>`;
 
     const paint = document.getElementById(`${event}-paint`);
-    paint.innerHTML = `<span>${paintTotal}`;
+    paint.innerHTML = `<span>${paintTotal != 0 ? paintTotal : '·'}</span>`;
 
 } 
 
 function calculate() {
-    calculateExpectedValues('event1');
-    calculateExpectedValues('event2');
-    calculateExpectedValues('event3');
-    calculateExpectedValues('event4');
-    calculateExpectedValues('event5');
-    calculateExpectedValues('event6');
+  for (let i = 1; i <= 9; i++) {
+    const eventName = 'event' + i;
+    calculateExpectedValues(eventName);
+  }
 }
 
 calculate();
+
+
+
+
