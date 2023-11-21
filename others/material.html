@@ -78,6 +78,13 @@
         calculate();
     });
 
+    document.getElementById("gameCurrency").addEventListener("focus", function() {
+    if (this.value == "10000") {
+      this.value = "";
+    }
+  });
+
+
   </script>
 </body>
 </html>
