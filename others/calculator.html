@@ -78,6 +78,25 @@ function calculateItemProbability() {
 
 }
 
+  document.getElementById("itemProbability").addEventListener("focus", function() {
+    if (this.value == "0.30") {
+      this.value = "0.";
+    }
+  });
+
+  document.getElementById("userBudget").addEventListener("focus", function() {
+    if (this.value == "10000") {
+      this.value = "";
+    }
+  });
+
+  document.getElementById("tryCost").addEventListener("focus", function() {
+    if (this.value == "1080") {
+      this.value = "";
+    }
+  });
+
+
 </script>
 
 </body>
