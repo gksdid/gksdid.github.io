@@ -109,6 +109,10 @@ input {
       font-family: 'NanumSquareNeo-Variable', sans-serif;
 }
 
+input:focus {
+    border: 2px solid #a4e4dc;
+  }
+
 
 #page-header {
     position: fixed;
