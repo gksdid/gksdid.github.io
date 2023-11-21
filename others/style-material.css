@@ -115,6 +115,10 @@ input {
     width: 100px;
 }
 
+#gameCurrency:focus {
+    outline: none;
+}
+
 p {
     text-align: center;
     margin-bottom: 0.5em;
