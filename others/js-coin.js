@@ -1,6 +1,6 @@
 // 페이지에 노출되는 이벤트명
 let event1 = "The Fool's Blessing";
-let event2 = "종료된 이벤트";
+let event2 = "Famous Firearms";
 let event3 = "Wings Whispering";
 let event4 = "PAGANI 상자";
 let event5 = "Hola Buddy";
@@ -37,13 +37,13 @@ let event5 = "Hola Buddy";
           probability50 = 0;
           probability100 = 0;
           break;
-        case 'event2': // Chaosbound of Erangel
+        case 'event2': // Famous
           price = 540;
-          probability1 = 0.2;
+          probability1 = 0.35;
           probability2 = 0;
-          probability3 = 0.15;
+          probability3 = 0.16;
           probability5 = 0;
-          probability10 = 0.05;
+          probability10 = 0.04;
           probability50 = 0;
           probability100 = 0;
           break;
