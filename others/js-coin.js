@@ -4,6 +4,7 @@ let event2 = "Famous Firearms";
 let event3 = "Wings Whispering";
 let event4 = "PAGANI 상자";
 let event5 = "Hola Buddy";
+let event6 = "Lucky Spin - PDP";
 
 // 기본값: 수정 필요하지 않음
   let price = 600;
@@ -16,7 +17,7 @@ let event5 = "Hola Buddy";
   let probability100 = 0;
 
   function updateProbabilities(checkboxId) {
-    const checkboxes = ['event1', 'event2', 'event3', 'event4', 'event5'];
+    const checkboxes = ['event1', 'event2', 'event3', 'event4', 'event5', 'event6'];
 
     checkboxes.forEach(id => {
       if (id !== checkboxId) {
@@ -68,6 +69,16 @@ let event5 = "Hola Buddy";
           probability100 = 0.008;
           break;
         case 'event5': // 버디
+          price = 270;
+          probability1 = 0.5926;
+          probability2 = 0;
+          probability3 = 0;
+          probability5 = 0;
+          probability10 = 0;
+          probability50 = 0;
+          probability100 = 0;
+          break;
+        case 'event6': // pdp
           price = 270;
           probability1 = 0.5926;
           probability2 = 0;
