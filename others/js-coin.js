@@ -1,7 +1,7 @@
 // 페이지에 노출되는 이벤트명
 let event1 = "The Fool's Blessing";
 let event2 = "Famous Firearms";
-let event3 = "Wings Whispering";
+let event3 = "ESPORTS FANTASY";
 let event4 = "PAGANI 상자";
 let event5 = "Hola Buddy";
 let event6 = "Lucky Spin - PDP";
@@ -48,9 +48,9 @@ let event6 = "Lucky Spin - PDP";
           probability50 = 0;
           probability100 = 0;
           break;
-        case 'event3': // Wings Whispering
+        case 'event3': // ESPORTS FANTASY
           price = 540;
-          probability1 = 0.3421;
+          probability1 = 0.3429;
           probability2 = 0;
           probability3 = 0;
           probability5 = 0;
