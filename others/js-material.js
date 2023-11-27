@@ -68,9 +68,9 @@ function calculateExpectedValues(event) {
           material1 = 0.0055;
           paint1 = 0.25;
           break;
-        case 'event7': // 신비 상자
-          price = 540;
-          material1 = 0.0015;
+        case 'event7': // 종료
+          price = 1080;
+          material1 = 0;
           break;
         case 'event8': // Fool's Blessing
           price = 600;
