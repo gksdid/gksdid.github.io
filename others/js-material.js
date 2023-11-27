@@ -7,7 +7,7 @@ let event5 = "동물의 왕국 상자";
 let event6 = "Famous Firearms";
 let event7 = "신비 상자";
 let event8 = "Fool's Blessing";
-let event9 = "Wings Whispering";
+let event9 = "ESPORTS FANTASY";
 
 document.addEventListener('DOMContentLoaded', function () {
     calculate();
@@ -76,14 +76,14 @@ function calculateExpectedValues(event) {
           price = 600;
           piece1 = 0.1040;
           break;
-        case 'event9': // Wings Whispering
+        case 'event9': // ESPORTS FANTASY
           price = 540;
-          piece1 = 0.0195;
-          piece2 = 0.0098;
           material1 = 0.0059;
-          paint3 = 0.0489;
-          paint2 = 0.0684;
-          paint1 = 0.0977;
+          piece2 = 0.0098;
+          piece1 = 0.0196;
+          paint3 = 0.0490;
+          paint2 = 0.0686;
+          paint1 = 0.0980;
           break;
         // 추가 이벤트들에 대해 case 추가 가능
     }
