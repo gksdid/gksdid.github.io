@@ -5,7 +5,7 @@ let event3 = "커스텀 차량 상자";
 let event4 = "레벨업 오토바이 상자";
 let event5 = "동물의 왕국 상자";
 let event6 = "Famous Firearms";
-let event7 = "신비 상자";
+let event7 = "종료";
 let event8 = "Fool's Blessing";
 let event9 = "ESPORTS FANTASY";
 
@@ -57,11 +57,11 @@ function calculateExpectedValues(event) {
           paint3 = 0.018;
           paint2 = 0.0234;
           break;
-        case 'event5': // 동물의 왕국 상자
+        case 'event5': // 종료
           price = 1080;
-          material1 = 0.002;
-          material2 = 0.001;
-          material3 = 0.0005;
+          material1 = 0;
+          material2 = 0;
+          material3 = 0;
           break;
         case 'event6': // famous
           price = 540;
