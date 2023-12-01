@@ -126,7 +126,7 @@ let event3 = "교환코인: 나머지";
   const resultElement = document.getElementById('result');
   const roundedCoins = Math.round(expectedCoins(numAttempts)); // 반올림 처리
   resultElement.innerHTML = `약 <span class="text-highlight">${Math.round(numAttempts)}회</span>의 시도가 가능하네요.<br>
-  평균적으로 <span class="text-highlight">${roundedCoins}개</span>의 에너지·교환코인을 획득합니다!`;
+  평균적으로 <span class="text-highlight">${roundedCoins}</span>의 에너지<br>또는 교환코인을 획득합니다!`;
 
 }
 
