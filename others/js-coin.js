@@ -1,6 +1,6 @@
 // 페이지에 노출되는 이벤트명
 let event1 = "The Fool's Blessing";
-let event2 = "Famous Firearms";
+let event2 = "종료";
 let event3 = "ESPORTS FANTASY";
 let event4 = "PAGANI 상자";
 let event5 = "Hola Buddy";
