@@ -8,8 +8,8 @@ let event6 = "PDP";
 
 // 기본값: 수정 필요하지 않음
   let price;
-  let probability1, let probability2, probability3, probability5;
-  let probability10, let probability50, probability100;
+  let probability1, probability2, probability3, probability5;
+  let probability10, probability50, probability100;
 
   function updateProbabilities(checkboxId) {
     const checkboxes = ['event1', 'event2', 'event3', 'event4', 'event5', 'event6'];
