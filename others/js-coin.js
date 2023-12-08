@@ -1,6 +1,6 @@
 // 페이지에 노출되는 이벤트명
 let event1 = "The Fool's Blessing";
-let event2 = "PMGC";
+let event2 = "PMGC (중복반영)";
 let event3 = "ESPORTS FANTASY";
 let event4 = "PAGANI 상자";
 let event5 = "Hola Buddy";
@@ -10,6 +10,7 @@ let event6 = "PDP";
   let price;
   let probability1, probability2, probability3, probability5;
   let probability10, probability50, probability100;
+  let probability40, probability60;
 
   function updateProbabilities(checkboxId) {
     const checkboxes = ['event1', 'event2', 'event3', 'event4', 'event5', 'event6'];
@@ -21,6 +22,8 @@ let event6 = "PDP";
   probability5 = 0;
   probability10 = 0;
   probability50 = 0;
+  probability40 = 0;
+  probability60 = 0;
   probability100 = 0;
 
     checkboxes.forEach(id => {
@@ -38,15 +41,12 @@ let event6 = "PDP";
           probability2 = 0.2079;
           probability5 = 0.0866;
           break;
-        case 'event2': // Famous
+        case 'event2': // pmgc
           price = 270;
-          probability1 = 0;
-          probability2 = 0;
-          probability3 = 0;
-          probability5 = 0;
-          probability10 = 0;
-          probability50 = 0;
-          probability100 = 0;
+          probability1 = 0.5926;
+          probability10 = 0.0237;
+          probability40 = 0.0071;
+          probability60 = 0.0071;
           break;
         case 'event3': // ESPORTS FANTASY
           price = 540;
@@ -69,16 +69,7 @@ let event6 = "PDP";
       }
        calculateCoins();  // 이벤트가 선택될 때 바로 계산
       
-    } else {
-      // No checkbox selected, reset to default values
-      probability1 = 0;
-      probability2 = 0;
-      probability3 = 0;
-      probability5 = 0;
-      probability10 = 0;
-      probability50 = 0;
-      probability100 = 0;
-    }
+    } 
   }
 
   function calculateCoins() {
@@ -101,9 +92,11 @@ let event6 = "PDP";
     const coins3 = 3 * numAttempts * probability3;
     const coins5 = 5 * numAttempts * probability5;
     const coins10 = 10 * numAttempts * probability10;
+    const coins40 = 40 * numAttempts * probability40;
     const coins50 = 50 * numAttempts * probability50;
+    const coins60 = 60 * numAttempts * probability60;
     const coins100 = 100 * numAttempts * probability100;
 
-    const totalCoins = coins1 + coins2 + coins3 + coins5 + coins10 + coins50 + coins100;
+    const totalCoins = coins1 + coins2 + coins3 + coins5 + coins10 + coins40 + coins50 + coins60 + coins100;
     return totalCoins;
   }
