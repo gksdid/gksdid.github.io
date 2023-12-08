@@ -1,23 +1,27 @@
 // 페이지에 노출되는 이벤트명
 let event1 = "The Fool's Blessing";
-let event2 = "종료";
+let event2 = "PMGC";
 let event3 = "ESPORTS FANTASY";
 let event4 = "PAGANI 상자";
 let event5 = "Hola Buddy";
-let event6 = "PDP & PMGC";
+let event6 = "PDP";
 
 // 기본값: 수정 필요하지 않음
-  let price = 600;
-  let probability1 = 0;
-  let probability2 = 0;
-  let probability3 = 0;
-  let probability5 = 0;
-  let probability10 = 0;
-  let probability50 = 0;
-  let probability100 = 0;
+  let price;
+  let probability1, let probability2, probability3, probability5;
+  let probability10, let probability50, probability100;
 
   function updateProbabilities(checkboxId) {
     const checkboxes = ['event1', 'event2', 'event3', 'event4', 'event5', 'event6'];
+
+  price = 600;
+  probability1 = 0;
+  probability2 = 0;
+  probability3 = 0;
+  probability5 = 0;
+  probability10 = 0;
+  probability50 = 0;
+  probability100 = 0;
 
     checkboxes.forEach(id => {
       if (id !== checkboxId) {
@@ -32,11 +36,7 @@ let event6 = "PDP & PMGC";
           price = 600;
           probability1 = 0.3465;
           probability2 = 0.2079;
-          probability3 = 0;
           probability5 = 0.0866;
-          probability10 = 0;
-          probability50 = 0;
-          probability100 = 0;
           break;
         case 'event2': // Famous
           price = 270;
@@ -51,42 +51,19 @@ let event6 = "PDP & PMGC";
         case 'event3': // ESPORTS FANTASY
           price = 540;
           probability1 = 0.3429;
-          probability2 = 0;
-          probability3 = 0;
-          probability5 = 0;
-          probability10 = 0;
-          probability50 = 0;
-          probability100 = 0;
           break;
         case 'event4': // 파가니
           price = 1620;
-          probability1 = 0;
-          probability2 = 0;
-          probability3 = 0;
-          probability5 = 0;
-          probability10 = 0;
           probability50 = 0.02;
           probability100 = 0.008;
           break;
         case 'event5': // 버디
           price = 270;
           probability1 = 0.5926;
-          probability2 = 0;
-          probability3 = 0;
-          probability5 = 0;
-          probability10 = 0;
-          probability50 = 0;
-          probability100 = 0;
           break;
         case 'event6': // pdp
           price = 270;
           probability1 = 0.5926;
-          probability2 = 0;
-          probability3 = 0;
-          probability5 = 0;
-          probability10 = 0;
-          probability50 = 0;
-          probability100 = 0;
           break;
         // 추가 이벤트들에 대해 case 추가 가능
       }
