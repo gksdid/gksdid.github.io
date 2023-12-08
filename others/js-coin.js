@@ -45,8 +45,7 @@ let event6 = "PDP";
           price = 270;
           probability1 = 0.5926;
           probability10 = 0.0237;
-          probability40 = 0.0071;
-          probability60 = 0.0071;
+          probability40 = 0.0213;
           break;
         case 'event3': // ESPORTS FANTASY
           price = 540;
