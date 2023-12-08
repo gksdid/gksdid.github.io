@@ -107,5 +107,3 @@ let event6 = "PDP";
     const totalCoins = coins1 + coins2 + coins3 + coins5 + coins10 + coins50 + coins100;
     return totalCoins;
   }
-
-    window.onload = calculateCoins;
