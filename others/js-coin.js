@@ -4,7 +4,7 @@ let event2 = "종료";
 let event3 = "ESPORTS FANTASY";
 let event4 = "PAGANI 상자";
 let event5 = "Hola Buddy";
-let event6 = "Lucky Spin - PDP";
+let event6 = "PDP & PMGC";
 
 // 기본값: 수정 필요하지 않음
   let price = 600;
@@ -39,12 +39,12 @@ let event6 = "Lucky Spin - PDP";
           probability100 = 0;
           break;
         case 'event2': // Famous
-          price = 540;
-          probability1 = 0.35;
+          price = 270;
+          probability1 = 0;
           probability2 = 0;
-          probability3 = 0.16;
+          probability3 = 0;
           probability5 = 0;
-          probability10 = 0.04;
+          probability10 = 0;
           probability50 = 0;
           probability100 = 0;
           break;
