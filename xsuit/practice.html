@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X-Suit</title>
+  
+  <link rel="icon" href="../banner/wallpaper/pubg.png" type="image/png">  
+  <link rel="stylesheet" href="style-xsuit.css"> <!-- 외부 CSS 파일을 불러옴 -->
+  
+  <script src="../script.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VK413KLDK"></script> 
+    
+</head>
+
+<body>
+
+    <!-- 페이지 헤더 -->
+    <header>
+    <nav>
+      <ul>
+        <li><a href="../../">홈</a></li>
+        <li><a href="calculator.html">확률 계산기</a></li>
+        <!-- 다른 페이지에 대한 메뉴 항목 추가 -->
+      </ul>
+    </nav>
+  </header>  <br>
+  
+    <h2><span class="highlight-box">X-Suit</span></h2>
+    <p>X-Suit 시뮬레이터</p>
+  
+    <br>
+      
+  
+    <div class=inputNum>
+        <input type="number" id="userBudget" name="userBudget" min="0" step="1000" value="10000" oninput = "update()" oninput="calculateExpectedCoins()">
+        <span> UC</span>
+        <button onclick="update()">시뮬레이션</button>
+    </div>
+
+    <span id="result"></span> <br><br>
+    <span id="simulationExchangeCoins"></span>
+
+    <table id="simulationTable">
+        <thead>
+          <tr>
+            <th>아이템</th>
+            <th>획득 횟수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 테이블은 동적으로 채워질 것 -->
+        </tbody>
+      </table>
+
+
+<script>
+const contents = {
+  "블레이드 오브 사일런스 세트(Lv1)": { p: 0.47, c: 0 },
+  "에이션트 포스-ACE32(Lv1)": { p: 0.58, c: 0 },
+  "스카이 엣지 비행 장치": { p: 0.70, c: 15 },
+  "댄싱 블레이드": { p: 1.16, c: 16 },
+  "와일드 라이프": { p: 1.16, c: 16 },
+  "포세이돈 세트(Lv1)": { p: 0.14, c: 0 },
+  "샤크 마린 비행 장치": { p: 0.56, c: 15 },
+  "포세이돈 낙하산": { p: 1.12, c: 14 },
+  "포세이돈 배낭": { p: 0.93, c: 18 },
+  "항해 고양이 참": { p: 2.79, c: 5 },
+  "문어 수류탄": { p: 2.79, c: 5 },
+  "번개의 홀": { p: 0.93, c: 16 },
+  "폭주의 상어": { p: 0.93, c: 16 },
+  "프로스트 아머 세트(Lv1)": { p: 0.14, c: 0 },
+  "프로즌 윙 비행 장치": { p: 0.56, c: 15 },
+  "얼음 궁전 낙하산": { p: 1.12, c: 7 },
+  "골든 사파이어 배낭": { p: 0.93, c: 18 },
+  "설원의 사슴 참": { p: 3.73, c: 5 },
+  "프로즌 스피어-빠루": { p: 1.86, c: 15 },
+  "시원한 음료": { p: 0.93, c: 16 },
+  "얼음의 승리": { p: 0.93, c: 16 },
+  "정령의 기사 세트(Lv1)": { p: 0.14, c: 0 },
+  "포레스트 가디언 보드": { p: 0.56, c: 15 },
+  "아라비안 공주 낙하산": { p: 1.12, c: 14 },
+  "광야의 여신 배낭": { p: 0.93, c: 18 },
+  "광야의 여신 참": { p: 3.73, c: 5 },
+  "광야의 여신-낫": { p: 1.86, c: 15 },
+  "자연의 손길": { p: 0.93, c: 16 },
+  "생명의 조각": { p: 0.93, c: 16 },
+  "별빛 조각*2": { p: 10.72, c: 0 },
+  "업그레이드 주석": { p: 1.07, c: 0 },
+  "교환 코인(블레이드)*2": { p: 53.55, c: 2 },
+};
+
+function update() {
+  let userBudget = parseFloat(document.getElementById('userBudget').value);
+  let attemptNum = Math.floor(userBudget / 60);
+
+  simulateAndDisplayResults(attemptNum);
+
+  const resultElement = document.getElementById('result');
+  resultElement.innerHTML = `약 ${attemptNum}회 시도`;
+}
+
+
+const itemKeys = Object.keys(contents);
+
+// 시뮬레이션 및 테이블 업데이트
+function simulateAndDisplayResults(attemptNum) {
+  const resultTable = document.getElementById('simulationTable').getElementsByTagName('tbody')[0];
+  resultTable.innerHTML = ''; // 이전 결과 지우기
+
+  let itemCounts = {};
+
+  for (let i = 0; i < attemptNum; i++) {
+    const randomValue = Math.random() * 100; // 0부터 100 사이의 랜덤 값
+    let cumulativeProbability = 0;
+
+    for (const item of itemKeys) {
+      cumulativeProbability += contents[item].p;
+
+      if (randomValue <= cumulativeProbability) {
+        itemCounts[item] = (itemCounts[item] || 0) + 1;
+        break; // 해당 아이템을 뽑았으면 루프 종료
+      }
+    }
+  }
+
+  let totalCoins = 0;
+  for (const item of itemKeys) {
+    if (itemCounts[item] >= 1) {
+      // "교환 코인(블레이드)*2" 항목은 첫 번째 교환코인 지급
+      if (item === '교환 코인(블레이드)*2') {
+        totalCoins += itemCounts[item] * contents[item].c;
+      } else {
+        totalCoins += itemCounts[item] * contents[item].c - contents[item].c;
+      }
+    }
+  }
+
+  // 테이블에 결과 표시
+  for (const item of itemKeys) {
+    const count = itemCounts[item] || 0;
+    const row = resultTable.insertRow();
+    row.insertCell(0).textContent = item;
+    row.insertCell(1).textContent = count;
+  }
+
+  // 총 교환코인 결과 표시
+  const exchangeCoinsElement = document.getElementById('simulationExchangeCoins');
+  exchangeCoinsElement.innerHTML = `획득한 교환코인: ${totalCoins}개`;
+}
+
+
+
+update();
+
+
+</script>
+</body>
+</html>
