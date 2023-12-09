@@ -38,8 +38,8 @@
         <button onclick="update()">시뮬레이션</button>
     </div>
 
-    <span id="result"></span> <br><br>
-    <span id="simulationExchangeCoins"></span>
+    <span id="result"></span> <br>
+    <span id="simulationExchangeCoins"></span> <br>
 
     <table id="simulationTable">
         <thead>
@@ -97,7 +97,7 @@ function update() {
   simulateAndDisplayResults(attemptNum);
 
   const resultElement = document.getElementById('result');
-  resultElement.innerHTML = `약 ${attemptNum}회 시도`;
+  resultElement.innerHTML = `약 <span class="text-highlight">${attemptNum}회</span> 시도`;
 }
 
 
@@ -146,7 +146,7 @@ function simulateAndDisplayResults(attemptNum) {
 
   // 총 교환코인 결과 표시
   const exchangeCoinsElement = document.getElementById('simulationExchangeCoins');
-  exchangeCoinsElement.innerHTML = `획득한 교환코인: ${totalCoins}개`;
+  exchangeCoinsElement.innerHTML = `획득한 교환코인: <span class="text-highlight">${totalCoins}개</span>`;
 }
 
 
