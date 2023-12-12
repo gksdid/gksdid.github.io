@@ -4,7 +4,7 @@ let event2 = "레벨업 차량 상자";
 let event3 = "커스텀 차량 상자";
 let event4 = "레벨업 오토바이 상자";
 let event5 = "종료";
-let event6 = "Famous Firearms";
+let event6 = "종료";
 let event7 = "종료";
 let event8 = "Fool's Blessing";
 let event9 = "ESPORTS FANTASY";
@@ -34,10 +34,9 @@ function calculateExpectedValues(event) {
     switch (event) {
         case 'event1': // 배틀로얄 상자
           price = 1080;
-          material1 = 0.003;
-          material2 = 0.002;
-          material3 = 0.001;
-          material4 = 0.0005;
+          material1 = 0.0015;
+          material2 = 0.001;
+          material3 = 0.0005;
           break;
         case 'event2': // 레벨업 차량 상자
           price = 420;
@@ -63,10 +62,10 @@ function calculateExpectedValues(event) {
           material2 = 0;
           material3 = 0;
           break;
-        case 'event6': // famous
+        case 'event6': // 종료
           price = 540;
-          material1 = 0.0055;
-          paint1 = 0.25;
+          material1 = 0;
+          paint1 = 0;
           break;
         case 'event7': // 종료
           price = 1080;
