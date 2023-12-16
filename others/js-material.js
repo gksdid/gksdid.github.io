@@ -3,7 +3,7 @@ let event1 = "배틀로얄 상자";
 let event2 = "레벨업 차량 상자";
 let event3 = "커스텀 차량 상자";
 let event4 = "레벨업 오토바이 상자";
-let event5 = "종료";
+let event5 = "2023 크리스마스 상자";
 let event6 = "종료";
 let event7 = "종료";
 let event8 = "Fool's Blessing";
@@ -58,9 +58,10 @@ function calculateExpectedValues(event) {
           break;
         case 'event5': // 종료
           price = 1080;
-          material1 = 0;
-          material2 = 0;
-          material3 = 0;
+          material4 = 0.0005;
+          material3 = 0.001;
+          material2 = 0.002;
+          material1 = 0.003; 
           break;
         case 'event6': // 종료
           price = 540;
