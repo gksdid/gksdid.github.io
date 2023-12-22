@@ -7,7 +7,7 @@ let event5 = "2023 크리스마스 상자";
 let event6 = "종료";
 let event7 = "종료";
 let event8 = "Fool's Blessing";
-let event9 = "ESPORTS FANTASY";
+let event9 = "CRYSTAL BLOOM";
 
 document.addEventListener('DOMContentLoaded', function () {
     calculate();
