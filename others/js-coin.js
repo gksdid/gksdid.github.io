@@ -1,7 +1,7 @@
 // 페이지에 노출되는 이벤트명
 let event1 = "The Fool's Blessing";
 let event2 = "PMGC (중복반영)";
-let event3 = "ESPORTS FANTASY";
+let event3 = "CRYSTAL BLOOM";
 let event4 = "PAGANI 상자";
 let event5 = "Hola Buddy";
 let event6 = "PDP";
@@ -49,7 +49,7 @@ let event6 = "PDP";
           break;
         case 'event3': // ESPORTS FANTASY
           price = 540;
-          probability1 = 0.3429;
+          probability1 = 0.3431;
           break;
         case 'event4': // 파가니
           price = 1620;
